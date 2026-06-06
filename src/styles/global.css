@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-primary-50: #f4f8fb;
+  --color-primary-100: #e8eff6;
+  --color-primary-200: #cbddec;
+  --color-primary-300: #9ec1db;
+  --color-primary-400: #69a1c7;
+  --color-primary-500: #4685b1;
+  --color-primary-600: #346a95;
+  --color-primary-700: #2b5679;
+  --color-primary-800: #274965;
+  --color-primary-900: #253f55;
+  --color-primary-950: #1c2e40;
+
+  --color-secondary-50: #f4f6f7;
+  --color-secondary-100: #e2e9eb;
+  --color-secondary-200: #c8d4d9;
+  --color-secondary-300: #a2b6be;
+  --color-secondary-400: #74909c;
+  --color-secondary-500: #546e7a;
+  --color-secondary-600: #4c626e;
+  --color-secondary-700: #42525c;
+  --color-secondary-800: #3c474e;
+  --color-secondary-900: #353d44;
+  --color-secondary-950: #20272c;
+
+  --color-tertiary-50: #f7f5ef;
+  --color-tertiary-100: #ece7d5;
+  --color-tertiary-200: #dbd0ad;
+  --color-tertiary-300: #c7b27d;
+  --color-tertiary-400: #b89b5e;
+  --color-tertiary-500: #a7854b;
+  --color-tertiary-600: #8f6b3f;
+  --color-tertiary-700: #735235;
+  --color-tertiary-800: #624531;
+  --color-tertiary-900: #553c2e;
+  --color-tertiary-950: #301f18;
+
+  --color-neutral-50: #f5f7f8;
+  --color-neutral-100: #ecf0f2;
+  --color-neutral-200: #d6dee1;
+  --color-neutral-300: #b1c2c8;
+  --color-neutral-400: #87a1a9;
+  --color-neutral-500: #68858f;
+  --color-neutral-600: #536c76;
+  --color-neutral-700: #445860;
+  --color-neutral-800: #3b4b51;
+  --color-neutral-900: #344146;
+  --color-neutral-950: #232a2e;
+
+  /* Fonts */
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-news: "Newsreader", serif;
+}
+
+@layer base {
+  body {
+    @apply m-0 p-0 font-sans antialiased bg-neutral-50 text-neutral-900;
+  }
+  h1, h2, h3, h4 {
+    @apply font-bold text-primary-900;
+  }
+}
