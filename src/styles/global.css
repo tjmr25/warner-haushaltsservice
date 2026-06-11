@@ -1,65 +1,274 @@
 @import "tailwindcss";
 
 @theme {
-  /* Colors */
-  --color-primary-50: #f4f8fb;
-  --color-primary-100: #e8eff6;
-  --color-primary-200: #cbddec;
-  --color-primary-300: #9ec1db;
-  --color-primary-400: #69a1c7;
-  --color-primary-500: #4685b1;
-  --color-primary-600: #346a95;
-  --color-primary-700: #2b5679;
-  --color-primary-800: #274965;
-  --color-primary-900: #253f55;
-  --color-primary-950: #1c2e40;
+  /* ===== WARNER BRAND COLORS ===== */
 
-  --color-secondary-50: #f4f6f7;
-  --color-secondary-100: #e2e9eb;
-  --color-secondary-200: #c8d4d9;
-  --color-secondary-300: #a2b6be;
-  --color-secondary-400: #74909c;
-  --color-secondary-500: #546e7a;
-  --color-secondary-600: #4c626e;
-  --color-secondary-700: #42525c;
-  --color-secondary-800: #3c474e;
-  --color-secondary-900: #353d44;
-  --color-secondary-950: #20272c;
+  /* Primary Gold – Logo-Farbe, nur für Akzente */
+  --color-primary-50:  #fff9eb;
+  --color-primary-100: #ffefc4;
+  --color-primary-200: #ffdc88;
+  --color-primary-300: #ffc84a;
+  --color-primary-400: #ffb730;   /* ← Haupt-Akzent (Logo) */
+  --color-primary-500: #f99a07;
+  --color-primary-600: #dd7602;
+  --color-primary-700: #b75306;
+  --color-primary-800: #943f0c;
+  --color-primary-900: #7a340d;
 
-  --color-tertiary-50: #f7f5ef;
-  --color-tertiary-100: #ece7d5;
-  --color-tertiary-200: #dbd0ad;
-  --color-tertiary-300: #c7b27d;
-  --color-tertiary-400: #b89b5e;
-  --color-tertiary-500: #a7854b;
-  --color-tertiary-600: #8f6b3f;
-  --color-tertiary-700: #735235;
-  --color-tertiary-800: #624531;
-  --color-tertiary-900: #553c2e;
-  --color-tertiary-950: #301f18;
+  /* Secondary Warm Beige – UI-Elemente, Karten */
+  --color-secondary-50:  #fbf9f4;   /* ← Hintergrund 2 */
+  --color-secondary-100: #f5f3ee;   /* ← Hintergrund 1 */
+  --color-secondary-200: #ecd8b5;   /* ← Sekundärfarbe */
+  --color-secondary-300: #dfc090;
+  --color-secondary-400: #cfa46c;
+  --color-secondary-500: #bd8a4f;
+  --color-secondary-600: #a47038;
+  --color-secondary-700: #87582d;
+  --color-secondary-800: #6e4528;
+  --color-secondary-900: #5b3824;
 
-  --color-neutral-50: #f5f7f8;
-  --color-neutral-100: #ecf0f2;
-  --color-neutral-200: #d6dee1;
-  --color-neutral-300: #b1c2c8;
-  --color-neutral-400: #87a1a9;
-  --color-neutral-500: #68858f;
-  --color-neutral-600: #536c76;
-  --color-neutral-700: #445860;
-  --color-neutral-800: #3b4b51;
-  --color-neutral-900: #344146;
-  --color-neutral-950: #232a2e;
+  /* Neutral Warm – Text & Strukturfarben */
+  --color-neutral-50:  #fbf9f4;
+  --color-neutral-100: #f5f3ee;
+  --color-neutral-200: #e8e2d6;
+  --color-neutral-300: #d4cbbf;
+  --color-neutral-400: #b8ab9a;
+  --color-neutral-500: #9a8b78;
+  --color-neutral-600: #7d6e5e;
+  --color-neutral-700: #655a4c;
+  --color-neutral-800: #3d322a;
+  --color-neutral-900: #2a2018;   /* ← Haupttext */
+  --color-neutral-950: #1a130e;
 
   /* Fonts */
   --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
-  --font-news: "Newsreader", serif;
+  --font-serif: "Newsreader", Georgia, serif;
+
+  /* Spacing / Layout */
+  --max-w-content: 1200px;
 }
 
+/* ===== BASE STYLES ===== */
 @layer base {
-  body {
-    @apply m-0 p-0 font-sans antialiased bg-neutral-50 text-neutral-900;
+  html {
+    scroll-behavior: smooth;
   }
-  h1, h2, h3, h4 {
-    @apply font-bold text-primary-900;
+
+  body {
+    @apply m-0 p-0 font-sans antialiased;
+    background-color: #f5f3ee;
+    color: #2a2018;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  h1 {
+    @apply font-bold;
+    color: #2a2018;
+    line-height: 1.2;
+  }
+
+  h2 {
+    @apply font-bold;
+    color: #2a2018;
+    line-height: 1.3;
+  }
+
+  h3 {
+    @apply font-bold;
+    color: #2a2018;
+    line-height: 1.4;
+  }
+
+  h4 {
+    @apply font-bold;
+    color: #2a2018;
+  }
+
+  p {
+    color: #3d322a;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* Focus styles for accessibility */
+  :focus-visible {
+    outline: 3px solid #ffb730;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+/* ===== UTILITY CLASSES ===== */
+@layer utilities {
+  .container-content {
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  @media (min-width: 640px) {
+    .container-content {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container-content {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  /* Section spacing */
+  .section-padding {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-padding {
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section-padding {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+  }
+
+  /* Section label */
+  .section-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #a47038;
+    margin-bottom: 0.75rem;
+  }
+
+  /* Gold Accent divider */
+  .accent-divider {
+    width: 3rem;
+    height: 3px;
+    background-color: #ffb730;
+    border-radius: 2px;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Background variants */
+  .bg-warm-light { background-color: #fbf9f4; }
+  .bg-warm-mid   { background-color: #f5f3ee; }
+  .bg-warm-beige { background-color: #ecd8b5; }
+
+  /* CTA Primary Button */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #ffb730;
+    color: #2a2018;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0.875rem 1.75rem;
+    border-radius: 0.5rem;
+    border: 2px solid #ffb730;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    text-decoration: none;
+  }
+
+  .btn-primary:hover {
+    background-color: #f99a07;
+    border-color: #f99a07;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(255, 183, 48, 0.35);
+  }
+
+  .btn-primary:active {
+    transform: translateY(0);
+  }
+
+  /* CTA Secondary Button */
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: transparent;
+    color: #2a2018;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0.875rem 1.75rem;
+    border-radius: 0.5rem;
+    border: 2px solid #3d322a;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+    text-decoration: none;
+  }
+
+  .btn-secondary:hover {
+    background-color: #3d322a;
+    color: #fbf9f4;
+    transform: translateY(-1px);
+  }
+
+  /* Card style */
+  .card {
+    background-color: #fbf9f4;
+    border-radius: 1rem;
+    border: 1px solid #e8e2d6;
+    padding: 2rem;
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+  }
+
+  .card:hover {
+    box-shadow: 0 8px 32px rgba(42, 32, 24, 0.1);
+    transform: translateY(-3px);
+  }
+
+  /* Info-Box (Pflegekasse highlight) */
+  .info-box {
+    background-color: #fff9eb;
+    border-left: 4px solid #ffb730;
+    border-radius: 0.5rem;
+    padding: 1.25rem 1.5rem;
+  }
+
+  /* Checkmark list */
+  .check-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .check-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.375rem 0;
+    color: #3d322a;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .check-list li::before {
+    content: "✓";
+    color: #ffb730;
+    font-weight: 800;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
   }
 }

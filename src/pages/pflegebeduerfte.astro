@@ -1,0 +1,571 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const leistungen = [
+  {
+    title: 'Reinigung und Haushaltshilfe',
+    items: [
+      'Reinigung von Wohn-, Schlaf-, Küchen- und Sanitärräumen',
+      'Staubsaugen, Wischen und Oberflächenreinigung',
+      'Unterstützung beim Aufräumen und Ordnung halten',
+    ],
+  },
+  {
+    title: 'Unterstützung beim Aufräumen',
+    items: [
+      'Gemeinsames Aufräumen von Wohnbereichen',
+      'Unterstützung beim Sortieren und Ordnen',
+      'Schaffung eines angenehmen und sicheren Wohnumfelds',
+    ],
+  },
+  {
+    title: 'Wäschepflege',
+    items: [
+      'Waschen der Wäsche',
+      'Trocknen und Zusammenlegen',
+      'Ordnungsgemäßes Verstauen der Kleidung',
+    ],
+  },
+  {
+    title: 'Fensterputzen und Gardinenpflege',
+    items: [
+      'Fensterputzen in der Wohnung',
+      'Abnehmen und Waschen von Gardinen',
+      'Wiederanbringen der Gardinen',
+    ],
+  },
+  {
+    title: 'Gesellschaft und Alltagsbegleitung',
+    items: [
+      'Gesellschaft und Gespräche',
+      'Gemeinsame Aktivitäten im Alltag',
+      'Persönliche Zuwendung und Begleitung',
+    ],
+  },
+];
+
+const gutZuWissen = [
+  'Nicht genutzte Entlastungsbeträge können in der Regel angespart und zu einem späteren Zeitpunkt verwendet werden.',
+  'Der Entlastungsbetrag ist für alle Pflegegrade gleich hoch – der Unterstützungsbedarf kann jedoch variieren.',
+  'Als anerkannter Anbieter in Hamburg erfüllen wir alle Voraussetzungen für die Abrechnung mit der Pflegekasse.',
+];
+
+const vorteileAbrechnung = [
+  'Keine Antragstellung durch Sie notwendig',
+  'Keine Abrechnung in Eigenregie',
+  'Keine Vorkasse',
+];
+---
+
+<Layout
+  title="Alltagsunterstützung für Pflegebedürftige"
+  description="Alltagsunterstützung für Pflegebedürftige in Hamburg – über die Pflegekasse abrechenbar. Von der Stadt Hamburg anerkannt. Pflegegrad 1–5. Warner Haushaltsservice."
+>
+
+  <!-- ===== PAGE HERO ===== -->
+  <section class="page-hero" aria-labelledby="pflege-hero-heading">
+    <div class="container-content page-hero-inner">
+      <div class="page-hero-text">
+        <a href="/" class="breadcrumb">← Startseite</a>
+        <p class="section-label">Für Pflegebedürftige & Angehörige</p>
+        <h1 id="pflege-hero-heading">
+          Unterstützung, wenn der<br />
+          <span class="highlight-italic">Alltag schwerfällt</span>
+        </h1>
+        <div class="accent-divider"></div>
+        <p class="page-hero-sub">
+          Wenn alltägliche Dinge zur Herausforderung werden, sind wir für Sie da.
+          Wir unterstützen pflegebedürftige Menschen dabei, ihren Alltag so
+          selbstbestimmt und angenehm wie möglich zu gestalten.
+        </p>
+
+        <!-- Key Trust Badge -->
+        <div class="trust-badge-row">
+          <div class="trust-badge">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffb730" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Von der Stadt Hamburg anerkannt
+          </div>
+          <div class="trust-badge">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffb730" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+            Abrechnung über Pflegekasse
+          </div>
+        </div>
+
+        <div class="hero-ctas">
+          <a href="/kontakt" class="btn-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Jetzt beraten lassen
+          </a>
+          <a href="tel:+4940298125400" class="btn-secondary">040 / 29 81 25 40</a>
+        </div>
+      </div>
+
+      <div class="page-hero-image" aria-hidden="true">
+        <img
+          src="/images/service-pflege.jpg"
+          alt="Einfühlsame Alltagsbegleiterin mit einer älteren Dame in Hamburg"
+          width="580"
+          height="460"
+          loading="eager"
+          fetchpriority="high"
+        />
+        <!-- Qualifikations-Badge -->
+        <div class="hero-cert-card">
+          <div class="cert-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffb730" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+          </div>
+          <div>
+            <p class="cert-title">Geschultes Personal</p>
+            <p class="cert-sub">Mehrtägige Schulung + Erste-Hilfe-Kurs</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== QUALIFIKATION STRIP ===== -->
+  <div class="qual-strip">
+    <div class="container-content qual-inner">
+      <div class="qual-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffb730" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>Mehrtägige, anerkannte Schulung (HmbPflEV)</span>
+      </div>
+      <div class="qual-divider" aria-hidden="true"></div>
+      <div class="qual-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffb730" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+        <span>Erste-Hilfe-Kurs für alle Mitarbeiterinnen</span>
+      </div>
+      <div class="qual-divider" aria-hidden="true"></div>
+      <div class="qual-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffb730" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span>Seit Juni 2019 offiziell anerkannt</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== LEISTUNGEN ===== -->
+  <section class="section-padding bg-warm-light" aria-labelledby="leistungen-heading">
+    <div class="container-content">
+      <header class="section-header">
+        <p class="section-label">Was wir übernehmen</p>
+        <h2 id="leistungen-heading">Unsere Leistungen im Detail</h2>
+        <div class="accent-divider" style="margin: 1rem auto;"></div>
+        <p class="section-intro" style="color: #5b3824;">
+          Diese Leistungen zählen zu den haushaltsnahen Dienstleistungen und können
+          im Rahmen der Entlastungsleistungen der Pflegekasse genutzt werden.
+        </p>
+      </header>
+
+      <div class="leistungen-grid">
+        {leistungen.map((l, i) => (
+          <article class="leistung-card">
+            <div class="leistung-num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</div>
+            <h3>{l.title}</h3>
+            <ul class="check-list" role="list">
+              {l.items.map(item => <li>{item}</li>)}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PFLEGEKASSE ABRECHNUNG ===== -->
+  <section class="section-padding bg-warm-mid" aria-labelledby="kasse-heading">
+    <div class="container-content">
+      <header class="section-header">
+        <p class="section-label">Kein Aufwand für Sie</p>
+        <h2 id="kasse-heading">Abrechnung über die Pflegekasse</h2>
+        <div class="accent-divider" style="margin: 1rem auto;"></div>
+      </header>
+
+      <div class="kasse-layout">
+        <div class="kasse-text">
+          <p>
+            Wir sind ein von der Stadt Hamburg anerkanntes Unternehmen und berechtigt,
+            unsere Leistungen direkt mit den Pflegekassen in Hamburg abzurechnen.
+            Durch eine <strong>Abtretungserklärung</strong> können wir die erbrachten
+            Leistungen direkt mit der Pflegekasse abrechnen.
+          </p>
+          <p>
+            Das bedeutet für Sie:
+          </p>
+          <ul class="check-list" role="list">
+            {vorteileAbrechnung.map(v => <li>{v}</li>)}
+          </ul>
+          <p style="margin-top: 1.25rem; font-style: italic; color: #7d6e5e; font-size: 0.9375rem;">
+            Wir übernehmen die komplette Abwicklung mit der Pflegekasse, sodass
+            Sie sich ganz auf die Unterstützung im Alltag konzentrieren können.
+          </p>
+        </div>
+
+        <!-- Info-Box Qualität -->
+        <div class="kasse-sidebar">
+          <div class="info-box">
+            <p class="info-box-label">Von der Stadt Hamburg anerkannt</p>
+            <p>
+              Das Anerkennungsverfahren der Stadt Hamburg ist umfassend und
+              anspruchsvoll. Es stellt sicher, dass nur Anbieter zugelassen werden,
+              die die gesetzlichen Anforderungen erfüllen und dauerhaft eine hohe
+              Qualität gewährleisten.
+            </p>
+            <p>
+              <strong>Für Pflegebedürftige und Angehörige bedeutet das:
+              Transparenz, Sicherheit und Vertrauen.</strong>
+            </p>
+          </div>
+          <a href="/kontakt" class="btn-primary" style="width: 100%; justify-content: center; margin-top: 1.25rem;">
+            Persönliche Beratung anfragen
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PFLEGEGRADE ===== -->
+  <section class="section-padding bg-warm-light" aria-labelledby="grade-heading">
+    <div class="container-content">
+      <header class="section-header">
+        <p class="section-label">Welche Leistungen bei welchem Pflegegrad?</p>
+        <h2 id="grade-heading">Pflegegrade im Überblick</h2>
+        <div class="accent-divider" style="margin: 1rem auto;"></div>
+        <p class="section-intro" style="color: #5b3824;">
+          Pflegebedürftige Menschen mit einem anerkannten Pflegegrad haben Anspruch
+          auf Leistungen der Pflegekasse. Wir bieten Alltagsunterstützung, die je
+          nach Pflegegrad abgerechnet werden kann.
+        </p>
+      </header>
+
+      <!-- Pflegegrad 1 -->
+      <div class="grade-card grade-card--primary">
+        <div class="grade-badge">Pflegegrad 1</div>
+        <div class="grade-content">
+          <div class="grade-amount">
+            <span class="amount-value">131 €</span>
+            <span class="amount-label">monatlicher Entlastungsbetrag</span>
+          </div>
+          <div class="grade-text">
+            <h3>Entlastung im Alltag</h3>
+            <p>
+              Bereits mit Pflegegrad 1 besteht Anspruch auf den Entlastungsbetrag
+              in Höhe von <strong>131 Euro monatlich</strong>. Dieser kann für
+              anerkannte Leistungen der Alltagsunterstützung genutzt werden:
+            </p>
+            <ul class="check-list" role="list">
+              <li>Reinigung der Wohnung</li>
+              <li>Unterstützung beim Aufräumen</li>
+              <li>Wäschepflege</li>
+              <li>Fensterputzen & Gardinenpflege</li>
+              <li>Gesellschaft und Alltagsbegleitung</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pflegegrad 2–5 -->
+      <div class="grade-card grade-card--secondary">
+        <div class="grade-badge grade-badge--dark">Pflegegrad 2 – 5</div>
+        <div class="grade-content">
+          <div class="grade-amount">
+            <span class="amount-value">131 €</span>
+            <span class="amount-label">+ weitere Leistungen möglich</span>
+          </div>
+          <div class="grade-text">
+            <h3>Umfangreiche Unterstützung möglich</h3>
+            <p>
+              Auch mit Pflegegrad 2, 3, 4 oder 5 steht der monatliche
+              Entlastungsbetrag von 131 Euro zur Verfügung. Zusätzlich können
+              – abhängig von der persönlichen Situation – weitere Leistungen
+              wie z. B. die <strong>Verhinderungspflege</strong> in Anspruch
+              genommen werden.
+            </p>
+            <p>
+              Die Abrechnung erfolgt dabei unkompliziert direkt mit der Pflegekasse.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gut zu wissen -->
+      <div class="gut-zu-wissen">
+        <h3>
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffb730" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          Gut zu wissen
+        </h3>
+        <ul class="check-list" role="list">
+          {gutZuWissen.map(g => <li>{g}</li>)}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FINAL CTA ===== -->
+  <section class="final-cta-pflege" aria-labelledby="cta-pflege-heading">
+    <div class="container-content final-cta-inner">
+      <h2 id="cta-pflege-heading">Persönliche Beratung in Hamburg</h2>
+      <p>
+        Welche Leistungen im Einzelfall sinnvoll sind, hängt von den individuellen
+        Bedürfnissen ab. Wir beraten Pflegebedürftige und Angehörige in Hamburg
+        gerne persönlich zu Pflegegrad, Entlastungsbetrag und den Möglichkeiten
+        der Kostenübernahme durch die Pflegekasse.
+      </p>
+      <div class="final-cta-buttons">
+        <a href="/kontakt" class="btn-primary">Jetzt Beratungsgespräch anfragen</a>
+        <a href="tel:+4940298125400" class="final-cta-tel">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.0 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+          040 / 29 81 25 40
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  main { padding-top: 4.5rem; }
+  @media (min-width: 1024px) { main { padding-top: 5rem; } }
+
+  .breadcrumb {
+    display: inline-flex; align-items: center; gap: 0.375rem;
+    font-size: 0.875rem; color: #7d6e5e; text-decoration: none;
+    margin-bottom: 1rem; transition: color 0.2s ease;
+  }
+  .breadcrumb:hover { color: #2a2018; }
+
+  /* ===== PAGE HERO ===== */
+  .page-hero {
+    background-color: #fbf9f4;
+    padding-top: 3rem;
+    overflow: hidden;
+  }
+  .page-hero-inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: center;
+    padding-bottom: 3rem;
+  }
+  @media (min-width: 1024px) {
+    .page-hero-inner { grid-template-columns: 1fr 1fr; gap: 4rem; padding-top: 2rem; padding-bottom: 4rem; }
+  }
+
+  .page-hero-text h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    margin: 0.5rem 0 0;
+    line-height: 1.2;
+    color: #2a2018;
+  }
+  .highlight-italic {
+    color: #ffb730;
+    font-style: italic;
+    font-family: "Newsreader", Georgia, serif;
+  }
+  .page-hero-sub {
+    font-size: 1.0625rem; line-height: 1.7; color: #3d322a; margin: 0 0 1.5rem;
+  }
+
+  .trust-badge-row {
+    display: flex; flex-wrap: wrap; gap: 0.625rem; margin-bottom: 1.75rem;
+  }
+  .trust-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background-color: #fff9eb; border: 1px solid rgba(255,183,48,0.3);
+    border-radius: 2rem; padding: 0.4rem 0.875rem;
+    font-size: 0.8125rem; font-weight: 600; color: #2a2018;
+  }
+
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: 0.875rem; }
+
+  .page-hero-image { display: none; position: relative; }
+  @media (min-width: 768px) { .page-hero-image { display: block; } }
+
+  .page-hero-image img {
+    width: 100%; height: 420px; object-fit: cover;
+    border-radius: 1.25rem; display: block;
+  }
+  @media (min-width: 1024px) { .page-hero-image img { height: 500px; } }
+
+  .hero-cert-card {
+    position: absolute; bottom: 1.5rem; left: 1.5rem;
+    background: rgba(251, 249, 244, 0.95);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border: 1px solid #e8e2d6; border-radius: 0.875rem;
+    padding: 0.875rem 1.125rem;
+    display: flex; align-items: center; gap: 0.75rem;
+    box-shadow: 0 4px 20px rgba(42, 32, 24, 0.1);
+  }
+  .cert-icon {
+    width: 2.5rem; height: 2.5rem; background-color: #fff9eb;
+    border-radius: 50%; display: flex; align-items: center;
+    justify-content: center; flex-shrink: 0;
+  }
+  .cert-title { font-size: 0.875rem; font-weight: 700; color: #2a2018; margin: 0 0 0.125rem; }
+  .cert-sub { font-size: 0.75rem; color: #7d6e5e; margin: 0; }
+
+  /* ===== QUAL STRIP ===== */
+  .qual-strip {
+    background-color: #2a2018;
+    padding: 1.5rem 0;
+  }
+  .qual-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  @media (min-width: 768px) {
+    .qual-inner { flex-direction: row; align-items: center; justify-content: center; gap: 0; }
+  }
+  .qual-item {
+    display: flex; align-items: center; gap: 0.75rem;
+    color: #ecd8b5; font-size: 0.9375rem; font-weight: 600;
+  }
+  .qual-divider {
+    display: none;
+    width: 1px; height: 2rem;
+    background-color: rgba(236, 216, 181, 0.2);
+    margin: 0 2rem;
+  }
+  @media (min-width: 768px) { .qual-divider { display: block; } }
+
+  /* ===== SECTION HEADER ===== */
+  .section-header { text-align: center; max-width: 640px; margin: 0 auto 3rem; }
+  .section-header h2 { font-size: clamp(1.625rem, 3.5vw, 2.25rem); margin: 0; }
+  .section-intro { font-size: 1rem; line-height: 1.7; margin: 0; }
+
+  /* ===== LEISTUNGEN GRID ===== */
+  .leistungen-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  @media (min-width: 640px) { .leistungen-grid { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 1024px) { .leistungen-grid { grid-template-columns: repeat(3, 1fr); } }
+
+  .leistung-card {
+    background-color: #fbf9f4;
+    border: 1px solid #e8e2d6;
+    border-radius: 1rem;
+    padding: 1.75rem;
+    position: relative;
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+  }
+  .leistung-card:hover {
+    box-shadow: 0 8px 32px rgba(42, 32, 24, 0.09);
+    transform: translateY(-3px);
+  }
+  .leistung-num {
+    font-size: 2.5rem; font-weight: 800;
+    color: rgba(255, 183, 48, 0.18);
+    line-height: 1; margin-bottom: 0.5rem;
+    font-family: "Newsreader", Georgia, serif;
+  }
+  .leistung-card h3 {
+    font-size: 1.0625rem; margin: 0 0 1rem; color: #2a2018;
+  }
+
+  /* ===== KASSE LAYOUT ===== */
+  .kasse-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: start;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  @media (min-width: 1024px) {
+    .kasse-layout { grid-template-columns: 1fr 380px; }
+  }
+
+  .kasse-text p {
+    font-size: 1rem; line-height: 1.75; color: #3d322a; margin: 0 0 1rem;
+  }
+
+  .info-box { background-color: #fff9eb; border-left: 4px solid #ffb730; border-radius: 0.5rem; padding: 1.5rem; }
+  .info-box-label {
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: #a47038; margin-bottom: 0.75rem;
+    display: block;
+  }
+  .info-box p { font-size: 0.9375rem; line-height: 1.65; color: #3d322a; margin: 0 0 0.75rem; }
+  .info-box p:last-child { margin: 0; }
+
+  /* ===== GRADE CARDS ===== */
+  .grade-card {
+    border-radius: 1.25rem;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #e8e2d6;
+  }
+  .grade-card--primary { background-color: #fff9eb; border-color: rgba(255,183,48,0.3); }
+  .grade-card--secondary { background-color: #fbf9f4; }
+
+  .grade-badge {
+    display: inline-block;
+    background-color: #ffb730;
+    color: #2a2018;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    padding: 0.3rem 0.875rem;
+    border-radius: 2rem;
+    margin-bottom: 1.25rem;
+  }
+  .grade-badge--dark {
+    background-color: #2a2018;
+    color: #ecd8b5;
+  }
+
+  .grade-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    align-items: start;
+  }
+  @media (min-width: 768px) {
+    .grade-content { grid-template-columns: auto 1fr; gap: 2.5rem; }
+  }
+
+  .grade-amount {
+    display: flex; flex-direction: column; align-items: flex-start;
+    gap: 0.25rem;
+  }
+  @media (min-width: 768px) { .grade-amount { align-items: center; min-width: 140px; } }
+
+  .amount-value {
+    font-size: 2.5rem; font-weight: 800; color: #2a2018;
+    line-height: 1;
+  }
+  .amount-label {
+    font-size: 0.8125rem; color: #7d6e5e; text-align: center; line-height: 1.4;
+  }
+
+  .grade-text h3 { font-size: 1.125rem; margin: 0 0 0.625rem; color: #2a2018; }
+  .grade-text p { font-size: 0.9375rem; line-height: 1.65; color: #3d322a; margin: 0 0 1rem; }
+
+  /* ===== GUT ZU WISSEN ===== */
+  .gut-zu-wissen {
+    background-color: #fbf9f4;
+    border: 1px solid #e8e2d6;
+    border-radius: 1rem;
+    padding: 1.75rem;
+    margin-top: 0;
+  }
+  .gut-zu-wissen h3 {
+    display: flex; align-items: center; gap: 0.625rem;
+    font-size: 1.0625rem; color: #2a2018; margin: 0 0 1rem;
+  }
+
+  /* ===== FINAL CTA ===== */
+  .final-cta-pflege { background-color: #2a2018; padding: 4rem 0; }
+  .final-cta-inner { text-align: center; max-width: 640px; margin: 0 auto; }
+  .final-cta-pflege h2 { font-size: clamp(1.5rem, 3.5vw, 2.125rem); color: #ecd8b5; margin: 0 0 1rem; }
+  .final-cta-pflege p { font-size: 1rem; color: #b8ab9a; line-height: 1.7; margin: 0 0 2rem; }
+  .final-cta-buttons { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; align-items: center; }
+  .final-cta-tel {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    color: #ecd8b5; font-size: 1.0625rem; font-weight: 600;
+    text-decoration: none; transition: color 0.2s ease;
+  }
+  .final-cta-tel:hover { color: #ffb730; }
+</style>
