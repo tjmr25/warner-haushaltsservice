@@ -1,7 +1,491 @@
 ---
+/**
+ * Header – Warner Haushaltsservice
+ * Mobile First: Logo links | Hamburger rechts | Slide-down Menü
+ * Desktop (≥1024px): Logo links | Nav-Links rechts | Kontakt als Button
+ * Aktive Seite wird automatisch erkannt und hervorgehoben.
+ */
+const currentPath = Astro.url.pathname;
 
+// Alle Links außer Kontakt
+const navLinks = [
+  { href: '/',                label: 'Startseite' },
+  { href: '/privathaushalte', label: 'Privathaushalte' },
+  { href: '/pflegebeduerfte', label: 'Pflegebedürftige' },
+  { href: '/ueber-uns',       label: 'Über uns' },
+  { href: '/preise',          label: 'Preise' },
+];
+
+function isActive(href: string): boolean {
+  if (href === '/') return currentPath === '/';
+  return currentPath.startsWith(href);
+}
+
+const isKontaktActive = currentPath.startsWith('/kontakt');
 ---
 
-<header class="bg-primary-200">
-  <div class="bg-primary-300 mx-auto max-w-[1200px] px-4">header</div>
+<header class="wh-header" role="banner">
+  <div class="wh-header__inner">
+
+    <!-- Logo -->
+    <a href="/" class="wh-header__logo" aria-label="Warner Haushaltsservice – Zur Startseite">
+      <img
+        src="/logo_warner.svg"
+        alt="Warner Haushaltsservice Logo"
+        width="160"
+        height="53"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </a>
+
+    <!-- =============================================
+         DESKTOP NAVIGATION (≥1024px)
+         ============================================= -->
+    <nav class="wh-desktop-nav" aria-label="Hauptnavigation">
+      <ul class="wh-desktop-nav__list" role="list">
+        {navLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class={`wh-desktop-nav__link ${isActive(link.href) ? 'wh-desktop-nav__link--active' : ''}`}
+              aria-current={isActive(link.href) ? 'page' : undefined}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <!-- Kontakt-Button (Desktop) -->
+      <a
+        href="/kontakt"
+        class={`wh-desktop-nav__btn ${isKontaktActive ? 'wh-desktop-nav__btn--active' : ''}`}
+        aria-current={isKontaktActive ? 'page' : undefined}
+      >
+        Kontakt
+      </a>
+    </nav>
+
+    <!-- =============================================
+         HAMBURGER BUTTON (Mobile only)
+         ============================================= -->
+    <button
+      class="wh-header__burger"
+      id="burgerBtn"
+      aria-expanded="false"
+      aria-controls="mobileNav"
+      aria-label="Menü öffnen"
+      type="button"
+    >
+      <span class="wh-header__burger-bar"></span>
+      <span class="wh-header__burger-bar"></span>
+      <span class="wh-header__burger-bar"></span>
+    </button>
+
+  </div>
+
+  <!-- =============================================
+       MOBILE NAVIGATION (< 1024px)
+       ============================================= -->
+  <nav
+    class="wh-mobile-nav"
+    id="mobileNav"
+    aria-label="Hauptnavigation"
+    aria-hidden="true"
+  >
+    <ul class="wh-mobile-nav__list" role="list">
+      {[...navLinks, { href: '/kontakt', label: 'Kontakt' }].map((link) => (
+        <li class="wh-mobile-nav__item">
+          <a
+            href={link.href}
+            class={`wh-mobile-nav__link ${link.href === '/kontakt' ? 'wh-mobile-nav__link--kontakt' : ''} ${isActive(link.href) || (link.href === '/kontakt' && isKontaktActive) ? 'wh-mobile-nav__link--active' : ''}`}
+            aria-current={(isActive(link.href) || (link.href === '/kontakt' && isKontaktActive)) ? 'page' : undefined}
+          >
+            {(isActive(link.href) || (link.href === '/kontakt' && isKontaktActive)) && (
+              <span class="wh-mobile-nav__indicator" aria-hidden="true"></span>
+            )}
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
 </header>
+
+<script>
+  function initBurger() {
+    const burger = document.getElementById('burgerBtn') as HTMLButtonElement | null;
+    const nav    = document.getElementById('mobileNav') as HTMLElement | null;
+    const header = document.querySelector('.wh-header') as HTMLElement | null;
+
+    if (!burger || !nav || !header) return;
+
+    function toggleMenu(forceClose = false) {
+      const isOpen     = nav!.classList.contains('wh-mobile-nav--open');
+      const shouldOpen = forceClose ? false : !isOpen;
+
+      nav!.classList.toggle('wh-mobile-nav--open', shouldOpen);
+      burger!.classList.toggle('wh-header__burger--open', shouldOpen);
+      burger!.setAttribute('aria-expanded', String(shouldOpen));
+      burger!.setAttribute('aria-label', shouldOpen ? 'Menü schließen' : 'Menü öffnen');
+      nav!.setAttribute('aria-hidden', String(!shouldOpen));
+      header!.classList.toggle('wh-header--nav-open', shouldOpen);
+
+      document.body.style.overflow = shouldOpen ? 'hidden' : '';
+    }
+
+    burger.addEventListener('click', () => toggleMenu());
+
+    nav.querySelectorAll('.wh-mobile-nav__link').forEach(link => {
+      link.addEventListener('click', () => toggleMenu(true));
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') toggleMenu(true);
+    });
+  }
+
+  document.addEventListener('astro:page-load', initBurger);
+
+  document.addEventListener('astro:before-preparation', () => {
+    document.body.style.overflow = '';
+  });
+</script>
+
+<style>
+  /* =========================================
+     HEADER BASE
+     ========================================= */
+  .wh-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    background-color: var(--color-base);
+    border-bottom: 1px solid var(--color-secondary);
+    box-shadow: 0 2px 12px 0 rgb(27 34 39 / 0.06);
+  }
+
+  .wh-header--nav-open {
+    box-shadow: none;
+    border-bottom-color: transparent;
+  }
+
+  /* =========================================
+     HEADER INNER
+     ========================================= */
+  .wh-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.875rem 1.25rem;
+    max-width: 1200px;
+    margin-inline: auto;
+    width: 100%;
+  }
+
+  /* =========================================
+     LOGO
+     ========================================= */
+  .wh-header__logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .wh-header__logo:hover {
+    opacity: 0.85;
+  }
+
+  .wh-header__logo img {
+    height: 44px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  /* =========================================
+     DESKTOP NAVIGATION – versteckt auf Mobile
+     ========================================= */
+  .wh-desktop-nav {
+    display: none; /* Mobile: ausgeblendet */
+  }
+
+  /* =========================================
+     HAMBURGER BUTTON – versteckt auf Desktop
+     ========================================= */
+  .wh-header__burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 6px;
+    background: none;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background-color 0.2s ease;
+  }
+
+  .wh-header__burger:hover {
+    background-color: var(--color-primary-50);
+  }
+
+  .wh-header__burger:focus-visible {
+    outline: 2px solid var(--color-primary-500);
+    outline-offset: 2px;
+  }
+
+  .wh-header__burger-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: var(--color-dark);
+    border-radius: 2px;
+    transform-origin: center;
+    transition:
+      transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity   0.2s ease,
+      width     0.3s ease;
+  }
+
+  /* Burger → X */
+  .wh-header__burger--open .wh-header__burger-bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .wh-header__burger--open .wh-header__burger-bar:nth-child(2) {
+    opacity: 0;
+    width: 0;
+  }
+  .wh-header__burger--open .wh-header__burger-bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* =========================================
+     MOBILE NAVIGATION
+     ========================================= */
+  .wh-mobile-nav {
+    background-color: var(--color-base);
+    border-top: 1px solid var(--color-secondary);
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity    0.25s ease;
+  }
+
+  .wh-mobile-nav--open {
+    max-height: 100dvh;
+    opacity: 1;
+    visibility: visible;
+    box-shadow: 0 8px 24px 0 rgb(27 34 39 / 0.08);
+  }
+
+  .wh-mobile-nav__list {
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 0;
+  }
+
+  .wh-mobile-nav__item {
+    border-bottom: 1px solid var(--color-base-alt);
+  }
+
+  .wh-mobile-nav__item:last-child {
+    border-bottom: none;
+  }
+
+  .wh-mobile-nav__link {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 1rem 1.25rem;
+    font-family: var(--font-body);
+    font-size: 1.0625rem;
+    font-weight: 500;
+    color: var(--color-dark);
+    text-decoration: none;
+    transition: background-color 0.18s ease, color 0.18s ease;
+  }
+
+  .wh-mobile-nav__link:hover {
+    background-color: var(--color-primary-50);
+    color: var(--color-primary-700);
+  }
+
+  .wh-mobile-nav__link:focus-visible {
+    outline: 2px solid var(--color-primary-500);
+    outline-offset: -2px;
+  }
+
+  /* Aktiver Zustand (Mobile) */
+  .wh-mobile-nav__link--active {
+    color: var(--color-primary-800);
+    font-weight: 700;
+    background-color: var(--color-primary-100);
+  }
+
+  /* Indikator-Balken (Mobile) */
+  .wh-mobile-nav__indicator {
+    display: inline-block;
+    width: 5px;
+    height: 24px;
+    background-color: var(--color-primary-500);
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  /* Kontakt – immer fett (Mobile) */
+  .wh-mobile-nav__link--kontakt {
+    font-weight: 700;
+  }
+
+  /* =========================================
+     DESKTOP BREAKPOINT (≥ 1024px)
+     ========================================= */
+  @media (min-width: 1024px) {
+
+    /* Header-Padding etwas großzügiger */
+    .wh-header__inner {
+      padding: 0 2rem;
+      min-height: 68px;
+    }
+
+    /* Logo etwas größer */
+    .wh-header__logo img {
+      height: 50px;
+    }
+
+    /* Desktop-Nav einblenden */
+    .wh-desktop-nav {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .wh-desktop-nav__list {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Desktop-Links */
+    .wh-desktop-nav__link {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.5rem 0.875rem;
+      font-family: var(--font-body);
+      font-size: 0.9375rem;   /* 15px */
+      font-weight: 500;
+      color: var(--color-dark);
+      text-decoration: none;
+      border-radius: var(--radius);
+      transition: color 0.18s ease;
+      position: relative;
+      white-space: nowrap;
+    }
+
+    /* Unterstr-Linie – immer vorhanden, aber zunächst unsichtbar unten */
+    .wh-desktop-nav__link::after {
+      content: '';
+      position: absolute;
+      bottom: 4px;
+      left: 0.875rem;
+      right: 0.875rem;
+      height: 2px;
+      background-color: var(--color-primary-500);
+      border-radius: 2px;
+      /* Startzustand: 6px unterhalb, unsichtbar */
+      opacity: 0;
+      transform: translateY(6px);
+      transition:
+        transform 0.22s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity   0.18s ease;
+    }
+
+    /* Hover: Linie fliegt von unten an den Schriftzug heran */
+    .wh-desktop-nav__link:hover::after {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .wh-desktop-nav__link:focus-visible {
+      outline: 2px solid var(--color-primary-500);
+      outline-offset: 2px;
+    }
+
+    /* Aktiver Desktop-Link: nur Unterstrich, kein Hintergrund */
+    .wh-desktop-nav__link--active {
+      color: var(--color-primary-800);
+      font-weight: 700;
+    }
+
+    .wh-desktop-nav__link--active::after {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ---- Kontakt-Button (Desktop) ---- */
+    .wh-desktop-nav__btn {
+      display: inline-flex;
+      align-items: center;
+      margin-left: 0.75rem;
+      padding: calc(0.5rem - 2px) calc(1.25rem - 2px); /* Abzug von 2px wegen des Borders */
+      background-color: var(--color-primary-500);
+      border: 2px solid var(--color-primary-500);
+      color: var(--color-dark);
+      font-family: var(--font-heading);
+      font-size: 0.9375rem;
+      font-weight: 700;
+      border-radius: var(--radius);
+      text-decoration: none;
+      white-space: nowrap;
+      box-shadow: 0 2px 8px 0 rgb(255 183 48 / 0.28);
+      transition:
+        background-color 0.25s ease,
+        border-color     0.25s ease,
+        color            0.25s ease,
+        box-shadow       0.25s ease;
+    }
+
+    .wh-desktop-nav__btn:hover {
+      background-color: transparent;
+      border-color: var(--color-primary-500);
+      color: var(--color-primary-800);
+      box-shadow: none;
+    }
+
+    .wh-desktop-nav__btn:focus-visible {
+      outline: 2px solid var(--color-dark);
+      outline-offset: 3px;
+    }
+
+    /* Aktiver Kontakt-Button */
+    .wh-desktop-nav__btn--active {
+      background-color: transparent;
+      border-color: var(--color-primary-600);
+      color: var(--color-primary-900);
+      box-shadow: none;
+    }
+
+    /* Hamburger auf Desktop verstecken */
+    .wh-header__burger {
+      display: none;
+    }
+
+    /* Mobile-Nav auf Desktop nie sichtbar */
+    .wh-mobile-nav {
+      display: none !important;
+    }
+  }
+</style>

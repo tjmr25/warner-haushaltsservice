@@ -1,7 +1,386 @@
 ---
-
+/**
+ * Footer – Warner Haushaltsservice
+ * Mobile First → Desktop (≥ 1024px)
+ * Spalten: Logo+Beschreibung | Navigation | Leistungen | Kontakt
+ * Bottom-Bar: Copyright + Rechtliches
+ */
+const currentYear = new Date().getFullYear();
 ---
 
-<footer class="bg-primary-200">
-  <div class="bg-primary-300 mx-auto max-w-[1200px] px-4">footer</div>
+<footer class="wh-footer" role="contentinfo">
+
+  <!-- =============================================
+       HAUPTBEREICH
+       ============================================= -->
+  <div class="wh-footer__main">
+    <div class="wh-footer__grid">
+
+      <!-- Spalte 1: Logo + Beschreibung -->
+      <div class="wh-footer__col wh-footer__col--brand">
+        <a href="/" class="wh-footer__logo-link" aria-label="Warner Haushaltsservice – Zur Startseite">
+          <img
+            src="/logo_warner.svg"
+            alt="Warner Haushaltsservice Logo"
+            width="180"
+            height="59"
+            loading="lazy"
+            class="wh-footer__logo"
+          />
+        </a>
+        <p class="wh-footer__tagline">
+          Ihr verlässlicher Partner für Haushalt und Pflege in Hamburg –
+          seit über 20 Jahren.
+        </p>
+
+        <!-- Auszeichnung / Vertrauenssignal -->
+        <div class="wh-footer__badge">
+          <span class="wh-footer__badge-icon" aria-hidden="true">✓</span>
+          <span>Von der Stadt Hamburg anerkannt</span>
+        </div>
+      </div>
+
+      <!-- Spalte 2: Navigation -->
+      <div class="wh-footer__col">
+        <h3 class="wh-footer__heading">Navigation</h3>
+        <ul class="wh-footer__list" role="list">
+          <li><a href="/" class="wh-footer__link">Startseite</a></li>
+          <li><a href="/privathaushalte" class="wh-footer__link">Privathaushalte</a></li>
+          <li><a href="/pflegebeduerfte" class="wh-footer__link">Pflegebedürftige</a></li>
+          <li><a href="/ueber-uns" class="wh-footer__link">Über uns</a></li>
+          <li><a href="/preise" class="wh-footer__link">Preise</a></li>
+          <li><a href="/kontakt" class="wh-footer__link">Kontakt</a></li>
+        </ul>
+      </div>
+
+      <!-- Spalte 3: Leistungen -->
+      <div class="wh-footer__col">
+        <h3 class="wh-footer__heading">Leistungen</h3>
+        <ul class="wh-footer__list" role="list">
+          <li><a href="/privathaushalte" class="wh-footer__link">Haushaltsreinigung</a></li>
+          <li><a href="/privathaushalte" class="wh-footer__link">Wäscheservice</a></li>
+          <li><a href="/privathaushalte" class="wh-footer__link">Einkaufshilfe</a></li>
+          <li><a href="/pflegebeduerfte" class="wh-footer__link">Alltagsbegleitung</a></li>
+          <li><a href="/pflegebeduerfte" class="wh-footer__link">Abrechnung mit Pflegekasse</a></li>
+        </ul>
+      </div>
+
+      <!-- Spalte 4: Kontakt -->
+      <div class="wh-footer__col">
+        <h3 class="wh-footer__heading">Kontakt</h3>
+        <address class="wh-footer__address">
+          <ul class="wh-footer__list" role="list">
+            <li class="wh-footer__contact-item">
+              <span class="wh-footer__contact-icon" aria-hidden="true">
+                <!-- Map Pin Icon -->
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+                </svg>
+              </span>
+              <span>Musterstraße 12<br />20095 Hamburg</span>
+            </li>
+            <li class="wh-footer__contact-item">
+              <span class="wh-footer__contact-icon" aria-hidden="true">
+                <!-- Phone Icon -->
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.29h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.16 6.16l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z"/>
+                </svg>
+              </span>
+              <a href="tel:+4940123456789" class="wh-footer__link wh-footer__link--contact">040 / 123 456 78</a>
+            </li>
+            <li class="wh-footer__contact-item">
+              <span class="wh-footer__contact-icon" aria-hidden="true">
+                <!-- Mail Icon -->
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+                </svg>
+              </span>
+              <a href="mailto:info@warner-haushaltsservice.de" class="wh-footer__link wh-footer__link--contact">info@warner-haushaltsservice.de</a>
+            </li>
+            <li class="wh-footer__contact-item">
+              <span class="wh-footer__contact-icon" aria-hidden="true">
+                <!-- Clock Icon -->
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                </svg>
+              </span>
+              <span>Mo – Fr: 8:00 – 18:00 Uhr</span>
+            </li>
+          </ul>
+        </address>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =============================================
+       DIVIDER
+       ============================================= -->
+  <div class="wh-footer__divider" role="separator"></div>
+
+  <!-- =============================================
+       BOTTOM-BAR: Copyright + Rechtliches
+       ============================================= -->
+  <div class="wh-footer__bottom">
+    <div class="wh-footer__bottom-inner">
+
+      <p class="wh-footer__copy">
+        &copy; {currentYear} Warner Haushaltsservice GmbH. Alle Rechte vorbehalten.
+      </p>
+
+      <nav class="wh-footer__legal-nav" aria-label="Rechtliche Links">
+        <a href="/impressum" class="wh-footer__legal-link">Impressum</a>
+        <span class="wh-footer__legal-sep" aria-hidden="true">·</span>
+        <a href="/datenschutz" class="wh-footer__legal-link">Datenschutz</a>
+      </nav>
+
+    </div>
+  </div>
+
 </footer>
+
+<style>
+  /* =========================================
+     FOOTER BASE
+     ========================================= */
+  .wh-footer {
+    background-color: var(--color-dark);
+    color: #c8cfd4;                        /* Helles Grau auf dunklem Grund */
+    font-family: var(--font-body);
+  }
+
+  /* =========================================
+     HAUPTBEREICH
+     ========================================= */
+  .wh-footer__main {
+    padding: 3rem 1.25rem 2.5rem;
+    max-width: 1200px;
+    margin-inline: auto;
+  }
+
+  /* Mobile: Spalten untereinander */
+  .wh-footer__grid {
+    display: grid;
+    gap: 2.5rem;
+    grid-template-columns: 1fr;
+  }
+
+  /* =========================================
+     SPALTE: BRAND
+     ========================================= */
+  .wh-footer__logo-link {
+    display: inline-block;
+    margin-bottom: 1rem;
+    transition: opacity 0.2s ease;
+  }
+
+  .wh-footer__logo-link:hover {
+    opacity: 0.8;
+  }
+
+  .wh-footer__logo {
+    /* SVG auf dunklem Hintergrund aufhellen */
+    filter: brightness(0) invert(1);
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .wh-footer__tagline {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: #9aa5ad;
+    margin-bottom: 1.25rem;
+    max-width: 28ch;
+  }
+
+  /* Vertrauens-Badge */
+  .wh-footer__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.75rem;
+    background-color: rgb(255 183 48 / 0.12);
+    border: 1px solid rgb(255 183 48 / 0.30);
+    border-radius: var(--radius);
+    color: var(--color-primary-300);
+    font-size: 0.8125rem;
+    font-weight: 600;
+  }
+
+  .wh-footer__badge-icon {
+    color: var(--color-primary-400);
+    font-weight: 700;
+  }
+
+  /* =========================================
+     SPALTEN-ÜBERSCHRIFTEN
+     ========================================= */
+  .wh-footer__heading {
+    font-family: var(--font-heading);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    padding-bottom: 0.625rem;
+    border-bottom: 1px solid rgb(255 255 255 / 0.08);
+  }
+
+  /* =========================================
+     LINK-LISTEN
+     ========================================= */
+  .wh-footer__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+
+  .wh-footer__link {
+    font-size: 0.9375rem;
+    color: #9aa5ad;
+    text-decoration: none;
+    transition: color 0.18s ease;
+    display: inline-block;
+  }
+
+  .wh-footer__link:hover {
+    color: var(--color-primary-300);
+  }
+
+  .wh-footer__link:focus-visible {
+    outline: 2px solid var(--color-primary-500);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* =========================================
+     KONTAKT-SPALTE
+     ========================================= */
+  .wh-footer__address {
+    font-style: normal;
+  }
+
+  .wh-footer__contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.625rem;
+    color: #9aa5ad;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+
+  .wh-footer__contact-icon {
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+    color: var(--color-primary-400);
+    display: flex;
+  }
+
+  .wh-footer__link--contact {
+    color: #9aa5ad;
+  }
+
+  .wh-footer__link--contact:hover {
+    color: var(--color-primary-300);
+  }
+
+  /* =========================================
+     DIVIDER
+     ========================================= */
+  .wh-footer__divider {
+    border: none;
+    border-top: 1px solid rgb(255 255 255 / 0.08);
+    margin: 0 1.25rem;
+  }
+
+  /* =========================================
+     BOTTOM-BAR
+     ========================================= */
+  .wh-footer__bottom {
+    padding: 1.25rem 1.25rem;
+    max-width: 1200px;
+    margin-inline: auto;
+  }
+
+  .wh-footer__bottom-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+
+  .wh-footer__copy {
+    font-size: 0.8125rem;
+    color: #6b7880;
+    margin: 0;
+  }
+
+  .wh-footer__legal-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .wh-footer__legal-link {
+    font-size: 0.8125rem;
+    color: #6b7880;
+    text-decoration: none;
+    transition: color 0.18s ease;
+  }
+
+  .wh-footer__legal-link:hover {
+    color: #c8cfd4;
+  }
+
+  .wh-footer__legal-link:focus-visible {
+    outline: 2px solid var(--color-primary-500);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  .wh-footer__legal-sep {
+    color: #3d4a52;
+    font-size: 0.75rem;
+  }
+
+  /* =========================================
+     DESKTOP BREAKPOINT (≥ 1024px)
+     ========================================= */
+  @media (min-width: 1024px) {
+
+    .wh-footer__main {
+      padding: 4rem 2rem 3.5rem;
+    }
+
+    /* 4-Spalten-Grid: Brand nimmt mehr Platz */
+    .wh-footer__grid {
+      grid-template-columns: 1.6fr 1fr 1fr 1.4fr;
+      gap: 3rem;
+    }
+
+    .wh-footer__tagline {
+      max-width: 32ch;
+    }
+
+    .wh-footer__divider {
+      margin: 0 2rem;
+    }
+
+    .wh-footer__bottom {
+      padding: 1.25rem 2rem;
+    }
+
+    /* Bottom-Bar horizontal */
+    .wh-footer__bottom-inner {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+</style>
