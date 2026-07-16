@@ -9,11 +9,11 @@ const currentPath = Astro.url.pathname;
 
 // Alle Links außer Kontakt
 const navLinks = [
-  { href: '/',                label: 'Startseite' },
+  { href: '/', label: 'Startseite' },
   { href: '/privathaushalte', label: 'Privathaushalte' },
   { href: '/pflegebeduerfte', label: 'Pflegebedürftige' },
-  { href: '/ueber-uns',       label: 'Über uns' },
-  { href: '/preise',          label: 'Preise' },
+  { href: '/ueber-uns', label: 'Über uns' },
+  { href: '/preise', label: 'Preise' },
 ];
 
 function isActive(href: string): boolean {
@@ -26,9 +26,12 @@ const isKontaktActive = currentPath.startsWith('/kontakt');
 
 <header class="wh-header" role="banner">
   <div class="wh-header__inner">
-
     <!-- Logo -->
-    <a href="/" class="wh-header__logo" aria-label="Warner Haushaltsservice – Zur Startseite">
+    <a
+      href="/"
+      class="wh-header__logo"
+      aria-label="Warner Haushaltsservice – Zur Startseite"
+    >
       <img
         src="/logo_warner.svg"
         alt="Warner Haushaltsservice Logo"
@@ -44,17 +47,19 @@ const isKontaktActive = currentPath.startsWith('/kontakt');
          ============================================= -->
     <nav class="wh-desktop-nav" aria-label="Hauptnavigation">
       <ul class="wh-desktop-nav__list" role="list">
-        {navLinks.map((link) => (
-          <li>
-            <a
-              href={link.href}
-              class={`wh-desktop-nav__link ${isActive(link.href) ? 'wh-desktop-nav__link--active' : ''}`}
-              aria-current={isActive(link.href) ? 'page' : undefined}
-            >
-              {link.label}
-            </a>
-          </li>
-        ))}
+        {
+          navLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class={`wh-desktop-nav__link ${isActive(link.href) ? 'wh-desktop-nav__link--active' : ''}`}
+                aria-current={isActive(link.href) ? 'page' : undefined}
+              >
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
       </ul>
 
       <!-- Kontakt-Button (Desktop) -->
@@ -82,7 +87,6 @@ const isKontaktActive = currentPath.startsWith('/kontakt');
       <span class="wh-header__burger-bar"></span>
       <span class="wh-header__burger-bar"></span>
     </button>
-
   </div>
 
   <!-- =============================================
@@ -95,40 +99,53 @@ const isKontaktActive = currentPath.startsWith('/kontakt');
     aria-hidden="true"
   >
     <ul class="wh-mobile-nav__list" role="list">
-      {[...navLinks, { href: '/kontakt', label: 'Kontakt' }].map((link) => (
-        <li class="wh-mobile-nav__item">
-          <a
-            href={link.href}
-            class={`wh-mobile-nav__link ${link.href === '/kontakt' ? 'wh-mobile-nav__link--kontakt' : ''} ${isActive(link.href) || (link.href === '/kontakt' && isKontaktActive) ? 'wh-mobile-nav__link--active' : ''}`}
-            aria-current={(isActive(link.href) || (link.href === '/kontakt' && isKontaktActive)) ? 'page' : undefined}
-          >
-            {(isActive(link.href) || (link.href === '/kontakt' && isKontaktActive)) && (
-              <span class="wh-mobile-nav__indicator" aria-hidden="true"></span>
-            )}
-            {link.label}
-          </a>
-        </li>
-      ))}
+      {
+        [...navLinks, { href: '/kontakt', label: 'Kontakt' }].map((link) => (
+          <li class="wh-mobile-nav__item">
+            <a
+              href={link.href}
+              class={`wh-mobile-nav__link ${link.href === '/kontakt' ? 'wh-mobile-nav__link--kontakt' : ''} ${isActive(link.href) || (link.href === '/kontakt' && isKontaktActive) ? 'wh-mobile-nav__link--active' : ''}`}
+              aria-current={
+                isActive(link.href) ||
+                (link.href === '/kontakt' && isKontaktActive)
+                  ? 'page'
+                  : undefined
+              }
+            >
+              {(isActive(link.href) ||
+                (link.href === '/kontakt' && isKontaktActive)) && (
+                <span class="wh-mobile-nav__indicator" aria-hidden="true" />
+              )}
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
     </ul>
   </nav>
 </header>
 
 <script>
   function initBurger() {
-    const burger = document.getElementById('burgerBtn') as HTMLButtonElement | null;
-    const nav    = document.getElementById('mobileNav') as HTMLElement | null;
+    const burger = document.getElementById(
+      'burgerBtn'
+    ) as HTMLButtonElement | null;
+    const nav = document.getElementById('mobileNav') as HTMLElement | null;
     const header = document.querySelector('.wh-header') as HTMLElement | null;
 
     if (!burger || !nav || !header) return;
 
     function toggleMenu(forceClose = false) {
-      const isOpen     = nav!.classList.contains('wh-mobile-nav--open');
+      const isOpen = nav!.classList.contains('wh-mobile-nav--open');
       const shouldOpen = forceClose ? false : !isOpen;
 
       nav!.classList.toggle('wh-mobile-nav--open', shouldOpen);
       burger!.classList.toggle('wh-header__burger--open', shouldOpen);
       burger!.setAttribute('aria-expanded', String(shouldOpen));
-      burger!.setAttribute('aria-label', shouldOpen ? 'Menü schließen' : 'Menü öffnen');
+      burger!.setAttribute(
+        'aria-label',
+        shouldOpen ? 'Menü schließen' : 'Menü öffnen'
+      );
       nav!.setAttribute('aria-hidden', String(!shouldOpen));
       header!.classList.toggle('wh-header--nav-open', shouldOpen);
 
@@ -137,7 +154,7 @@ const isKontaktActive = currentPath.startsWith('/kontakt');
 
     burger.addEventListener('click', () => toggleMenu());
 
-    nav.querySelectorAll('.wh-mobile-nav__link').forEach(link => {
+    nav.querySelectorAll('.wh-mobile-nav__link').forEach((link) => {
       link.addEventListener('click', () => toggleMenu(true));
     });
 
@@ -250,8 +267,8 @@ const isKontaktActive = currentPath.startsWith('/kontakt');
     transform-origin: center;
     transition:
       transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-      opacity   0.2s ease,
-      width     0.3s ease;
+      opacity 0.2s ease,
+      width 0.3s ease;
   }
 
   /* Burger → X */
@@ -278,7 +295,7 @@ const isKontaktActive = currentPath.startsWith('/kontakt');
     visibility: hidden;
     transition:
       max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-      opacity    0.25s ease;
+      opacity 0.25s ease;
   }
 
   .wh-mobile-nav--open {
@@ -312,7 +329,9 @@ const isKontaktActive = currentPath.startsWith('/kontakt');
     font-weight: 500;
     color: var(--color-dark);
     text-decoration: none;
-    transition: background-color 0.18s ease, color 0.18s ease;
+    transition:
+      background-color 0.18s ease,
+      color 0.18s ease;
   }
 
   .wh-mobile-nav__link:hover {
@@ -327,8 +346,7 @@ const isKontaktActive = currentPath.startsWith('/kontakt');
 
   /* Aktiver Zustand (Mobile) */
   .wh-mobile-nav__link--active {
-    color: var(--color-primary-800);
-    font-weight: 700;
+    color: var(--color-primary-700);
     background-color: var(--color-primary-100);
   }
 
@@ -351,7 +369,6 @@ const isKontaktActive = currentPath.startsWith('/kontakt');
      DESKTOP BREAKPOINT (≥ 1024px)
      ========================================= */
   @media (min-width: 1024px) {
-
     /* Header-Padding etwas großzügiger */
     .wh-header__inner {
       padding: 0 2rem;
@@ -385,7 +402,7 @@ const isKontaktActive = currentPath.startsWith('/kontakt');
       align-items: center;
       padding: 0.5rem 0.875rem;
       font-family: var(--font-body);
-      font-size: 0.9375rem;   /* 15px */
+      font-size: 0.9375rem; /* 15px */
       font-weight: 500;
       color: var(--color-dark);
       text-decoration: none;
@@ -410,7 +427,7 @@ const isKontaktActive = currentPath.startsWith('/kontakt');
       transform: translateY(6px);
       transition:
         transform 0.22s cubic-bezier(0.4, 0, 0.2, 1),
-        opacity   0.18s ease;
+        opacity 0.18s ease;
     }
 
     /* Hover: Linie fliegt von unten an den Schriftzug heran */
@@ -426,8 +443,7 @@ const isKontaktActive = currentPath.startsWith('/kontakt');
 
     /* Aktiver Desktop-Link: nur Unterstrich, kein Hintergrund */
     .wh-desktop-nav__link--active {
-      color: var(--color-primary-800);
-      font-weight: 700;
+      color: var(--color-primary-700);
     }
 
     .wh-desktop-nav__link--active::after {
@@ -453,9 +469,9 @@ const isKontaktActive = currentPath.startsWith('/kontakt');
       box-shadow: 0 2px 8px 0 rgb(255 183 48 / 0.28);
       transition:
         background-color 0.25s ease,
-        border-color     0.25s ease,
-        color            0.25s ease,
-        box-shadow       0.25s ease;
+        border-color 0.25s ease,
+        color 0.25s ease,
+        box-shadow 0.25s ease;
     }
 
     .wh-desktop-nav__btn:hover {
