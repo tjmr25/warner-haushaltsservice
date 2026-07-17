@@ -7,7 +7,6 @@
  */
 const currentPath = Astro.url.pathname;
 
-// Alle Links außer Kontakt
 const navLinks = [
   { href: '/', label: 'Startseite' },
   { href: '/privathaushalte', label: 'Privathaushalte' },
@@ -22,14 +21,26 @@ function isActive(href: string): boolean {
 }
 
 const isKontaktActive = currentPath.startsWith('/kontakt');
+const isHome = currentPath === '/' || currentPath === '';
 ---
 
-<header class="wh-header" role="banner">
-  <div class="wh-header__inner">
+<!-- =============================================
+     HEADER
+     sticky + weißer Hintergrund (Standard)
+     Auf Startseite: fixed + transparent → via JS-Klasse wh-header-transparent
+     ============================================= -->
+<header
+  id="siteHeader"
+  class={`sticky top-0 z-[100] w-full bg-(--color-base) border-b border-(--color-secondary) shadow-[0_2px_12px_0_rgb(27_34_39/0.06)] ${isHome ? 'wh-header-transparent' : ''}`}
+  role="banner"
+>
+  <!-- Inner: Logo + Nav + Burger -->
+  <div class="flex items-center justify-between py-[0.875rem] px-4 md:px-[1.5rem] lg:px-8 max-w-[1200px] mx-auto w-full lg:min-h-[68px] lg:py-0">
+
     <!-- Logo -->
     <a
       href="/"
-      class="wh-header__logo"
+      class="flex items-center shrink-0 transition-opacity duration-200 hover:opacity-85"
       aria-label="Warner Haushaltsservice – Zur Startseite"
     >
       <img
@@ -39,20 +50,21 @@ const isKontaktActive = currentPath.startsWith('/kontakt');
         height="53"
         loading="eager"
         fetchpriority="high"
+        class="h-[44px] lg:h-[50px] w-auto object-contain"
       />
     </a>
 
     <!-- =============================================
          DESKTOP NAVIGATION (≥1024px)
          ============================================= -->
-    <nav class="wh-desktop-nav" aria-label="Hauptnavigation">
-      <ul class="wh-desktop-nav__list" role="list">
+    <nav class="hidden lg:flex items-center gap-2" aria-label="Hauptnavigation">
+      <ul class="flex items-center gap-1 list-none m-0 p-0" role="list">
         {
           navLinks.map((link) => (
             <li>
               <a
                 href={link.href}
-                class={`wh-desktop-nav__link ${isActive(link.href) ? 'wh-desktop-nav__link--active' : ''}`}
+                class={`nav-link inline-flex items-center px-[0.875rem] py-2 font-[family-name:var(--font-body)] text-[0.9375rem] font-medium text-(--color-dark) no-underline rounded-[var(--radius)] transition-colors duration-[180ms] whitespace-nowrap ${isActive(link.href) ? 'nav-link-active text-(--color-primary-700)' : 'hover:text-(--color-primary-700)'}`}
                 aria-current={isActive(link.href) ? 'page' : undefined}
               >
                 {link.label}
@@ -65,7 +77,11 @@ const isKontaktActive = currentPath.startsWith('/kontakt');
       <!-- Kontakt-Button (Desktop) -->
       <a
         href="/kontakt"
-        class={`wh-desktop-nav__btn ${isKontaktActive ? 'wh-desktop-nav__btn--active' : ''}`}
+        class={`inline-flex items-center ml-3 font-[family-name:var(--font-heading)] text-[0.9375rem] font-bold rounded-[var(--radius)] no-underline whitespace-nowrap transition-all duration-[250ms] focus-visible:outline-2 focus-visible:outline-(--color-dark) focus-visible:outline-offset-3 ${
+          isKontaktActive
+            ? 'bg-transparent border-2 border-(--color-primary-600) text-(--color-primary-900) shadow-none px-[calc(1.25rem-2px)] py-[calc(0.5rem-2px)]'
+            : 'bg-(--color-primary-500) border-2 border-(--color-primary-500) text-(--color-dark) shadow-[0_2px_8px_0_rgb(255_183_48/0.28)] px-[calc(1.25rem-2px)] py-[calc(0.5rem-2px)] hover:bg-transparent hover:text-(--color-primary-800) hover:shadow-none'
+        }`}
         aria-current={isKontaktActive ? 'page' : undefined}
       >
         Kontakt
@@ -76,16 +92,16 @@ const isKontaktActive = currentPath.startsWith('/kontakt');
          HAMBURGER BUTTON (Mobile only)
          ============================================= -->
     <button
-      class="wh-header__burger"
       id="burgerBtn"
+      class="flex lg:hidden flex-col justify-center items-center gap-[5px] w-11 h-11 p-[6px] bg-transparent border-none rounded-[var(--radius)] cursor-pointer shrink-0 transition-colors duration-200 hover:bg-(--color-primary-50) focus-visible:outline-2 focus-visible:outline-(--color-primary-500) focus-visible:outline-offset-2"
       aria-expanded="false"
       aria-controls="mobileNav"
       aria-label="Menü öffnen"
       type="button"
     >
-      <span class="wh-header__burger-bar"></span>
-      <span class="wh-header__burger-bar"></span>
-      <span class="wh-header__burger-bar"></span>
+      <span class="burger-bar block w-[22px] h-[2px] bg-(--color-dark) rounded-[2px] origin-center transition-[transform_0.3s_cubic-bezier(0.4,0,0.2,1),opacity_0.2s_ease,width_0.3s_ease]"></span>
+      <span class="burger-bar block w-[22px] h-[2px] bg-(--color-dark) rounded-[2px] origin-center transition-[transform_0.3s_cubic-bezier(0.4,0,0.2,1),opacity_0.2s_ease,width_0.3s_ease]"></span>
+      <span class="burger-bar block w-[22px] h-[2px] bg-(--color-dark) rounded-[2px] origin-center transition-[transform_0.3s_cubic-bezier(0.4,0,0.2,1),opacity_0.2s_ease,width_0.3s_ease]"></span>
     </button>
   </div>
 
@@ -93,33 +109,34 @@ const isKontaktActive = currentPath.startsWith('/kontakt');
        MOBILE NAVIGATION (< 1024px)
        ============================================= -->
   <nav
-    class="wh-mobile-nav"
     id="mobileNav"
+    class="lg:hidden bg-(--color-base) border-t border-(--color-secondary) overflow-hidden max-h-0 opacity-0 invisible transition-[max-height_0.35s_cubic-bezier(0.4,0,0.2,1),opacity_0.25s_ease]"
     aria-label="Hauptnavigation"
     aria-hidden="true"
   >
-    <ul class="wh-mobile-nav__list" role="list">
+    <ul class="list-none m-0 py-2 px-0" role="list">
       {
-        [...navLinks, { href: '/kontakt', label: 'Kontakt' }].map((link) => (
-          <li class="wh-mobile-nav__item">
-            <a
-              href={link.href}
-              class={`wh-mobile-nav__link ${link.href === '/kontakt' ? 'wh-mobile-nav__link--kontakt' : ''} ${isActive(link.href) || (link.href === '/kontakt' && isKontaktActive) ? 'wh-mobile-nav__link--active' : ''}`}
-              aria-current={
-                isActive(link.href) ||
-                (link.href === '/kontakt' && isKontaktActive)
-                  ? 'page'
-                  : undefined
-              }
-            >
-              {(isActive(link.href) ||
-                (link.href === '/kontakt' && isKontaktActive)) && (
-                <span class="wh-mobile-nav__indicator" aria-hidden="true" />
-              )}
-              {link.label}
-            </a>
-          </li>
-        ))
+        [...navLinks, { href: '/kontakt', label: 'Kontakt' }].map((link) => {
+          const active = isActive(link.href) || (link.href === '/kontakt' && isKontaktActive);
+          const isKontakt = link.href === '/kontakt';
+          return (
+            <li class="border-b border-(--color-base-alt) last:border-b-0">
+              <a
+                href={link.href}
+                class={`flex items-center gap-[0.625rem] px-4 py-4 font-[family-name:var(--font-body)] text-[1.0625rem] font-medium no-underline transition-[background-color_0.18s_ease,color_0.18s_ease] focus-visible:outline-2 focus-visible:outline-(--color-primary-500) focus-visible:outline-offset-[-2px] ${isKontakt ? 'font-bold' : ''} ${active ? 'text-(--color-primary-700) bg-(--color-primary-100)' : 'text-(--color-dark) hover:bg-(--color-primary-50) hover:text-(--color-primary-700)'}`}
+                aria-current={active ? 'page' : undefined}
+              >
+                {active && (
+                  <span
+                    class="inline-block w-[5px] h-6 bg-(--color-primary-500) rounded-[2px] shrink-0"
+                    aria-hidden="true"
+                  />
+                )}
+                {link.label}
+              </a>
+            </li>
+          );
+        })
       }
     </ul>
   </nav>
@@ -127,34 +144,29 @@ const isKontaktActive = currentPath.startsWith('/kontakt');
 
 <script>
   function initBurger() {
-    const burger = document.getElementById(
-      'burgerBtn'
-    ) as HTMLButtonElement | null;
+    const burger = document.getElementById('burgerBtn') as HTMLButtonElement | null;
     const nav = document.getElementById('mobileNav') as HTMLElement | null;
-    const header = document.querySelector('.wh-header') as HTMLElement | null;
+    const header = document.getElementById('siteHeader') as HTMLElement | null;
 
     if (!burger || !nav || !header) return;
 
     function toggleMenu(forceClose = false) {
-      const isOpen = nav!.classList.contains('wh-mobile-nav--open');
+      const isOpen = nav!.classList.contains('mobile-nav-open');
       const shouldOpen = forceClose ? false : !isOpen;
 
-      nav!.classList.toggle('wh-mobile-nav--open', shouldOpen);
-      burger!.classList.toggle('wh-header__burger--open', shouldOpen);
+      nav!.classList.toggle('mobile-nav-open', shouldOpen);
+      burger!.classList.toggle('burger-open', shouldOpen);
       burger!.setAttribute('aria-expanded', String(shouldOpen));
-      burger!.setAttribute(
-        'aria-label',
-        shouldOpen ? 'Menü schließen' : 'Menü öffnen'
-      );
+      burger!.setAttribute('aria-label', shouldOpen ? 'Menü schließen' : 'Menü öffnen');
       nav!.setAttribute('aria-hidden', String(!shouldOpen));
-      header!.classList.toggle('wh-header--nav-open', shouldOpen);
+      header!.classList.toggle('wh-header-nav-open', shouldOpen);
 
       document.body.style.overflow = shouldOpen ? 'hidden' : '';
     }
 
     burger.addEventListener('click', () => toggleMenu());
 
-    nav.querySelectorAll('.wh-mobile-nav__link').forEach((link) => {
+    nav.querySelectorAll('a').forEach((link) => {
       link.addEventListener('click', () => toggleMenu(true));
     });
 
@@ -163,345 +175,28 @@ const isKontaktActive = currentPath.startsWith('/kontakt');
     });
   }
 
-  document.addEventListener('astro:page-load', initBurger);
+  function initScroll() {
+    const header = document.getElementById('siteHeader') as HTMLElement | null;
+    if (!header) return;
+
+    function handleScroll() {
+      if (window.scrollY > 10) {
+        header!.classList.add('wh-header-scrolled');
+      } else {
+        header!.classList.remove('wh-header-scrolled');
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+  }
+
+  document.addEventListener('astro:page-load', () => {
+    initBurger();
+    initScroll();
+  });
 
   document.addEventListener('astro:before-preparation', () => {
     document.body.style.overflow = '';
   });
 </script>
-
-<style>
-  /* =========================================
-     HEADER BASE
-     ========================================= */
-  .wh-header {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    width: 100%;
-    background-color: var(--color-base);
-    border-bottom: 1px solid var(--color-secondary);
-    box-shadow: 0 2px 12px 0 rgb(27 34 39 / 0.06);
-  }
-
-  .wh-header--nav-open {
-    box-shadow: none;
-    border-bottom-color: transparent;
-  }
-
-  /* =========================================
-     HEADER INNER
-     ========================================= */
-  .wh-header__inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.875rem 1.25rem;
-    max-width: 1200px;
-    margin-inline: auto;
-    width: 100%;
-  }
-
-  /* =========================================
-     LOGO
-     ========================================= */
-  .wh-header__logo {
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
-    transition: opacity 0.2s ease;
-  }
-
-  .wh-header__logo:hover {
-    opacity: 0.85;
-  }
-
-  .wh-header__logo img {
-    height: 44px;
-    width: auto;
-    object-fit: contain;
-  }
-
-  /* =========================================
-     DESKTOP NAVIGATION – versteckt auf Mobile
-     ========================================= */
-  .wh-desktop-nav {
-    display: none; /* Mobile: ausgeblendet */
-  }
-
-  /* =========================================
-     HAMBURGER BUTTON – versteckt auf Desktop
-     ========================================= */
-  .wh-header__burger {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    width: 44px;
-    height: 44px;
-    padding: 6px;
-    background: none;
-    border: none;
-    border-radius: var(--radius);
-    cursor: pointer;
-    flex-shrink: 0;
-    transition: background-color 0.2s ease;
-  }
-
-  .wh-header__burger:hover {
-    background-color: var(--color-primary-50);
-  }
-
-  .wh-header__burger:focus-visible {
-    outline: 2px solid var(--color-primary-500);
-    outline-offset: 2px;
-  }
-
-  .wh-header__burger-bar {
-    display: block;
-    width: 22px;
-    height: 2px;
-    background-color: var(--color-dark);
-    border-radius: 2px;
-    transform-origin: center;
-    transition:
-      transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-      opacity 0.2s ease,
-      width 0.3s ease;
-  }
-
-  /* Burger → X */
-  .wh-header__burger--open .wh-header__burger-bar:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
-  }
-  .wh-header__burger--open .wh-header__burger-bar:nth-child(2) {
-    opacity: 0;
-    width: 0;
-  }
-  .wh-header__burger--open .wh-header__burger-bar:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
-  }
-
-  /* =========================================
-     MOBILE NAVIGATION
-     ========================================= */
-  .wh-mobile-nav {
-    background-color: var(--color-base);
-    border-top: 1px solid var(--color-secondary);
-    overflow: hidden;
-    max-height: 0;
-    opacity: 0;
-    visibility: hidden;
-    transition:
-      max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-      opacity 0.25s ease;
-  }
-
-  .wh-mobile-nav--open {
-    max-height: 100dvh;
-    opacity: 1;
-    visibility: visible;
-    box-shadow: 0 8px 24px 0 rgb(27 34 39 / 0.08);
-  }
-
-  .wh-mobile-nav__list {
-    list-style: none;
-    margin: 0;
-    padding: 0.5rem 0;
-  }
-
-  .wh-mobile-nav__item {
-    border-bottom: 1px solid var(--color-base-alt);
-  }
-
-  .wh-mobile-nav__item:last-child {
-    border-bottom: none;
-  }
-
-  .wh-mobile-nav__link {
-    display: flex;
-    align-items: center;
-    gap: 0.625rem;
-    padding: 1rem 1.25rem;
-    font-family: var(--font-body);
-    font-size: 1.0625rem;
-    font-weight: 500;
-    color: var(--color-dark);
-    text-decoration: none;
-    transition:
-      background-color 0.18s ease,
-      color 0.18s ease;
-  }
-
-  .wh-mobile-nav__link:hover {
-    background-color: var(--color-primary-50);
-    color: var(--color-primary-700);
-  }
-
-  .wh-mobile-nav__link:focus-visible {
-    outline: 2px solid var(--color-primary-500);
-    outline-offset: -2px;
-  }
-
-  /* Aktiver Zustand (Mobile) */
-  .wh-mobile-nav__link--active {
-    color: var(--color-primary-700);
-    background-color: var(--color-primary-100);
-  }
-
-  /* Indikator-Balken (Mobile) */
-  .wh-mobile-nav__indicator {
-    display: inline-block;
-    width: 5px;
-    height: 24px;
-    background-color: var(--color-primary-500);
-    border-radius: 2px;
-    flex-shrink: 0;
-  }
-
-  /* Kontakt – immer fett (Mobile) */
-  .wh-mobile-nav__link--kontakt {
-    font-weight: 700;
-  }
-
-  /* =========================================
-     DESKTOP BREAKPOINT (≥ 1024px)
-     ========================================= */
-  @media (min-width: 1024px) {
-    /* Header-Padding etwas großzügiger */
-    .wh-header__inner {
-      padding: 0 2rem;
-      min-height: 68px;
-    }
-
-    /* Logo etwas größer */
-    .wh-header__logo img {
-      height: 50px;
-    }
-
-    /* Desktop-Nav einblenden */
-    .wh-desktop-nav {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .wh-desktop-nav__list {
-      display: flex;
-      align-items: center;
-      gap: 0.25rem;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    /* Desktop-Links */
-    .wh-desktop-nav__link {
-      display: inline-flex;
-      align-items: center;
-      padding: 0.5rem 0.875rem;
-      font-family: var(--font-body);
-      font-size: 0.9375rem; /* 15px */
-      font-weight: 500;
-      color: var(--color-dark);
-      text-decoration: none;
-      border-radius: var(--radius);
-      transition: color 0.18s ease;
-      position: relative;
-      white-space: nowrap;
-    }
-
-    /* Unterstr-Linie – immer vorhanden, aber zunächst unsichtbar unten */
-    .wh-desktop-nav__link::after {
-      content: '';
-      position: absolute;
-      bottom: 4px;
-      left: 0.875rem;
-      right: 0.875rem;
-      height: 2px;
-      background-color: var(--color-primary-500);
-      border-radius: 2px;
-      /* Startzustand: 6px unterhalb, unsichtbar */
-      opacity: 0;
-      transform: translateY(6px);
-      transition:
-        transform 0.22s cubic-bezier(0.4, 0, 0.2, 1),
-        opacity 0.18s ease;
-    }
-
-    /* Hover: Linie fliegt von unten an den Schriftzug heran */
-    .wh-desktop-nav__link:hover::after {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .wh-desktop-nav__link:focus-visible {
-      outline: 2px solid var(--color-primary-500);
-      outline-offset: 2px;
-    }
-
-    /* Aktiver Desktop-Link: nur Unterstrich, kein Hintergrund */
-    .wh-desktop-nav__link--active {
-      color: var(--color-primary-700);
-    }
-
-    .wh-desktop-nav__link--active::after {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ---- Kontakt-Button (Desktop) ---- */
-    .wh-desktop-nav__btn {
-      display: inline-flex;
-      align-items: center;
-      margin-left: 0.75rem;
-      padding: calc(0.5rem - 2px) calc(1.25rem - 2px); /* Abzug von 2px wegen des Borders */
-      background-color: var(--color-primary-500);
-      border: 2px solid var(--color-primary-500);
-      color: var(--color-dark);
-      font-family: var(--font-heading);
-      font-size: 0.9375rem;
-      font-weight: 700;
-      border-radius: var(--radius);
-      text-decoration: none;
-      white-space: nowrap;
-      box-shadow: 0 2px 8px 0 rgb(255 183 48 / 0.28);
-      transition:
-        background-color 0.25s ease,
-        border-color 0.25s ease,
-        color 0.25s ease,
-        box-shadow 0.25s ease;
-    }
-
-    .wh-desktop-nav__btn:hover {
-      background-color: transparent;
-      border-color: var(--color-primary-500);
-      color: var(--color-primary-800);
-      box-shadow: none;
-    }
-
-    .wh-desktop-nav__btn:focus-visible {
-      outline: 2px solid var(--color-dark);
-      outline-offset: 3px;
-    }
-
-    /* Aktiver Kontakt-Button */
-    .wh-desktop-nav__btn--active {
-      background-color: transparent;
-      border-color: var(--color-primary-600);
-      color: var(--color-primary-900);
-      box-shadow: none;
-    }
-
-    /* Hamburger auf Desktop verstecken */
-    .wh-header__burger {
-      display: none;
-    }
-
-    /* Mobile-Nav auf Desktop nie sichtbar */
-    .wh-mobile-nav {
-      display: none !important;
-    }
-  }
-</style>
