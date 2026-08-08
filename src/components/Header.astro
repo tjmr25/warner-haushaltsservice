@@ -81,7 +81,7 @@ const hasTransparentHeader = currentPath === '/';
         class={`inline-flex items-center ml-3 font-[family-name:var(--font-heading)] text-[0.9375rem] font-bold rounded-[var(--radius)] no-underline whitespace-nowrap transition-all duration-[250ms] focus-visible:outline-2 focus-visible:outline-(--color-dark) focus-visible:outline-offset-3 ${
           isKontaktActive
             ? 'bg-transparent border-2 border-(--color-primary-600) text-(--color-primary-900) shadow-none px-[calc(1.25rem-2px)] py-[calc(0.5rem-2px)]'
-            : 'bg-(--color-primary-500) border-2 border-(--color-primary-500) text-(--color-dark) shadow-[0_2px_8px_0_rgb(255_183_48/0.28)] px-[calc(1.25rem-2px)] py-[calc(0.5rem-2px)] hover:bg-transparent hover:text-(--color-primary-800) hover:shadow-none'
+            : 'bg-(--color-primary-500) border-2 border-(--color-primary-500) text-(--color-dark) shadow-[0_2px_8px_0_rgb(255_183_48/0.28)] px-[calc(1.25rem-2px)] py-[calc(0.5rem-2px)] hover:bg-(--color-primary-400) hover:border-(--color-primary-400)'
         }`}
         aria-current={isKontaktActive ? 'page' : undefined}
       >

@@ -20,7 +20,7 @@ import PageHero from '../components/PageHero.astro';
        FÜR WEN WIR DA SIND – ZIELGRUPPEN SECTION
        ============================================= -->
   <section
-    class="wh-section bg-(--color-base)"
+    class="wh-section bg-(--color-base-alt)"
     aria-labelledby="zielgruppen-heading"
   >
     <div class="container-page">
@@ -126,7 +126,7 @@ import PageHero from '../components/PageHero.astro';
        WAS WIR ÜBERNEHMEN SECTION
        ============================================= -->
   <section
-    class="wh-section bg-(--color-base-alt)"
+    class="wh-section bg-(--color-base)"
     aria-labelledby="leistungen-heading"
   >
     <div class="container-page">
@@ -177,7 +177,7 @@ import PageHero from '../components/PageHero.astro';
         <div class="mt-10">
           <a
             href="/kontakt"
-            class="inline-flex items-center gap-2 rounded-[var(--radius-lg)] bg-(--color-primary-500) px-8 py-4 font-[family-name:var(--font-heading)] text-[1rem] font-bold text-(--color-dark) no-underline transition-all duration-200 hover:bg-(--color-primary-400) hover:shadow-[0_4px_20px_rgb(255_183_48/0.4)] active:scale-[0.98]"
+            class="group inline-flex items-center gap-2 rounded-[var(--radius-lg)] border-2 border-(--color-primary-500) bg-(--color-primary-500) px-8 py-4 font-[family-name:var(--font-heading)] text-[1rem] font-bold text-(--color-dark) no-underline shadow-[0_4px_16px_rgb(255_183_48/0.3)] transition-all duration-200 hover:bg-(--color-primary-400) hover:border-(--color-primary-400) hover:shadow-[0_6px_22px_rgb(255_183_48/0.45)] active:scale-[0.98]"
           >
             Jetzt anfragen
             <svg
@@ -190,6 +190,7 @@ import PageHero from '../components/PageHero.astro';
               stroke-linecap="round"
               stroke-linejoin="round"
               aria-hidden="true"
+              class="transition-transform duration-200 group-hover:translate-x-1"
             >
               <line x1="5" y1="12" x2="19" y2="12"></line>
               <polyline points="12 5 19 12 12 19"></polyline>
@@ -204,7 +205,7 @@ import PageHero from '../components/PageHero.astro';
        SO GEHT'S – TIMELINE SECTION
        ============================================= -->
   <section
-    class="wh-section bg-(--color-base)"
+    class="wh-section bg-(--color-base-alt)"
     aria-labelledby="prozess-heading"
   >
     <div class="container-page">
@@ -241,7 +242,7 @@ import PageHero from '../components/PageHero.astro';
             <!-- Number Badge -->
             <div class="relative z-[1] flex-shrink-0">
               <div
-                class="flex h-12 w-12 items-center justify-center rounded-full bg-(--color-primary-500) font-[family-name:var(--font-heading)] text-[1.125rem] font-bold text-(--color-dark) shadow-[0_4px_16px_rgb(255_183_48/0.35)] lg:h-14 lg:w-14 lg:text-[1.25rem]"
+                class="flex h-12 w-12 items-center justify-center rounded-full border-2 border-(--color-primary-500) bg-(--color-base-alt) font-[family-name:var(--font-heading)] text-[1.125rem] font-bold text-(--color-dark) lg:h-14 lg:w-14 lg:text-[1.25rem]"
               >
                 1
               </div>
@@ -262,7 +263,7 @@ import PageHero from '../components/PageHero.astro';
             <!-- Number Badge -->
             <div class="relative z-[1] flex-shrink-0">
               <div
-                class="flex h-12 w-12 items-center justify-center rounded-full bg-(--color-primary-500) font-[family-name:var(--font-heading)] text-[1.125rem] font-bold text-(--color-dark) shadow-[0_4px_16px_rgb(255_183_48/0.35)] lg:h-14 lg:w-14 lg:text-[1.25rem]"
+                class="flex h-12 w-12 items-center justify-center rounded-full border-2 border-(--color-primary-500) bg-(--color-base-alt) font-[family-name:var(--font-heading)] text-[1.125rem] font-bold text-(--color-dark) lg:h-14 lg:w-14 lg:text-[1.25rem]"
               >
                 2
               </div>
@@ -283,7 +284,7 @@ import PageHero from '../components/PageHero.astro';
             <!-- Number Badge -->
             <div class="relative z-[1] flex-shrink-0">
               <div
-                class="flex h-12 w-12 items-center justify-center rounded-full bg-(--color-primary-500) font-[family-name:var(--font-heading)] text-[1.125rem] font-bold text-(--color-dark) shadow-[0_4px_16px_rgb(255_183_48/0.35)] lg:h-14 lg:w-14 lg:text-[1.25rem]"
+                class="flex h-12 w-12 items-center justify-center rounded-full border-2 border-(--color-primary-500) bg-(--color-base-alt) font-[family-name:var(--font-heading)] text-[1.125rem] font-bold text-(--color-dark) lg:h-14 lg:w-14 lg:text-[1.25rem]"
               >
                 3
               </div>
@@ -308,7 +309,7 @@ import PageHero from '../components/PageHero.astro';
        NOVA RAUMPFLEGE PARTNER SECTION
        ============================================= -->
   <section
-    class="wh-section bg-(--color-base-alt)"
+    class="wh-section bg-(--color-base)"
     aria-labelledby="nova-heading"
   >
     <div class="container-page">
@@ -339,11 +340,8 @@ import PageHero from '../components/PageHero.astro';
 
           <!-- Item 1: Büroreinigung -->
           <div class="flex flex-col gap-3 md:px-6 lg:px-8 first:md:pl-0">
-            <div class="flex items-center gap-2.5">
-              <span class="font-[family-name:var(--font-heading)] text-xs font-bold tracking-widest text-(--color-primary-700) uppercase bg-(--color-primary-100) px-2.5 py-1 rounded-md">
-                01
-              </span>
-              <span class="h-1.5 w-1.5 rounded-full bg-(--color-primary-500)" aria-hidden="true"></span>
+            <div class="flex items-center gap-3">
+              <span class="h-2.5 w-2.5 shrink-0 rounded-full bg-(--color-primary-500)" aria-hidden="true"></span>
               <h3 class="m-0 font-[family-name:var(--font-heading)] text-[1.125rem] font-bold text-(--color-dark)">
                 Büroreinigung
               </h3>
@@ -355,11 +353,8 @@ import PageHero from '../components/PageHero.astro';
 
           <!-- Item 2: Glasreinigung -->
           <div class="flex flex-col gap-3 pt-6 border-t border-(--color-secondary)/80 md:pt-0 md:border-t-0 md:px-6 lg:px-8">
-            <div class="flex items-center gap-2.5">
-              <span class="font-[family-name:var(--font-heading)] text-xs font-bold tracking-widest text-(--color-primary-700) uppercase bg-(--color-primary-100) px-2.5 py-1 rounded-md">
-                02
-              </span>
-              <span class="h-1.5 w-1.5 rounded-full bg-(--color-primary-500)" aria-hidden="true"></span>
+            <div class="flex items-center gap-3">
+              <span class="h-2.5 w-2.5 shrink-0 rounded-full bg-(--color-primary-500)" aria-hidden="true"></span>
               <h3 class="m-0 font-[family-name:var(--font-heading)] text-[1.125rem] font-bold text-(--color-dark)">
                 Glasreinigung
               </h3>
@@ -371,11 +366,8 @@ import PageHero from '../components/PageHero.astro';
 
           <!-- Item 3: Sonderreinigung -->
           <div class="flex flex-col gap-3 pt-6 border-t border-(--color-secondary)/80 md:pt-0 md:border-t-0 md:px-6 lg:px-8 last:md:pr-0">
-            <div class="flex items-center gap-2.5">
-              <span class="font-[family-name:var(--font-heading)] text-xs font-bold tracking-widest text-(--color-primary-700) uppercase bg-(--color-primary-100) px-2.5 py-1 rounded-md">
-                03
-              </span>
-              <span class="h-1.5 w-1.5 rounded-full bg-(--color-primary-500)" aria-hidden="true"></span>
+            <div class="flex items-center gap-3">
+              <span class="h-2.5 w-2.5 shrink-0 rounded-full bg-(--color-primary-500)" aria-hidden="true"></span>
               <h3 class="m-0 font-[family-name:var(--font-heading)] text-[1.125rem] font-bold text-(--color-dark)">
                 Sonderreinigung
               </h3>
