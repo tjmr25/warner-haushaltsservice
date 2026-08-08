@@ -7,79 +7,77 @@ import Layout from '../layouts/Layout.astro';
   description="Ihr zuverlässiger Partner für haushaltsnahe Dienstleistungen und Seniorenbetreuung in Hamburg. Seit über 20 Jahren für Sie da."
 >
   <!-- =============================================
-       HERO SECTION
-       Mobile: Bild oben (full-bleed), Text-Karte überlappt unten
-       Desktop: Zweispaltig, Text links, Bild rechts
+       STARTSEITE HERO
+       Mobile: Bild oben → ovales Cream-Element überlappt
+       Desktop: Zweispaltig
        ============================================= -->
   <section
-    class="hero-gradient relative bg-(--color-base-alt) overflow-x-hidden pb-12 md:pt-8 md:pb-16 lg:pt-[7.5rem] lg:pb-20"
-    aria-label="Einführung"
+    class="hero-gradient relative overflow-x-hidden bg-(--color-base-alt)"
+    aria-label="Willkommen bei Warner Haushaltsservice"
   >
-    <div class="container-page">
-      <!-- Grid: Mobile = column-stack, Desktop = 2-column -->
-      <div class="flex flex-col lg:grid lg:grid-cols-[1.15fr_1fr] lg:items-center lg:gap-16">
+    <!-- ── MOBILE (bis lg) ─────────────────────────── -->
+    <div class="lg:hidden">
+      <!-- Bild Container (mit sanftem Verlauf oben für den Header) -->
+      <div class="relative">
+        <img
+          src="/images/hero_startseite.png"
+          alt="Ein aufgeräumtes und sauberes Wohnzimmer in Hamburg"
+          width="800"
+          height="600"
+          loading="eager"
+          fetchpriority="high"
+          class="block w-full object-cover"
+          style="height: min(64vh, 460px); min-height: 320px; object-position: center 30%;"
+        />
 
-        <!-- Bild (oben Mobile, rechts Desktop) -->
-        <div class="order-first lg:order-last -mx-4 md:-mx-6 w-[calc(100%+2rem)] md:w-[calc(100%+3rem)] lg:mx-0 lg:w-full lg:col-start-2">
-          <img
-            src="/images/hero_startseite.png"
-            alt="Ein aufgeräumtes und sauberes Wohnzimmer in Hamburg mit einer Haushaltshilfe dezent im Hintergrund"
-            width="600"
-            height="600"
-            loading="eager"
-            fetchpriority="high"
-            class="w-full h-[450px] object-cover block lg:h-[600px] lg:rounded-[var(--radius-lg)] lg:shadow-[var(--shadow-warm-md)]"
-          />
+        <!-- Sanfter heller Verlauf oben für den Header -->
+        <div
+          class="pointer-events-none absolute top-0 right-0 left-0 h-32 z-[5]"
+          style="background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%);"
+          aria-hidden="true"
+        >
         </div>
+      </div>
 
-        <!-- Text-Karte (unten Mobile überlappend, links Desktop) -->
-        <div class="
-          relative z-[2]
-          bg-(--color-base-alt) rounded-[var(--radius-lg)] p-8 md:p-10 -mt-20
-          flex flex-col gap-4
-          lg:bg-transparent lg:rounded-none lg:p-0 lg:mt-0 lg:shadow-none lg:col-start-1 lg:gap-5
-        ">
-          <!-- Eyebrow -->
-          <span class="font-[family-name:var(--font-body)] text-[0.8125rem] font-bold uppercase tracking-[0.08em] text-(--color-primary-700)">
-            Seit über 20 Jahren in Hamburg
-          </span>
-
+      <!-- Ovales weißes Element – ragt zu beiden Seiten raus, überlappt das Bild -->
+      <div
+        style="
+          background: var(--color-base);
+          margin-top: -88px;
+          margin-left: -28px;
+          margin-right: -28px;
+          border-radius: 62% 38% 0 0 / 60px 115px 0 0;
+          padding: 4.5rem calc(28px + 1.25rem) 5.5rem;
+          position: relative;
+          z-index: 10;
+        "
+      >
+        <div class="flex flex-col gap-5">
           <!-- H1 -->
-          <h1 class="text-[2.25rem] md:text-[2.75rem] leading-[1.2] text-(--color-dark) font-bold m-0">
-            Für ein glänzendes <br class="hidden lg:block" />
-            <span>Zuhause</span>
+          <h1
+            class="m-0 font-[family-name:var(--font-heading)] text-[2.125rem] leading-[1.15] font-bold tracking-[-0.02em] text-(--color-dark)"
+          >
+            Für ein glänzendes<br />
+            <span class="text-(--color-primary-500)">Zuhause</span> in Hamburg
           </h1>
 
-          <!-- Fließtext -->
-          <p class="text-[1.0625rem] leading-[1.75] text-(--color-dark) opacity-90 m-0 max-w-[55ch]">
-            Willkommen beim Warner Haushaltsservice! Seit über zwölf Jahren sind
-            wir Ihr zuverlässiger Partner für haushaltsnahe Dienstleistungen –
-            mit Hingabe, damit Sie sich in Ihren eigenen vier Wänden wohl
-            fühlen.
+          <!-- Subtext -->
+          <p
+            class="m-0 text-[1rem] leading-[1.75] text-(--color-dark) opacity-80"
+          >
+            Willkommen beim Warner Haushaltsservice! Seit über 20 Jahren sind wir Ihr zuverlässiger Partner für haushaltsnahe Dienstleistungen und setzen uns mit Hingabe dafür ein, dass Sie sich in Ihren eigenen vier Wänden wohl fühlen.
           </p>
 
           <!-- CTA -->
-          <div>
+          <div class="flex flex-col gap-3">
             <a
               href="/kontakt"
-              class="
-                inline-flex items-center justify-center gap-2
-                w-full md:w-auto
-                px-7 py-[0.875rem]
-                bg-(--color-primary-500) border-2 border-(--color-primary-500)
-                text-(--color-dark) font-[family-name:var(--font-heading)] text-base font-bold
-                rounded-[var(--radius)] no-underline
-                shadow-[0_4px_12px_rgb(255_183_48/0.25)]
-                transition-all duration-[250ms]
-                hover:bg-transparent hover:text-(--color-primary-800) hover:shadow-none
-                focus-visible:outline-2 focus-visible:outline-(--color-dark) focus-visible:outline-offset-3
-                group
-              "
+              class="group inline-flex w-full items-center justify-center gap-2 rounded-[var(--radius)] border-2 border-(--color-primary-500) bg-(--color-primary-500) px-6 py-[0.875rem] font-[family-name:var(--font-heading)] text-[0.9375rem] font-bold text-(--color-dark) no-underline shadow-[0_4px_16px_rgb(255_183_48/0.35)] transition-all duration-[250ms] hover:bg-(--color-primary-400)"
             >
               Jetzt Kontakt aufnehmen
               <svg
-                width="18"
-                height="18"
+                width="16"
+                height="16"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -88,58 +86,740 @@ import Layout from '../layouts/Layout.astro';
                 stroke-linejoin="round"
                 aria-hidden="true"
                 class="transition-transform duration-200 group-hover:translate-x-1"
+                ><line x1="5" y1="12" x2="19" y2="12"></line><polyline
+                  points="12 5 19 12 12 19"></polyline></svg
               >
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
+            </a>
+            <a
+              href="/ueber-uns"
+              class="inline-flex w-full items-center justify-center gap-2 rounded-[var(--radius)] border-2 border-(--color-secondary) bg-transparent px-6 py-[0.875rem] font-[family-name:var(--font-heading)] text-[0.9375rem] font-bold text-(--color-dark) no-underline transition-all duration-[250ms] hover:border-(--color-primary-500) hover:bg-(--color-primary-50)"
+            >
+              Mehr über uns
             </a>
           </div>
-        </div>
 
-      </div>
-
-      <!-- =============================================
-           STATS SECTION (dunkler Hintergrund)
-           ============================================= -->
-      <section
-        class="wh-section bg-(--color-dark) overflow-hidden -mx-4 md:-mx-6 lg:mx-0 w-[calc(100%+2rem)] md:w-[calc(100%+3rem)] lg:w-full mt-12 lg:mt-16"
-        aria-label="Erfolge und Zahlen"
-      >
-        <div class="container-page">
-          <!-- Flex-Layout: Mobile = column/gestaffelt, Tablet+ = row -->
-          <div class="flex flex-col gap-16 md:flex-row md:justify-between md:gap-8 lg:max-w-[1100px] lg:mx-auto lg:gap-14">
-
-            <!-- Stat 1 -->
-            <div class="stat-block relative w-full max-w-[290px] min-h-[140px] flex items-center self-start border-t border-l border-[rgba(235,225,208,0.15)] rounded-tl-[var(--radius)] p-4 md:flex-1 md:self-auto md:max-w-none md:min-h-[170px] md:p-[2rem_1.5rem_1.5rem_2rem]">
-              <div class="stat-giant-bg" aria-hidden="true">100</div>
-              <div class="relative z-[2] flex flex-col items-start pointer-events-none">
-                <span class="font-[family-name:var(--font-heading)] text-[2.5rem] lg:text-[3rem] font-extrabold text-(--color-primary-500) leading-none tracking-[-0.02em] mb-[0.35rem]">100+</span>
-                <span class="font-[family-name:var(--font-body)] text-[0.875rem] lg:text-[0.9375rem] font-bold text-(--color-base) uppercase tracking-[0.08em] leading-[1.3] opacity-95">Mitarbeiterinnen</span>
+          <!-- Anerkennung (mobile Badge) -->
+          <div class="pt-1">
+            <div
+              class="inline-flex items-center gap-2.5 rounded-full border border-(--color-primary-200) bg-(--color-primary-100)/70 px-3.5 py-1.5 shadow-xs"
+            >
+              <div
+                class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-(--color-primary-500) text-(--color-dark)"
+              >
+                <svg
+                  width="11"
+                  height="11"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                  ><polyline points="20 6 9 17 4 12"></polyline></svg
+                >
               </div>
+              <span
+                class="font-[family-name:var(--font-heading)] text-[0.78125rem] font-bold tracking-[0.06em] text-(--color-primary-950) uppercase"
+                >Anerkannt durch die Stadt Hamburg</span
+              >
             </div>
-
-            <!-- Stat 2 -->
-            <div class="stat-block relative w-full max-w-[290px] min-h-[140px] flex items-center self-end ml-0 border-t border-l border-[rgba(235,225,208,0.15)] rounded-tl-[var(--radius)] p-4 md:flex-1 md:self-auto md:max-w-none md:min-h-[170px] md:p-[2rem_1.5rem_1.5rem_2rem]">
-              <div class="stat-giant-bg" aria-hidden="true">700</div>
-              <div class="relative z-[2] flex flex-col items-start pointer-events-none">
-                <span class="font-[family-name:var(--font-heading)] text-[2.5rem] lg:text-[3rem] font-extrabold text-(--color-primary-500) leading-none tracking-[-0.02em] mb-[0.35rem]">700+</span>
-                <span class="font-[family-name:var(--font-body)] text-[0.875rem] lg:text-[0.9375rem] font-bold text-(--color-base) uppercase tracking-[0.08em] leading-[1.3] opacity-95">betreute Haushalte</span>
-              </div>
-            </div>
-
-            <!-- Stat 3 -->
-            <div class="stat-block relative w-full max-w-[290px] min-h-[140px] flex items-center self-start ml-[8%] border-t border-l border-[rgba(235,225,208,0.15)] rounded-tl-[var(--radius)] p-4 md:flex-1 md:self-auto md:max-w-none md:min-h-[170px] md:ml-0 md:p-[2rem_1.5rem_1.5rem_2rem]">
-              <div class="stat-giant-bg" aria-hidden="true">20</div>
-              <div class="relative z-[2] flex flex-col items-start pointer-events-none">
-                <span class="font-[family-name:var(--font-heading)] text-[2.5rem] lg:text-[3rem] font-extrabold text-(--color-primary-500) leading-none tracking-[-0.02em] mb-[0.35rem]">20+</span>
-                <span class="font-[family-name:var(--font-body)] text-[0.875rem] lg:text-[0.9375rem] font-bold text-(--color-base) uppercase tracking-[0.08em] leading-[1.3] opacity-95">Jahre Erfahrung</span>
-              </div>
-            </div>
-
           </div>
         </div>
-      </section>
+      </div>
+    </div>
 
+    <!-- ── DESKTOP (ab lg) ────────────────────────── -->
+    <div class="hidden lg:block">
+      <div class="container-page">
+        <div
+          class="grid grid-cols-[1fr_1fr] items-center gap-16 pt-20 pb-28 lg:pt-24 lg:pb-36"
+        >
+          <!-- Text links -->
+          <div class="flex flex-col gap-6">
+            <h1
+              class="m-0 font-[family-name:var(--font-heading)] text-[3rem] leading-[1.15] font-bold tracking-[-0.02em] text-(--color-dark) xl:text-[3.5rem]"
+            >
+              Für ein glänzendes<br />
+              <span class="text-(--color-primary-500)">Zuhause</span> in Hamburg
+            </h1>
+            <p
+              class="m-0 max-w-[48ch] text-[1.0625rem] leading-[1.8] text-(--color-dark) opacity-80"
+            >
+              Willkommen beim Warner Haushaltsservice! Seit über 20 Jahren sind wir Ihr zuverlässiger Partner für haushaltsnahe Dienstleistungen und setzen uns mit Hingabe dafür ein, dass Sie sich in Ihren eigenen vier Wänden wohl fühlen.
+            </p>
+            <div class="flex gap-3">
+              <a
+                href="/kontakt"
+                class="group inline-flex items-center gap-2 rounded-[var(--radius)] border-2 border-(--color-primary-500) bg-(--color-primary-500) px-7 py-[0.9375rem] font-[family-name:var(--font-heading)] text-[0.9375rem] font-bold text-(--color-dark) no-underline shadow-[0_4px_16px_rgb(255_183_48/0.35)] transition-all duration-[250ms] hover:bg-(--color-primary-400)"
+              >
+                Jetzt Kontakt aufnehmen
+                <svg
+                  width="17"
+                  height="17"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                  class="transition-transform duration-200 group-hover:translate-x-1"
+                  ><line x1="5" y1="12" x2="19" y2="12"></line><polyline
+                    points="12 5 19 12 12 19"></polyline></svg
+                >
+              </a>
+              <a
+                href="/ueber-uns"
+                class="inline-flex items-center gap-2 rounded-[var(--radius)] border-2 border-(--color-secondary) bg-transparent px-7 py-[0.9375rem] font-[family-name:var(--font-heading)] text-[0.9375rem] font-bold text-(--color-dark) no-underline transition-all duration-[250ms] hover:border-(--color-primary-500) hover:bg-(--color-primary-50)"
+              >
+                Mehr über uns
+              </a>
+            </div>
+            <!-- Anerkennung (desktop Badge) -->
+            <div>
+              <div
+                class="inline-flex items-center gap-2.5 rounded-full border border-(--color-primary-200) bg-(--color-primary-100)/70 px-3.5 py-1.5 shadow-xs"
+              >
+                <div
+                  class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-(--color-primary-500) text-(--color-dark)"
+                >
+                  <svg
+                    width="11"
+                    height="11"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                    ><polyline points="20 6 9 17 4 12"></polyline></svg
+                  >
+                </div>
+                <span
+                  class="font-[family-name:var(--font-heading)] text-[0.78125rem] font-bold tracking-[0.06em] text-(--color-primary-950) uppercase"
+                  >Anerkannt durch die Stadt Hamburg</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Bild rechts -->
+          <div class="relative">
+            <img
+              src="/images/hero_startseite.png"
+              alt="Ein aufgeräumtes und sauberes Wohnzimmer in Hamburg"
+              width="800"
+              height="700"
+              loading="eager"
+              fetchpriority="high"
+              class="h-[580px] w-full rounded-[var(--radius-xl)] object-cover shadow-[0_16px_48px_rgb(27_34_39/0.12)]"
+              style="object-position: center 30%;"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       STATS SECTION (heller Hintergrund, dunkel auf hell)
+       ============================================= -->
+  <section
+    class="wh-section w-full overflow-hidden bg-(--color-base-alt)"
+    aria-label="Erfolge und Zahlen"
+  >
+    <div class="container-page">
+      <!-- Grid/Flex-Layout: Clean & linear, column stacked on mobile, row on tablet/desktop -->
+      <div
+        class="flex flex-col divide-y divide-(--color-secondary) md:flex-row md:justify-between md:divide-x md:divide-y-0 lg:mx-auto lg:max-w-[1100px]"
+      >
+        <!-- Stat 1 -->
+        <div
+          class="relative flex min-h-[120px] w-full items-center p-12 md:min-h-[160px] md:flex-1 md:p-20 lg:p-24"
+        >
+          <div class="stat-giant-bg" aria-hidden="true">100</div>
+          <div
+            class="pointer-events-none relative z-[2] flex flex-col items-start"
+          >
+            <span
+              class="mb-[0.35rem] font-[family-name:var(--font-heading)] text-[2.5rem] leading-none font-extrabold tracking-[-0.02em] text-(--color-primary-500) lg:text-[3rem]"
+              >100+</span
+            >
+            <span
+              class="font-[family-name:var(--font-body)] text-[0.875rem] leading-[1.3] font-bold tracking-[0.08em] text-(--color-dark) uppercase opacity-80 lg:text-[0.9375rem]"
+              >Mitarbeiterinnen</span
+            >
+          </div>
+        </div>
+
+        <!-- Stat 2 -->
+        <div
+          class="relative flex min-h-[120px] w-full items-center p-12 md:min-h-[160px] md:flex-1 md:p-20 lg:p-24"
+        >
+          <div class="stat-giant-bg" aria-hidden="true">700</div>
+          <div
+            class="pointer-events-none relative z-[2] flex flex-col items-start"
+          >
+            <span
+              class="mb-[0.35rem] font-[family-name:var(--font-heading)] text-[2.5rem] leading-none font-extrabold tracking-[-0.02em] text-(--color-primary-500) lg:text-[3rem]"
+              >700+</span
+            >
+            <span
+              class="font-[family-name:var(--font-body)] text-[0.875rem] leading-[1.3] font-bold tracking-[0.08em] text-(--color-dark) uppercase opacity-80 lg:text-[0.9375rem]"
+              >betreute Haushalte</span
+            >
+          </div>
+        </div>
+
+        <!-- Stat 3 -->
+        <div
+          class="relative flex min-h-[120px] w-full items-center p-12 md:min-h-[160px] md:flex-1 md:p-20 lg:p-24"
+        >
+          <div class="stat-giant-bg" aria-hidden="true">20</div>
+          <div
+            class="pointer-events-none relative z-[2] flex flex-col items-start"
+          >
+            <span
+              class="mb-[0.35rem] font-[family-name:var(--font-heading)] text-[2.5rem] leading-none font-extrabold tracking-[-0.02em] text-(--color-primary-500) lg:text-[3rem]"
+              >20+</span
+            >
+            <span
+              class="font-[family-name:var(--font-body)] text-[0.875rem] leading-[1.3] font-bold tracking-[0.08em] text-(--color-dark) uppercase opacity-80 lg:text-[0.9375rem]"
+              >Jahre Erfahrung</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       WARUM WIR SECTION
+       ============================================= -->
+  <section
+    class="wh-section bg-(--color-base)"
+    aria-labelledby="warum-wir-heading"
+  >
+    <div class="container-page">
+      <!-- Two-column layout: intro left, reasons right -->
+      <div
+        class="grid grid-cols-1 items-start gap-16 lg:grid-cols-[1fr_1.4fr] lg:gap-24"
+      >
+        <!-- LEFT: Intro -->
+        <div class="flex flex-col gap-6">
+          <div class="flex flex-col gap-3">
+            <!-- Eyebrow -->
+            <span
+              class="font-[family-name:var(--font-body)] text-[0.8125rem] font-bold tracking-[0.08em] text-(--color-primary-700) uppercase"
+            >
+              Ihre Vorteile
+            </span>
+
+            <!-- Heading -->
+            <h2
+              id="warum-wir-heading"
+              class="m-0 font-[family-name:var(--font-heading)] text-[2rem] leading-[1.2] font-bold text-(--color-dark) lg:text-[2.5rem]"
+            >
+              Warum wir?
+            </h2>
+
+            <!-- Accent line -->
+            <div class="h-1 w-12 rounded-full bg-(--color-primary-500)"></div>
+          </div>
+
+          <!-- Intro text -->
+          <p
+            class="max-w-[48ch] text-[1.0625rem] leading-[1.8] text-(--color-dark) opacity-85"
+          >
+            Mit einem Team von über 100 engagierten Mitarbeiterinnen betreuen
+            wir mehr als 700 Haushalte und unterstützen Pflegebedürftige dabei,
+            ein selbstbestimmtes Leben zu führen. Bei uns stehen Ihre
+            individuellen Bedürfnisse im Mittelpunkt.
+          </p>
+        </div>
+
+        <!-- RIGHT: Reason cards -->
+        <div class="flex flex-col gap-6">
+          <!-- Card 1: Qualität -->
+          <div
+            class="group relative flex gap-5 rounded-[var(--radius-xl)] border border-(--color-secondary)/80 bg-white p-6 md:p-8 shadow-[0_4px_20px_rgb(27_34_39/0.03)] transition-all duration-300 hover:-translate-y-1 hover:border-(--color-primary-300) hover:shadow-[0_12px_32px_rgb(255_183_48/0.18)]"
+          >
+            <!-- Icon Badge -->
+            <div
+              class="flex h-12 w-12 shrink-0 items-center justify-center rounded-[var(--radius-lg)] border border-(--color-primary-200)/60 bg-(--color-primary-100) text-(--color-primary-700) transition-colors duration-300 group-hover:bg-(--color-primary-200)/80"
+            >
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            </div>
+            <!-- Content -->
+            <div class="flex flex-col gap-2">
+              <h3
+                class="m-0 font-[family-name:var(--font-heading)] text-[1.125rem] font-bold text-(--color-dark)"
+              >
+                Qualität &amp; Höchste Standards
+              </h3>
+              <p
+                class="m-0 text-[0.9375rem] leading-[1.75] text-(--color-dark) opacity-80"
+              >
+                Höchste Standards sind unser Versprechen. Mit einem internen
+                Schulungssystem und über 20 Jahren Erfahrung bieten wir
+                sorgfältige Arbeit und erstklassigen Service.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 2: Flexibilität -->
+          <div
+            class="group relative flex gap-5 rounded-[var(--radius-xl)] border border-(--color-secondary)/80 bg-white p-6 md:p-8 shadow-[0_4px_20px_rgb(27_34_39/0.03)] transition-all duration-300 hover:-translate-y-1 hover:border-(--color-primary-300) hover:shadow-[0_12px_32px_rgb(255_183_48/0.18)]"
+          >
+            <!-- Icon Badge -->
+            <div
+              class="flex h-12 w-12 shrink-0 items-center justify-center rounded-[var(--radius-lg)] border border-(--color-primary-200)/60 bg-(--color-primary-100) text-(--color-primary-700) transition-colors duration-300 group-hover:bg-(--color-primary-200)/80"
+            >
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+            </div>
+            <!-- Content -->
+            <div class="flex flex-col gap-2">
+              <h3
+                class="m-0 font-[family-name:var(--font-heading)] text-[1.125rem] font-bold text-(--color-dark)"
+              >
+                Flexibilität nach Wunsch
+              </h3>
+              <p
+                class="m-0 text-[0.9375rem] leading-[1.75] text-(--color-dark) opacity-80"
+              >
+                Wir passen uns Ihrem Zeitplan an. Mit maßgeschneiderten Lösungen
+                stehen wir Ihnen zur Verfügung, wann immer Sie uns brauchen –
+                für ein Zuhause, das sich stets in guten Händen befindet.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 3: Sicherheit & Vertrauen -->
+          <div
+            class="group relative flex gap-5 rounded-[var(--radius-xl)] border border-(--color-secondary)/80 bg-white p-6 md:p-8 shadow-[0_4px_20px_rgb(27_34_39/0.03)] transition-all duration-300 hover:-translate-y-1 hover:border-(--color-primary-300) hover:shadow-[0_12px_32px_rgb(255_183_48/0.18)]"
+          >
+            <!-- Icon Badge -->
+            <div
+              class="flex h-12 w-12 shrink-0 items-center justify-center rounded-[var(--radius-lg)] border border-(--color-primary-200)/60 bg-(--color-primary-100) text-(--color-primary-700) transition-colors duration-300 group-hover:bg-(--color-primary-200)/80"
+            >
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <polyline points="9 12 11 14 15 10"></polyline>
+              </svg>
+            </div>
+            <!-- Content -->
+            <div class="flex flex-col gap-2">
+              <h3
+                class="m-0 font-[family-name:var(--font-heading)] text-[1.125rem] font-bold text-(--color-dark)"
+              >
+                Sicherheit &amp; Vertrauen
+              </h3>
+              <p
+                class="m-0 text-[0.9375rem] leading-[1.75] text-(--color-dark) opacity-80"
+              >
+                Ihre Sicherheit hat oberste Priorität. Alle Mitarbeiterinnen
+                sind haftpflichtversichert und Ihre Daten schützen wir mit
+                größter Sorgfalt.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       UNSERE ANGEBOTE SECTION
+       Zwei Karten: Privatkunden & Pflegebedürftige
+       ============================================= -->
+  <section
+    class="wh-section bg-(--color-base-alt)"
+    aria-labelledby="angebote-heading"
+  >
+    <div class="container-page">
+      <!-- Section Header -->
+      <div class="mb-12 flex flex-col items-start gap-3 text-left lg:mb-16">
+        <span
+          class="font-[family-name:var(--font-body)] text-[0.8125rem] font-bold tracking-[0.08em] text-(--color-primary-700) uppercase"
+        >
+          Unsere Angebote
+        </span>
+        <h2
+          id="angebote-heading"
+          class="m-0 font-[family-name:var(--font-heading)] text-[2rem] leading-[1.2] font-bold text-(--color-dark) lg:text-[2.75rem]"
+        >
+          Wie können wir Ihnen helfen?
+        </h2>
+        <div class="h-1 w-12 rounded-full bg-(--color-primary-500)"></div>
+      </div>
+
+      <!-- Cards Grid -->
+      <div
+        class="mx-auto grid max-w-4xl grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8"
+      >
+        <!-- Karte 1: Privatkunden -->
+        <article
+          class="flex flex-col overflow-hidden rounded-[var(--radius-xl)] border border-(--color-secondary) bg-(--color-base) shadow-[0_2px_16px_rgb(27_34_39/0.07)] transition-shadow duration-300 hover:shadow-[var(--shadow-warm-md)]"
+        >
+          <div class="overflow-hidden">
+            <img
+              src="/images/privathaushalte_hero.jpg"
+              alt="Sauberes, aufgeräumtes Wohnzimmer eines Privathaushalts in Hamburg"
+              width="600"
+              height="340"
+              loading="lazy"
+              class="h-[220px] w-full object-cover transition-transform duration-500 hover:scale-105"
+            />
+          </div>
+          <div class="flex flex-1 flex-col gap-4 p-7">
+            <span
+              class="font-[family-name:var(--font-body)] text-[0.75rem] font-bold tracking-[0.1em] text-(--color-primary-700) uppercase"
+            >
+              Für Privatkunden
+            </span>
+            <h3
+              class="m-0 font-[family-name:var(--font-heading)] text-[1.375rem] leading-[1.25] font-bold text-(--color-dark)"
+            >
+              Haushaltshilfe für<br />Privathaushalte
+            </h3>
+            <p
+              class="m-0 text-[0.9375rem] leading-[1.75] text-(--color-dark) opacity-80"
+            >
+              Familien, Berufstätige und Senioren – wir entlasten Sie im Alltag
+              mit professioneller Reinigung, Wäschepflege und Ordnung. Damit Sie
+              mehr Zeit für das Wesentliche haben.
+            </p>
+            <ul class="m-0 mt-1 flex list-none flex-col gap-2.5 p-0">
+              <li
+                class="flex items-center gap-2.5 text-[0.9rem] text-(--color-dark)"
+              >
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="shrink-0 text-(--color-primary-600)"
+                  aria-hidden="true"
+                  ><polyline points="20 6 9 17 4 12"></polyline></svg
+                >
+                Reinigung &amp; Aufräumen
+              </li>
+              <li
+                class="flex items-center gap-2.5 text-[0.9rem] text-(--color-dark)"
+              >
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="shrink-0 text-(--color-primary-600)"
+                  aria-hidden="true"
+                  ><polyline points="20 6 9 17 4 12"></polyline></svg
+                >
+                Wäschepflege &amp; Bügeln
+              </li>
+              <li
+                class="flex items-center gap-2.5 text-[0.9rem] text-(--color-dark)"
+              >
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="shrink-0 text-(--color-primary-600)"
+                  aria-hidden="true"
+                  ><polyline points="20 6 9 17 4 12"></polyline></svg
+                >
+                Maßgeschneiderte Zeitpakete
+              </li>
+            </ul>
+            <div class="mt-auto pt-4">
+              <a
+                href="/privathaushalte"
+                class="group inline-flex w-full items-center justify-center gap-2 rounded-[var(--radius)] border-2 border-(--color-primary-500) bg-(--color-primary-500) px-6 py-[0.875rem] font-[family-name:var(--font-heading)] text-[0.9375rem] font-bold text-(--color-dark) no-underline shadow-[0_4px_12px_rgb(255_183_48/0.25)] transition-all duration-[250ms] hover:bg-transparent hover:text-(--color-primary-800) hover:shadow-none focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-(--color-dark)"
+              >
+                Zu den Privathaushalten
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                  class="transition-transform duration-200 group-hover:translate-x-1"
+                  ><line x1="5" y1="12" x2="19" y2="12"></line><polyline
+                    points="12 5 19 12 12 19"></polyline></svg
+                >
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Karte 2: Pflegebedürftige -->
+        <article
+          class="flex flex-col overflow-hidden rounded-[var(--radius-xl)] border border-(--color-secondary) bg-(--color-base) shadow-[0_2px_16px_rgb(27_34_39/0.07)] transition-shadow duration-300 hover:shadow-[var(--shadow-warm-md)]"
+        >
+          <div class="overflow-hidden">
+            <img
+              src="/images/pflegebeduerfte_hero.jpg"
+              alt="Fürsorgliche Betreuerin hilft einer älteren Dame beim Aufstehen in einem hellen Wohnzimmer"
+              width="600"
+              height="340"
+              loading="lazy"
+              class="h-[220px] w-full object-cover transition-transform duration-500 hover:scale-105"
+              style="object-position: center 15%;"
+            />
+          </div>
+          <div class="flex flex-1 flex-col gap-4 p-7">
+            <span
+              class="font-[family-name:var(--font-body)] text-[0.75rem] font-bold tracking-[0.1em] text-(--color-primary-700) uppercase"
+            >
+              Für Pflegebedürftige
+            </span>
+            <h3
+              class="m-0 font-[family-name:var(--font-heading)] text-[1.375rem] leading-[1.25] font-bold text-(--color-dark)"
+            >
+              Alltagsunterstützung –<br />über Pflegekasse abrechenbar
+            </h3>
+            <p
+              class="m-0 text-[0.9375rem] leading-[1.75] text-(--color-dark) opacity-80"
+            >
+              Als von der Stadt Hamburg anerkanntes Unternehmen rechnen wir
+              unsere Leistungen direkt mit der Pflegekasse ab. Für Pflegegrade
+              1–5 – ohne Aufwand für Sie.
+            </p>
+            <ul class="m-0 mt-1 flex list-none flex-col gap-2.5 p-0">
+              <li
+                class="flex items-center gap-2.5 text-[0.9rem] text-(--color-dark)"
+              >
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="shrink-0 text-(--color-primary-600)"
+                  aria-hidden="true"
+                  ><polyline points="20 6 9 17 4 12"></polyline></svg
+                >
+                Pflegekasse übernimmt die Kosten
+              </li>
+              <li
+                class="flex items-center gap-2.5 text-[0.9rem] text-(--color-dark)"
+              >
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="shrink-0 text-(--color-primary-600)"
+                  aria-hidden="true"
+                  ><polyline points="20 6 9 17 4 12"></polyline></svg
+                >
+                Keine Vorausleistung nötig
+              </li>
+              <li
+                class="flex items-center gap-2.5 text-[0.9rem] text-(--color-dark)"
+              >
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="shrink-0 text-(--color-primary-600)"
+                  aria-hidden="true"
+                  ><polyline points="20 6 9 17 4 12"></polyline></svg
+                >
+                Geschulte &amp; zertifizierte Mitarbeiterinnen
+              </li>
+            </ul>
+            <div class="mt-auto pt-4">
+              <a
+                href="/pflegebeduerfte"
+                class="group inline-flex w-full items-center justify-center gap-2 rounded-[var(--radius)] border-2 border-(--color-dark) bg-(--color-dark) px-6 py-[0.875rem] font-[family-name:var(--font-heading)] text-[0.9375rem] font-bold text-(--color-base) no-underline shadow-[0_4px_12px_rgb(27_34_39/0.18)] transition-all duration-[250ms] hover:bg-transparent hover:text-(--color-dark) hover:shadow-none focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-(--color-dark)"
+              >
+                Zur Pflegekassen-Info
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                  class="transition-transform duration-200 group-hover:translate-x-1"
+                  ><line x1="5" y1="12" x2="19" y2="12"></line><polyline
+                    points="12 5 19 12 12 19"></polyline></svg
+                >
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       MITGLIEDSCHAFTEN & PARTNER SECTION
+       ============================================= -->
+  <section
+    class="wh-section bg-(--color-base) pb-[11rem] md:pb-[15rem] lg:pb-[19rem]"
+    aria-labelledby="partner-heading"
+  >
+    <div class="container-page">
+      <!-- Section Header -->
+      <div class="mb-12 flex flex-col items-start gap-3 text-left lg:mb-16">
+        <span
+          class="font-[family-name:var(--font-body)] text-[0.8125rem] font-bold tracking-[0.08em] text-(--color-primary-700) uppercase"
+        >
+          Vertrauen &amp; Qualität
+        </span>
+        <h2
+          id="partner-heading"
+          class="m-0 font-[family-name:var(--font-heading)] text-[2rem] leading-[1.2] font-bold text-(--color-dark) lg:text-[2.75rem]"
+        >
+          Mitgliedschaften &amp; Partner
+        </h2>
+        <div class="h-1 w-12 rounded-full bg-(--color-primary-500)"></div>
+      </div>
+
+      <!-- Partner Cards Container -->
+      <div class="mx-auto flex max-w-3xl flex-col gap-4 sm:gap-6">
+        <!-- Partner 1: BHDU -->
+        <a
+          href="https://bhdu.de/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group flex flex-row items-center gap-3 rounded-[var(--radius-xl)] border border-(--color-secondary) px-2 py-8 no-underline transition-all duration-300 hover:border-(--color-primary-300) hover:shadow-[var(--shadow-warm-md)] sm:gap-6 sm:px-4 sm:py-10"
+          aria-label="Besuche die offizielle Webseite des BHDU"
+        >
+          <!-- Logo Container (40% Breite) -->
+          <div class="flex w-[40%] shrink-0 items-center justify-center p-1 sm:p-2">
+            <img
+              src="/images/bhdu_logo.svg"
+              alt="BHDU Logo"
+              width="200"
+              height="65"
+              loading="lazy"
+              class="h-auto w-full max-w-[180px] object-contain transition-transform duration-300 group-hover:scale-105"
+            />
+          </div>
+          <!-- Text Details (60% Breite) -->
+          <div class="flex w-[60%] flex-col gap-1 pr-1 sm:pr-2">
+            <h3
+              class="m-0 font-[family-name:var(--font-heading)] text-[1.125rem] font-bold text-(--color-dark) transition-colors group-hover:text-(--color-primary-700) sm:text-[1.25rem]"
+            >
+              BHDU
+            </h3>
+            <p
+              class="m-0 text-[0.875rem] leading-[1.5] text-(--color-dark) opacity-80 sm:text-[0.9375rem] sm:leading-[1.65]"
+            >
+              Mitglied im Bundesverband haushaltsnaher Dienstleistungs-Unternehmen.
+            </p>
+          </div>
+        </a>
+
+        <!-- Partner 2: NOVA Raumpflege -->
+        <a
+          href="https://nova-raumpflege.de/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group flex flex-row items-center gap-3 rounded-[var(--radius-xl)] border border-(--color-secondary) px-2 py-8 no-underline transition-all duration-300 hover:border-(--color-primary-300) hover:shadow-[var(--shadow-warm-md)] sm:gap-6 sm:px-4 sm:py-10"
+          aria-label="Besuche die offizielle Webseite von NOVA Raumpflege"
+        >
+          <!-- Logo Container (40% Breite) -->
+          <div class="flex w-[40%] shrink-0 items-center justify-center p-1 sm:p-2">
+            <img
+              src="/images/nova_logo.svg"
+              alt="NOVA Raumpflege Logo"
+              width="200"
+              height="65"
+              loading="lazy"
+              class="h-auto w-full max-w-[180px] object-contain transition-transform duration-300 group-hover:scale-105"
+            />
+          </div>
+          <!-- Text Details (60% Breite) -->
+          <div class="flex w-[60%] flex-col gap-1 pr-1 sm:pr-2">
+            <h3
+              class="m-0 font-[family-name:var(--font-heading)] text-[1.125rem] font-bold text-(--color-dark) transition-colors group-hover:text-(--color-primary-700) sm:text-[1.25rem]"
+            >
+              NOVA Raumpflege
+            </h3>
+            <p
+              class="m-0 text-[0.875rem] leading-[1.5] text-(--color-dark) opacity-80 sm:text-[0.9375rem] sm:leading-[1.65]"
+            >
+              Unser Partnerunternehmen für Gebäude- und Glasreinigung.
+            </p>
+          </div>
+        </a>
+      </div>
     </div>
   </section>
 </Layout>

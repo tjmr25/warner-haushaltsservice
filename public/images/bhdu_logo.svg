@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 130" width="400" height="130">
+  <!-- Left Grey Bracket -->
+  <path d="M 10 10 H 70 V 35 H 35 V 95 H 70 V 120 H 10 Z" fill="#b5b5b5" />
+  
+  <!-- Red Box with BHDU -->
+  <rect x="52" y="27" width="135" height="76" fill="#a61c2b" />
+  <text x="119.5" y="81" font-family="'Plus Jakarta Sans', 'Arial Black', sans-serif" font-weight="900" font-size="50" fill="#ffffff" text-anchor="middle" letter-spacing="1">BHDU</text>
+
+  <!-- Right Text (4 lines) -->
+  <g font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="700" fill="#595959" font-size="15.5" letter-spacing="1.2">
+    <text x="200" y="44">BUNDESVERBAND</text>
+    <text x="200" y="63">HAUSHALTSNAHER</text>
+    <text x="200" y="82">DIENSTLEISTUNGS-</text>
+    <text x="200" y="101">UNTERNEHMEN E. V.</text>
+  </g>
+</svg>

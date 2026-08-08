@@ -1,0 +1,137 @@
+---
+/**
+ * PageHero – Wiederverwendbare Hero-Section
+ *
+ * Props:
+ *   eyebrow   – Kleiner Text über der Headline
+ *   heading   – Haupt-Headline (plain text; für Zeilenumbrüche headingHtml nutzen)
+ *   headingHtml – Haupt-Headline als HTML-String (überschreibt heading)
+ *   text      – Fließtext unter der Headline
+ *   imageSrc  – Pfad zum Hero-Bild (relativ zu /public)
+ *   imageAlt  – Alt-Text für das Hero-Bild
+ *   ctaHref   – Ziel-URL des CTA-Buttons (Standard: /kontakt)
+ *   ctaLabel  – Beschriftung des CTA-Buttons
+ *   headingTag – "h1" (Standard) oder "h2"
+ */
+interface Props {
+  eyebrow?: string;
+  heading?: string;
+  headingHtml?: string;
+  text: string;
+  imageSrc: string;
+  imageAlt: string;
+  ctaHref?: string;
+  ctaLabel?: string;
+  headingTag?: 'h1' | 'h2';
+}
+
+const {
+  eyebrow = 'Seit über 20 Jahren in Hamburg',
+  heading,
+  headingHtml,
+  text,
+  imageSrc,
+  imageAlt,
+  ctaHref = '/kontakt',
+  ctaLabel = 'Jetzt Kontakt aufnehmen',
+  headingTag = 'h1',
+} = Astro.props;
+
+const HeadingTag = headingTag;
+---
+
+<!-- =============================================
+     PAGE HERO SECTION
+     Mobile: Bild oben (full-bleed), Text-Karte überlappt unten
+     Desktop: Zweispaltig, Text links, Bild rechts
+     ============================================= -->
+<section
+  class="relative bg-(--color-base) overflow-x-hidden pt-0 pb-12 lg:pt-10 lg:pb-16"
+  aria-label="Einführung"
+  data-page-hero
+>
+  <div class="container-page">
+    <!-- Grid: Mobile = column-stack, Desktop = 2-column -->
+    <div class="flex flex-col lg:grid lg:grid-cols-[1.15fr_1fr] lg:items-center lg:gap-16">
+
+      <!-- Bild (oben Mobile, rechts Desktop) -->
+      <div class="order-first lg:order-last -mx-4 md:-mx-6 w-[calc(100%+2rem)] md:w-[calc(100%+3rem)] lg:mx-0 lg:w-full lg:col-start-2 relative">
+        <img
+          src={imageSrc}
+          alt={imageAlt}
+          width="600"
+          height="600"
+          loading="eager"
+          fetchpriority="high"
+          class="w-full h-[360px] object-cover block lg:h-[600px] lg:rounded-[var(--radius-lg)] lg:shadow-[var(--shadow-warm-md)]"
+        />
+      </div>
+
+      <!-- Text-Karte (unten Mobile überlappend, links Desktop) -->
+      <div class="
+        relative z-[2]
+        bg-(--color-base) rounded-[var(--radius-lg)] p-8 md:p-10 -mt-20
+        flex flex-col gap-4
+        lg:bg-transparent lg:rounded-none lg:p-0 lg:mt-0 lg:shadow-none lg:col-start-1 lg:gap-5
+      ">
+        <!-- Eyebrow -->
+        <span class="font-[family-name:var(--font-body)] text-[0.8125rem] font-bold uppercase tracking-[0.08em] text-(--color-primary-700)">
+          {eyebrow}
+        </span>
+
+        <!-- Headline -->
+        {headingHtml ? (
+          <HeadingTag class="text-[2.25rem] md:text-[2.75rem] leading-[1.2] text-(--color-dark) font-bold m-0" set:html={headingHtml} />
+        ) : (
+          <HeadingTag class="text-[2.25rem] md:text-[2.75rem] leading-[1.2] text-(--color-dark) font-bold m-0">
+            {heading}
+          </HeadingTag>
+        )}
+
+        <!-- Fließtext -->
+        <p class="text-[1.0625rem] leading-[1.75] text-(--color-dark) opacity-90 m-0 max-w-[55ch]">
+          {text}
+        </p>
+
+        <!-- CTA -->
+        <div>
+          <a
+            href={ctaHref}
+            class="
+              inline-flex items-center justify-center gap-2
+              w-full md:w-auto
+              px-7 py-[0.875rem]
+              bg-(--color-primary-500) border-2 border-(--color-primary-500)
+              text-(--color-dark) font-[family-name:var(--font-heading)] text-base font-bold
+              rounded-[var(--radius)] no-underline
+              shadow-[0_4px_12px_rgb(255_183_48/0.25)]
+              transition-all duration-[250ms]
+              hover:bg-transparent hover:text-(--color-primary-800) hover:shadow-none
+              focus-visible:outline-2 focus-visible:outline-(--color-dark) focus-visible:outline-offset-3
+              group
+            "
+          >
+            {ctaLabel}
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+              class="transition-transform duration-200 group-hover:translate-x-1"
+            >
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+

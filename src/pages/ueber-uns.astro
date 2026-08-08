@@ -1,21 +1,20 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
 ---
 
-<Layout title="Über uns – Warner Haushaltsservice" description="Erfahren Sie mehr über Warner Haushaltsservice – 20+ Jahre Erfahrung in Hamburg.">
-  <section class="page-placeholder">
-    <h1>Über uns</h1>
-    <p>Diese Seite wird gerade aufgebaut.</p>
-  </section>
-</Layout>
+<Layout
+  title="Über uns – Warner Haushaltsservice"
+  description="Erfahren Sie mehr über Warner Haushaltsservice – 20+ Jahre Erfahrung in Hamburg."
+>
+  <PageHero
+    eyebrow="Unser Team, Ihre Vertrauensperson"
+    headingHtml="Wer wir <span>sind</span>"
+    text="Seit über zwanzig Jahren stehen wir für Verlässlichkeit, Herzlichkeit und professionellen Service in Hamburg. Lernen Sie das Team kennen, das täglich für Sie da ist."
+    imageSrc="/images/hero_startseite.png"
+    imageAlt="Das Team von Warner Haushaltsservice in Hamburg"
+    headingTag="h1"
+  />
 
-<style>
-  .page-placeholder {
-    padding: 4rem 1.5rem;
-    text-align: center;
-  }
-  .page-placeholder h1 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-</style>
+  <!-- Seiteninhalt folgt hier -->
+</Layout>

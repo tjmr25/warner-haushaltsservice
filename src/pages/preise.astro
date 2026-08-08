@@ -1,21 +1,20 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
 ---
 
-<Layout title="Preise – Warner Haushaltsservice" description="Transparente Preise und Konditionen bei Warner Haushaltsservice Hamburg.">
-  <section class="page-placeholder">
-    <h1>Preise</h1>
-    <p>Diese Seite wird gerade aufgebaut.</p>
-  </section>
-</Layout>
+<Layout
+  title="Preise – Warner Haushaltsservice"
+  description="Transparente Preise und Konditionen bei Warner Haushaltsservice Hamburg."
+>
+  <PageHero
+    eyebrow="Faire &amp; transparente Konditionen"
+    headingHtml="Unsere <span>Preise</span>"
+    text="Kein Kleingedrucktes, keine versteckten Kosten. Wir bieten Ihnen klare und faire Preise für erstklassige Dienstleistungen – zugeschnitten auf Ihre Bedürfnisse."
+    imageSrc="/images/hero_startseite.png"
+    imageAlt="Freundliche Mitarbeiterin des Warner Haushaltsservice erklärt Preisübersicht"
+    headingTag="h1"
+  />
 
-<style>
-  .page-placeholder {
-    padding: 4rem 1.5rem;
-    text-align: center;
-  }
-  .page-placeholder h1 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-</style>
+  <!-- Seiteninhalt folgt hier -->
+</Layout>
