@@ -8,13 +8,162 @@ import PageHero from '../components/PageHero.astro';
   description="Unterstützung und Entlastung für Pflegebedürftige und ihre Angehörigen in Hamburg."
 >
   <PageHero
-    eyebrow="Seit über 20 Jahren in Hamburg"
-    headingHtml="Für Pflegebedürftige &amp; <span>ihre Angehörigen</span>"
-    text="Wir unterstützen Pflegebedürftige und deren Familien mit einfühlsamer, professioneller Betreuung – damit ein würdevolles und selbstbestimmtes Leben zu Hause möglich bleibt."
-    imageSrc="/images/hero_startseite.png"
-    imageAlt="Pflegekraft unterstützt eine ältere Person liebevoll zu Hause in Hamburg"
+    eyebrow="Selbstbestimmt zu Hause leben"
+    headingHtml="Haushaltshilfe für <span>Pflegebedürftige</span>"
+    text="Wenn alltägliche Dinge zur Herausforderung werden, sind wir für Sie da. Wir unterstützen pflegebedürftige Menschen dabei, ihren Alltag so selbstbestimmt und angenehm wie möglich zu gestalten."
+    badgeText="Abrechenbar über die Pflegekasse"
+    imageSrc="/images/pflegebeduerfte_hero.jpg"
+    imageAlt="Freundliche Alltagsbegleiterin unterstützt eine ältere Dame liebevoll in ihrem Zuhause"
     headingTag="h1"
   />
 
-  <!-- Seiteninhalt folgt hier -->
+  <!-- =============================================
+       UNTERSTÜTZUNG IM ALLTAG SECTION
+       ============================================= -->
+  <section
+    class="wh-section bg-(--color-base-alt)"
+    aria-labelledby="alltag-heading"
+  >
+    <div class="container-page">
+      <div class="mx-auto flex max-w-3xl flex-col gap-6">
+        <!-- Header block -->
+        <div class="flex flex-col gap-3">
+          <span
+            class="font-[family-name:var(--font-body)] text-[0.8125rem] font-bold tracking-[0.08em] text-(--color-primary-700) uppercase"
+          >
+            Individuelle Alltagshilfe
+          </span>
+          <h2
+            id="alltag-heading"
+            class="m-0 font-[family-name:var(--font-heading)] text-[2rem] leading-[1.2] font-bold text-(--color-dark) lg:text-[2.5rem]"
+          >
+            Unterstützung, wenn der Alltag schwerfällt
+          </h2>
+          <div class="h-1 w-12 rounded-full bg-(--color-primary-500)"></div>
+        </div>
+
+        <!-- Intro paragraphs -->
+        <div class="flex flex-col gap-4">
+          <p
+            class="m-0 text-[1.0625rem] leading-[1.8] text-(--color-dark) opacity-85"
+          >
+            Wir nehmen uns Zeit, hören zu und passen unsere Hilfe individuell an
+            die Bedürfnisse jedes Einzelnen an.
+          </p>
+        </div>
+
+        <!-- Goal statement paragraph -->
+        <p
+          class="m-0 text-[1.0625rem] leading-[1.8] text-(--color-dark) opacity-85"
+        >
+          Unser Ziel ist es, Entlastung zu schaffen, Sicherheit zu geben und
+          die Lebensqualität zu erhalten – zuverlässig, respektvoll und
+          menschlich.
+        </p>
+
+        <!-- Consultation paragraph below card -->
+        <p
+          class="m-0 text-[1.0625rem] leading-[1.8] text-(--color-dark) opacity-85"
+        >
+          Gerne beraten wir Sie persönlich zu den Möglichkeiten der
+          Kostenübernahme durch die Pflegekasse und zu unseren Leistungen.
+        </p>
+
+        <!-- Qualifications card -->
+        <div
+          class="rounded-[var(--radius-xl)] border border-(--color-secondary)/80 bg-white p-7 shadow-[0_4px_20px_rgb(27_34_39/0.03)]"
+        >
+          <h3
+            class="m-0 mb-5 font-[family-name:var(--font-heading)] text-[1.25rem] font-bold text-(--color-dark)"
+          >
+            Qualifikation unserer Mitarbeiterinnen
+          </h3>
+          <div class="flex flex-col gap-5">
+            <!-- Badge 1 -->
+            <div class="flex items-start gap-4">
+              <div
+                class="flex h-10 w-10 shrink-0 items-center justify-center rounded-[var(--radius-lg)] bg-(--color-primary-100) text-(--color-primary-700)"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+              </div>
+              <p
+                class="m-0 text-[0.9375rem] leading-[1.7] text-(--color-dark) opacity-80"
+              >
+                Mehrtägige, nach der <strong
+                  class="font-semibold text-(--color-dark) opacity-100"
+                  >Hamburgischen Pflege-Engagement-Verordnung</strong
+                > anerkannte Schulung
+              </p>
+            </div>
+            <!-- Badge 2 -->
+            <div class="flex items-start gap-4">
+              <div
+                class="flex h-10 w-10 shrink-0 items-center justify-center rounded-[var(--radius-lg)] bg-(--color-primary-100) text-(--color-primary-700)"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                </svg>
+              </div>
+              <p
+                class="m-0 text-[0.9375rem] leading-[1.7] text-(--color-dark) opacity-80"
+              >
+                Alle Mitarbeiterinnen absolvieren einen <strong
+                  class="font-semibold text-(--color-dark) opacity-100"
+                  >Erste-Hilfe-Kurs</strong
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA Button -->
+        <div class="pt-2">
+          <a
+            href="/kontakt"
+            class="group inline-flex items-center gap-2 rounded-[var(--radius-lg)] border-2 border-(--color-primary-500) bg-(--color-primary-500) px-7 py-[0.875rem] font-[family-name:var(--font-heading)] text-[1rem] font-bold text-(--color-dark) no-underline shadow-[0_4px_16px_rgb(255_183_48/0.3)] transition-all duration-200 hover:border-(--color-primary-400) hover:bg-(--color-primary-400) hover:shadow-[0_6px_22px_rgb(255_183_48/0.45)] active:scale-[0.98]"
+          >
+            Kompetent beraten lassen
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+              class="transition-transform duration-200 group-hover:translate-x-1"
+            >
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>
