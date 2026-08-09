@@ -7,7 +7,8 @@
  *   heading   – Haupt-Headline (plain text; für Zeilenumbrüche headingHtml nutzen)
  *   headingHtml – Haupt-Headline als HTML-String (überschreibt heading)
  *   text      – Fließtext unter der Headline
- *   imageSrc  – Importiertes Astro-Bild-Objekt (ImageMetadata) oder Pfad-String für SVGs
+ *   imageSrc  – Importiertes Astro-Bild-Objekt (Mobile-Bild)
+ *   imageSrcDesktop – Optionales Desktop-Bild (ab lg: sichtbar)
  *   imageAlt  – Alt-Text für das Hero-Bild
  *   ctaHref   – Ziel-URL des CTA-Buttons (Standard: /kontakt)
  *   ctaLabel  – Beschriftung des CTA-Buttons
@@ -23,6 +24,7 @@ interface Props {
   headingHtml?: string;
   text: string;
   imageSrc: ImageMetadata | string;
+  imageSrcDesktop?: ImageMetadata | string;
   imageAlt: string;
   ctaHref?: string;
   ctaLabel?: string;
@@ -37,6 +39,7 @@ const {
   headingHtml,
   text,
   imageSrc,
+  imageSrcDesktop,
   imageAlt,
   ctaHref = '/kontakt',
   ctaLabel = 'Jetzt Kontakt aufnehmen',
@@ -47,8 +50,8 @@ const {
 
 const HeadingTag = headingTag;
 
-// Prüfen ob imageSrc ein importiertes Bild-Objekt oder ein String-Pfad ist
 const isImportedImage = typeof imageSrc === 'object';
+const isImportedDesktop = typeof imageSrcDesktop === 'object';
 ---
 
 <!-- =============================================
@@ -67,26 +70,58 @@ const isImportedImage = typeof imageSrc === 'object';
 
       <!-- Bild (oben Mobile, rechts Desktop) -->
       <div class="order-first lg:order-last -mx-4 md:-mx-6 w-[calc(100%+2rem)] md:w-[calc(100%+3rem)] lg:mx-0 lg:w-full lg:col-start-2 relative">
+        {/* Mobile-Bild: immer sichtbar auf Mobile, auf Desktop ausgeblendet wenn Desktop-Bild vorhanden */}
         {isImportedImage ? (
           <Image
             src={imageSrc as ImageMetadata}
             alt={imageAlt}
-            class="w-full h-[320px] sm:h-[400px] md:h-[480px] lg:h-[550px] object-cover rounded-none lg:rounded-[var(--radius-xl)] shadow-none lg:shadow-[0_12px_40px_rgb(27_34_39/0.08)]"
+            class:list={[
+              "w-full h-[320px] sm:h-[400px] md:h-[480px] object-cover rounded-none shadow-none",
+              imageSrcDesktop ? "lg:hidden" : "lg:block lg:h-[550px] lg:rounded-[var(--radius-xl)] lg:shadow-[0_12px_40px_rgb(27_34_39/0.08)]",
+            ]}
             style={`object-position: ${imageObjectPosition};`}
             loading="eager"
             decoding="async"
-            widths={[400, 700, 900, 1200]}
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 50vw"
+            widths={[400, 700, 900]}
+            sizes="(max-width: 1024px) 100vw, 50vw"
           />
         ) : (
           <img
             src={imageSrc as string}
             alt={imageAlt}
-            class="w-full h-[320px] sm:h-[400px] md:h-[480px] lg:h-[550px] object-cover rounded-none lg:rounded-[var(--radius-xl)] shadow-none lg:shadow-[0_12px_40px_rgb(27_34_39/0.08)]"
+            class:list={[
+              "w-full h-[320px] sm:h-[400px] md:h-[480px] object-cover rounded-none shadow-none",
+              imageSrcDesktop ? "lg:hidden" : "lg:block lg:h-[550px] lg:rounded-[var(--radius-xl)] lg:shadow-[0_12px_40px_rgb(27_34_39/0.08)]",
+            ]}
             style={`object-position: ${imageObjectPosition};`}
             loading="eager"
             decoding="async"
           />
+        )}
+
+        {/* Desktop-Bild: nur sichtbar auf lg+ */}
+        {imageSrcDesktop && (
+          isImportedDesktop ? (
+            <Image
+              src={imageSrcDesktop as ImageMetadata}
+              alt={imageAlt}
+              class="hidden lg:block w-full h-[550px] object-cover rounded-[var(--radius-xl)] shadow-[0_12px_40px_rgb(27_34_39/0.08)]"
+              style={`object-position: ${imageObjectPosition};`}
+              loading="eager"
+              decoding="async"
+              widths={[700, 900, 1200]}
+              sizes="50vw"
+            />
+          ) : (
+            <img
+              src={imageSrcDesktop as string}
+              alt={imageAlt}
+              class="hidden lg:block w-full h-[550px] object-cover rounded-[var(--radius-xl)] shadow-[0_12px_40px_rgb(27_34_39/0.08)]"
+              style={`object-position: ${imageObjectPosition};`}
+              loading="eager"
+              decoding="async"
+            />
+          )
         )}
       </div>
 

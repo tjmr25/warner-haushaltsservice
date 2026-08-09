@@ -1,21 +1,319 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import PageHero from '../components/PageHero.astro';
+import { Image } from 'astro:assets';
+
 import gruppenfotos from '../assets/images/gruppenfoto.png';
+import gruppenfotos_desktop from '../assets/images/gruppenfoto_desktop.png';
+
+import frauRaulf from '../assets/images/frau_raulf.png';
+import frauMeins from '../assets/images/frau_meins.jpg';
+import frauMinak from '../assets/images/frau_minak.jpeg';
+import frauEberle from '../assets/images/frau_eberle.jpg';
+import frauKoch from '../assets/images/frau_koch.jpg';
+import thomasRaulf from '../assets/images/thomas_raulf.jpeg';
+
+const timeline = [
+  {
+    year: "2000",
+    title: "Gründung in Hamburg",
+    text: "Die Warner Haushaltsservice GmbH nimmt ihre Arbeit auf und bietet seitdem haushaltsbezogene Dienstleistungen in ganz Hamburg an.",
+    highlight: false,
+  },
+  {
+    year: "2010",
+    title: "Vertrag mit dem vdek",
+    text: "Seit August 2010 haben wir einen Vertrag mit dem Verband der Angestellten-Krankenkassen e.V. (vdek) über die Durchführung von Haushaltshilfe gemäß § 132 SGB V. Wir leisten Haushaltshilfe nach ärztlicher Verordnung, welche in der Regel direkt mit den Krankenkassen abgerechnet wird.",
+    highlight: false,
+  },
+  {
+    year: "2019",
+    title: "Anerkannt nach HmbPfIEV",
+    text: `Seit Juni 2019 sind wir mit unserem Angebot „Hauswirtschaft für Pflegebedürftige" als Angebot zur Unterstützung im Alltag gemäß der Hamburgischen Pflege-Engagement Verordnung anerkannt. Die erbrachten Leistungen sind für unsere Kunden direkt über die jeweilige Pflegekasse abrechenbar.`,
+    highlight: false,
+  },
+  {
+    year: "Heute",
+    title: "Über 100 Mitarbeiterinnen",
+    text: "Wir beschäftigen über 100 Haushaltshilfen in Teilzeit, die in ca. 800 verschiedenen Haushalten in ganz Hamburg tätig sind.",
+    highlight: true,
+  },
+];
+
+const teamMembers = [
+  {
+    name: "Silke Raulf",
+    role: "Geschäftsführerin",
+    image: frauRaulf,
+  },
+  {
+    name: "Britta Meins",
+    role: "Prokuristin",
+    image: frauMeins,
+  },
+  {
+    name: "Denis Minak",
+    role: "Pflegefachkraft",
+    image: frauMinak,
+  },
+  {
+    name: "Beata Eberle",
+    role: "Kundenservice",
+    image: frauEberle,
+  },
+  {
+    name: "Kerstin Koch",
+    role: "Kundenservice",
+    image: frauKoch,
+  },
+];
 ---
 
 <Layout
   title="Über uns – Warner Haushaltsservice"
-  description="Erfahren Sie mehr über Warner Haushaltsservice – 20+ Jahre Erfahrung in Hamburg."
+  description="Erfahren Sie mehr über Warner Haushaltsservice – seit März 2000 Ihr zuverlässiger Partner für haushaltsnahe Dienstleistungen in Hamburg."
 >
   <PageHero
-    eyebrow="Seit März 2000 in Hamburg"
+    eyebrow="Für Sie zur stelle"
     headingHtml="Über <span>uns</span>"
     text={`Die Warner Haushaltsservice GmbH bietet seit dem März 2000 haushaltsbezogene Dienstleistungen in Hamburg an. Wir beschäftigen derzeit über 100 Haushaltshilfen in Teilzeit, die in ca. 800 verschiedenen Haushalten in ganz Hamburg tätig sind.\n\nDie Haushaltshilfen arbeiten zwischen 15 und 30 Stunden pro Woche und sind fest bei uns angestellt. Die Einsatzzeiten in den Haushalten variieren von zweiwöchentlichen Einsätzen bis hin zu täglichen Einsätzen bei den gleichen Kunden.`}
     imageSrc={gruppenfotos}
+    imageSrcDesktop={gruppenfotos_desktop}
     imageAlt="Das Team der Warner Haushaltsservice GmbH in Hamburg"
     headingTag="h1"
   />
 
-  <!-- Seiteninhalt folgt hier -->
+  <!-- =============================================
+       UNSERE GESCHICHTE – TIMELINE
+       ============================================= -->
+  <section
+    class="wh-section bg-(--color-base-alt)"
+    aria-labelledby="geschichte-heading"
+  >
+    <div class="container-page">
+      <!-- Section Header -->
+      <div class="mb-10 flex flex-col gap-3">
+        <span class="font-[family-name:var(--font-body)] text-[0.8125rem] font-bold uppercase tracking-[0.08em] text-(--color-primary-700)">
+          Meilensteine
+        </span>
+        <h2
+          id="geschichte-heading"
+          class="m-0 font-[family-name:var(--font-heading)] text-[1.875rem] md:text-[2.25rem] font-bold leading-[1.2] text-(--color-dark)"
+        >
+          Unsere Geschichte
+        </h2>
+      </div>
+
+      <!-- Timeline -->
+      <div class="relative">
+        <!-- Durchgehende vertikale Linie -->
+        <div
+          class="absolute left-[4.75rem] top-[0.8125rem] bottom-[0.8125rem] w-px bg-(--color-secondary)"
+          aria-hidden="true"
+        ></div>
+
+        <ul class="list-none m-0 p-0 flex flex-col">
+          {timeline.map((item, i) => (
+            <li class:list={["relative flex flex-col", i < timeline.length - 1 ? "pb-10" : ""]}>
+
+              <!-- Header-Zeile: Jahr, Dot und Überschrift auf exakt derselben Höhe -->
+              <div class="flex items-center min-h-[1.625rem]">
+                <!-- Jahr -->
+                <div class="shrink-0 w-[4.75rem] text-right pr-4">
+                  <span
+                    class:list={[
+                      "font-[family-name:var(--font-heading)] text-[0.875rem] font-bold leading-none inline-block",
+                      item.highlight
+                        ? "text-(--color-primary-600)"
+                        : "text-(--color-dark) opacity-40",
+                    ]}
+                  >
+                    {item.year}
+                  </span>
+                </div>
+
+                <!-- Dot (zentriert auf der vertikalen Linie) -->
+                <div class="relative shrink-0 flex items-center justify-center w-[1px] h-[1.625rem]">
+                  <div
+                    class:list={[
+                      "absolute -translate-x-1/2 w-[10px] h-[10px] rounded-full border-2 z-10",
+                      item.highlight
+                        ? "bg-(--color-primary-500) border-(--color-primary-500)"
+                        : "bg-(--color-base-alt) border-(--color-primary-400)",
+                    ]}
+                  ></div>
+                </div>
+
+                <!-- Überschrift -->
+                <div class="flex-1 pl-6">
+                  <h3 class="m-0 font-[family-name:var(--font-heading)] text-[1rem] font-bold text-(--color-dark) leading-none">
+                    {item.title}
+                  </h3>
+                </div>
+              </div>
+
+              <!-- Fließtext (bündig unter der Überschrift eingerückt) -->
+              <div class="pl-[calc(4.75rem+1.5rem+1px)] mt-2">
+                <p class="m-0 text-[0.9375rem] leading-[1.75] text-(--color-dark) opacity-65 max-w-[52ch]">
+                  {item.text}
+                </p>
+              </div>
+
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       DAS TEAM / ANSPRECHPARTNER SECTION
+       ============================================= -->
+  <section
+    class="wh-section bg-(--color-base) overflow-hidden"
+    aria-labelledby="team-heading"
+  >
+    <div class="container-page">
+      <!-- Section Header -->
+      <div class="mb-10 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+        <div class="flex flex-col gap-3">
+          <span class="font-[family-name:var(--font-body)] text-[0.8125rem] font-bold uppercase tracking-[0.08em] text-(--color-primary-700)">
+            Ansprechpartner &amp; Leitung
+          </span>
+          <h2
+            id="team-heading"
+            class="m-0 font-[family-name:var(--font-heading)] text-[1.875rem] md:text-[2.25rem] font-bold leading-[1.2] text-(--color-dark)"
+          >
+            Das Team
+          </h2>
+        </div>
+        <!-- Swipe-Hinweis auf Mobile -->
+        <div class="flex items-center gap-2 text-[0.8125rem] font-semibold text-(--color-dark) opacity-50 md:hidden">
+          <span>Wischen für mehr</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Slider Container: Mobile horizontal scroll (~1.5 cards visible), Desktop grid -->
+      <div class="
+        flex overflow-x-auto snap-x snap-mandatory scrollbar-none gap-4 pt-2 pb-6
+        -mx-4 px-4 sm:-mx-6 sm:px-6
+        scroll-px-4 sm:scroll-px-6
+        md:mx-0 md:px-0 md:pt-0 md:pb-0 md:grid md:grid-cols-3 lg:grid-cols-5 md:gap-6
+      ">
+        {teamMembers.map((member) => (
+          <article
+            class="
+              shrink-0 w-[64vw] sm:w-[220px] md:w-auto snap-start
+              flex flex-col overflow-hidden rounded-[var(--radius-xl)]
+              bg-white border border-(--color-secondary)/80
+              shadow-[0_8px_24px_rgb(27_34_39/0.08)]
+              transition-all duration-300 hover:shadow-[0_12px_32px_rgb(27_34_39/0.14)] hover:-translate-y-1
+            "
+          >
+            <!-- Foto Container -->
+            <div class="h-[250px] sm:h-[260px] md:h-[220px] lg:h-[210px] w-full overflow-hidden bg-(--color-secondary)/20">
+              <Image
+                src={member.image}
+                alt={`${member.name} – ${member.role}`}
+                class="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105"
+                widths={[300, 500]}
+                sizes="(max-width: 768px) 65vw, (max-width: 1024px) 33vw, 20vw"
+              />
+            </div>
+
+            <!-- Info Container -->
+            <div class="p-5 flex flex-col gap-1 text-center flex-1 justify-center">
+              <h3 class="m-0 font-[family-name:var(--font-heading)] text-[1.0625rem] font-bold text-(--color-dark) leading-[1.3]">
+                {member.name}
+              </h3>
+              <span class="text-[0.84375rem] font-semibold text-(--color-primary-700)">
+                {member.role}
+              </span>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <!-- Unterüberschrift & Text: Mitarbeiterinnen -->
+      <div class="mt-12 flex flex-col gap-4 max-w-3xl">
+        <h3 class="m-0 font-[family-name:var(--font-heading)] text-[1.375rem] md:text-[1.5rem] font-bold text-(--color-dark)">
+          Mitarbeiterinnen
+        </h3>
+        <p class="m-0 text-[1.0625rem] leading-[1.75] text-(--color-dark) opacity-90">
+          Zu unserem Team zählen mittlerweile über 100 Mitarbeiterinnen, von denen viele schon langjährig bei uns tätig sind und die unterschiedlichsten kulturellen Hintergründe mitbringen. Wir sind stolz auf jede Einzelne und die gute Arbeit, die sie leistet.
+        </p>
+
+        <!-- Herausgestellter Hinweis -->
+        <div class="mt-2 rounded-r-[var(--radius-lg)] border-l-4 border-(--color-primary-500) bg-(--color-base-alt) p-4 md:p-5">
+          <p class="m-0 text-[1.0625rem] leading-[1.75] text-(--color-dark) font-medium">
+            Wenn Sie als Kunde ausschließlich eine &bdquo;deutsche&ldquo; Haushaltshilfe buchen möchten, sind wir leider nicht der richtige Dienstleister für Sie.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       IN MEMORIAM / IN GEDENKEN – THOMAS RAULF
+       ============================================= -->
+  <section
+    class="wh-section bg-(--color-base-alt)"
+    aria-labelledby="memoriam-heading"
+  >
+    <div class="container-page">
+      <div class="mx-auto max-w-2xl rounded-[var(--radius-xl)] bg-[#eae5da] border border-(--color-secondary) shadow-[0_4px_20px_rgb(27_34_39/0.06)] p-6 sm:p-9 flex flex-col gap-5">
+
+        <!-- Header-Zeile: Bild & Überschrift nebeneinander -->
+        <div class="flex items-center gap-4 sm:gap-6">
+          <!-- Runder Schwarz-Weiß Foto-Avatar -->
+          <div class="shrink-0 w-28 h-28 sm:w-36 sm:h-36 rounded-full overflow-hidden border-2 border-(--color-primary-400)/50 shadow-md bg-(--color-secondary)/30">
+            <Image
+              src={thomasRaulf}
+              alt="Thomas Raulf – Firmengründer"
+              class="w-full h-full object-cover scale-115 object-top grayscale contrast-[1.05] opacity-95"
+              widths={[400]}
+              sizes="(max-width: 640px) 112px, 144px"
+            />
+          </div>
+
+          <!-- Titel & Name nebeneinander rechts vom Bild -->
+          <div class="flex flex-col gap-1 text-left">
+            <span class="font-[family-name:var(--font-body)] text-[0.75rem] font-bold uppercase tracking-[0.15em] text-(--color-primary-700)">
+              IN MEMORIAM
+            </span>
+            <h2 id="memoriam-heading" class="m-0 font-[family-name:var(--font-heading)] text-[1.5rem] sm:text-[1.75rem] font-bold text-(--color-dark) leading-tight">
+              Firmengründer
+            </h2>
+            <span class="text-[1rem] sm:text-[1.125rem] font-semibold text-(--color-dark) opacity-80 mt-0.5">
+              Thomas Raulf
+            </span>
+          </div>
+        </div>
+
+        <!-- Inhaltsbereich darunter -->
+        <div class="flex flex-col gap-3">
+          <!-- Dezenter Akzentstrich -->
+          <div class="w-12 h-0.5 bg-(--color-primary-500) my-0.5"></div>
+
+          <!-- Haupttext -->
+          <p class="m-0 text-[0.9375rem] sm:text-[0.98rem] leading-[1.75] text-(--color-dark) opacity-80">
+            Nach Abschluss seines Psychologiestudiums gründete Herr Raulf im Jahre 2000 zusammen mit Frau Sylvia Warner den Warner Haushaltsservice, den mittlerweile größten Anbieter hauswirtschaftlicher Dienstleistungen für Privathaushalte in Hamburg.
+          </p>
+
+          <!-- Trennlinie -->
+          <div class="h-px w-full bg-(--color-dark)/15 my-1"></div>
+
+          <!-- Kursiver Schlusssatz -->
+          <p class="m-0 text-[0.875rem] leading-[1.65] italic text-(--color-dark) opacity-60">
+            Herr Raulf ist im Januar 2024 nach schwerer Krankheit verstorben.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
 </Layout>
