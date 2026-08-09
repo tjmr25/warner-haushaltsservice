@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import PageHero from '../components/PageHero.astro';
+import gruppenfotos from '../assets/images/gruppenfoto.jpg';
 ---
 
 <Layout
@@ -8,11 +9,11 @@ import PageHero from '../components/PageHero.astro';
   description="Erfahren Sie mehr über Warner Haushaltsservice – 20+ Jahre Erfahrung in Hamburg."
 >
   <PageHero
-    eyebrow="Unser Team, Ihre Vertrauensperson"
-    headingHtml="Wer wir <span>sind</span>"
-    text="Seit über zwanzig Jahren stehen wir für Verlässlichkeit, Herzlichkeit und professionellen Service in Hamburg. Lernen Sie das Team kennen, das täglich für Sie da ist."
-    imageSrc="/images/hero_startseite.png"
-    imageAlt="Das Team von Warner Haushaltsservice in Hamburg"
+    eyebrow="Seit März 2000 in Hamburg"
+    headingHtml="Über <span>uns</span>"
+    text={`Die Warner Haushaltsservice GmbH bietet seit dem März 2000 haushaltsbezogene Dienstleistungen in Hamburg an. Wir beschäftigen derzeit über 100 Haushaltshilfen in Teilzeit, die in ca. 800 verschiedenen Haushalten in ganz Hamburg tätig sind.\n\nDie Haushaltshilfen arbeiten zwischen 15 und 30 Stunden pro Woche und sind fest bei uns angestellt. Die Einsatzzeiten in den Haushalten variieren von zweiwöchentlichen Einsätzen bis hin zu täglichen Einsätzen bei den gleichen Kunden.`}
+    imageSrc={gruppenfotos}
+    imageAlt="Das Team der Warner Haushaltsservice GmbH in Hamburg"
     headingTag="h1"
   />
 

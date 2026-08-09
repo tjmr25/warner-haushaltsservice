@@ -1,5 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import heroStartseite from '../assets/images/hero_startseite.png';
+import privathaushalteHero from '../assets/images/privathaushalte_hero.jpg';
+import pflegebeduerfteBild from '../assets/images/pflegebeduerfte_hero.jpg';
 ---
 
 <Layout
@@ -19,20 +23,20 @@ import Layout from '../layouts/Layout.astro';
     <div class="lg:hidden">
       <!-- Bild Container (mit sanftem Verlauf oben für den Header) -->
       <div class="relative">
-        <img
-          src="/images/hero_startseite.png"
+        <Image
+          src={heroStartseite}
           alt="Ein aufgeräumtes und sauberes Wohnzimmer in Hamburg"
-          width="800"
-          height="600"
           loading="eager"
           fetchpriority="high"
           class="block w-full object-cover"
           style="height: min(64vh, 460px); min-height: 320px; object-position: center 30%;"
+          widths={[400, 800, 1200]}
+          sizes="100vw"
         />
 
         <!-- Sanfter heller Verlauf oben für den Header -->
         <div
-          class="pointer-events-none absolute top-0 right-0 left-0 h-32 z-[5]"
+          class="pointer-events-none absolute top-0 right-0 left-0 z-[5] h-32"
           style="background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%);"
           aria-hidden="true"
         >
@@ -65,14 +69,17 @@ import Layout from '../layouts/Layout.astro';
           <p
             class="m-0 text-[1rem] leading-[1.75] text-(--color-dark) opacity-80"
           >
-            Willkommen beim Warner Haushaltsservice! Seit über 20 Jahren sind wir Ihr zuverlässiger Partner für haushaltsnahe Dienstleistungen und setzen uns mit Hingabe dafür ein, dass Sie sich in Ihren eigenen vier Wänden wohl fühlen.
+            Willkommen beim Warner Haushaltsservice! Seit über 20 Jahren sind
+            wir Ihr zuverlässiger Partner für haushaltsnahe Dienstleistungen und
+            setzen uns mit Hingabe dafür ein, dass Sie sich in Ihren eigenen
+            vier Wänden wohl fühlen.
           </p>
 
           <!-- CTA -->
           <div class="flex flex-col gap-3">
             <a
               href="/kontakt"
-              class="group inline-flex w-full items-center justify-center gap-2 rounded-[var(--radius)] border-2 border-(--color-primary-500) bg-(--color-primary-500) px-6 py-[0.875rem] font-[family-name:var(--font-heading)] text-[0.9375rem] font-bold text-(--color-dark) no-underline shadow-[0_4px_16px_rgb(255_183_48/0.35)] transition-all duration-[250ms] hover:bg-(--color-primary-400)"
+              class="group text-dark inline-flex w-full items-center justify-center gap-2 rounded-[var(--radius)] border-2 border-(--color-primary-500) bg-(--color-primary-500) px-6 py-[0.875rem] font-[family-name:var(--font-heading)] text-[0.9375rem] font-bold text-[#1b2227] no-underline shadow-[0_4px_16px_rgb(255_183_48/0.35)] transition-all duration-[250ms] hover:bg-(--color-primary-400)"
             >
               Jetzt Kontakt aufnehmen
               <svg
@@ -92,7 +99,7 @@ import Layout from '../layouts/Layout.astro';
             </a>
             <a
               href="/ueber-uns"
-              class="inline-flex w-full items-center justify-center gap-2 rounded-[var(--radius)] border-2 border-(--color-secondary) bg-transparent px-6 py-[0.875rem] font-[family-name:var(--font-heading)] text-[0.9375rem] font-bold text-(--color-dark) no-underline transition-all duration-[250ms] hover:border-(--color-primary-500) hover:bg-(--color-primary-50)"
+              class="text-dark inline-flex w-full items-center justify-center gap-2 rounded-[var(--radius)] border-2 border-(--color-secondary) bg-transparent px-6 py-[0.875rem] font-[family-name:var(--font-heading)] text-[0.9375rem] font-bold text-[#1b2227] no-underline transition-all duration-[250ms] hover:border-(--color-primary-500) hover:bg-(--color-primary-50)"
             >
               Mehr über uns
             </a>
@@ -146,12 +153,15 @@ import Layout from '../layouts/Layout.astro';
             <p
               class="m-0 max-w-[48ch] text-[1.0625rem] leading-[1.8] text-(--color-dark) opacity-80"
             >
-              Willkommen beim Warner Haushaltsservice! Seit über 20 Jahren sind wir Ihr zuverlässiger Partner für haushaltsnahe Dienstleistungen und setzen uns mit Hingabe dafür ein, dass Sie sich in Ihren eigenen vier Wänden wohl fühlen.
+              Willkommen beim Warner Haushaltsservice! Seit über 20 Jahren sind
+              wir Ihr zuverlässiger Partner für haushaltsnahe Dienstleistungen
+              und setzen uns mit Hingabe dafür ein, dass Sie sich in Ihren
+              eigenen vier Wänden wohl fühlen.
             </p>
             <div class="flex gap-3">
               <a
                 href="/kontakt"
-                class="group inline-flex items-center gap-2 rounded-[var(--radius)] border-2 border-(--color-primary-500) bg-(--color-primary-500) px-7 py-[0.9375rem] font-[family-name:var(--font-heading)] text-[0.9375rem] font-bold text-(--color-dark) no-underline shadow-[0_4px_16px_rgb(255_183_48/0.35)] transition-all duration-[250ms] hover:bg-(--color-primary-400)"
+                class="group text-dark inline-flex items-center gap-2 rounded-[var(--radius)] border-2 border-(--color-primary-500) bg-(--color-primary-500) px-7 py-[0.9375rem] font-[family-name:var(--font-heading)] text-[0.9375rem] font-bold text-[#1b2227] no-underline shadow-[0_4px_16px_rgb(255_183_48/0.35)] transition-all duration-[250ms] hover:bg-(--color-primary-400)"
               >
                 Jetzt Kontakt aufnehmen
                 <svg
@@ -171,7 +181,7 @@ import Layout from '../layouts/Layout.astro';
               </a>
               <a
                 href="/ueber-uns"
-                class="inline-flex items-center gap-2 rounded-[var(--radius)] border-2 border-(--color-secondary) bg-transparent px-7 py-[0.9375rem] font-[family-name:var(--font-heading)] text-[0.9375rem] font-bold text-(--color-dark) no-underline transition-all duration-[250ms] hover:border-(--color-primary-500) hover:bg-(--color-primary-50)"
+                class="text-dark inline-flex items-center gap-2 rounded-[var(--radius)] border-2 border-(--color-secondary) bg-transparent px-7 py-[0.9375rem] font-[family-name:var(--font-heading)] text-[0.9375rem] font-bold text-[#1b2227] no-underline transition-all duration-[250ms] hover:border-(--color-primary-500) hover:bg-(--color-primary-50)"
               >
                 Mehr über uns
               </a>
@@ -207,15 +217,15 @@ import Layout from '../layouts/Layout.astro';
 
           <!-- Bild rechts -->
           <div class="relative">
-            <img
-              src="/images/hero_startseite.png"
+            <Image
+              src={heroStartseite}
               alt="Ein aufgeräumtes und sauberes Wohnzimmer in Hamburg"
-              width="800"
-              height="700"
               loading="eager"
               fetchpriority="high"
               class="h-[580px] w-full rounded-[var(--radius-xl)] object-cover shadow-[0_16px_48px_rgb(27_34_39/0.12)]"
               style="object-position: center 30%;"
+              widths={[700, 900, 1200]}
+              sizes="(max-width: 1280px) 50vw, 700px"
             />
           </div>
         </div>
@@ -361,7 +371,9 @@ import Layout from '../layouts/Layout.astro';
                 stroke-linejoin="round"
                 aria-hidden="true"
               >
-                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                ></polygon>
               </svg>
             </div>
             <!-- Content -->
@@ -501,13 +513,13 @@ import Layout from '../layouts/Layout.astro';
           class="flex flex-col overflow-hidden rounded-[var(--radius-xl)] border border-(--color-secondary) bg-(--color-base) shadow-[0_2px_16px_rgb(27_34_39/0.07)] transition-shadow duration-300 hover:shadow-[var(--shadow-warm-md)]"
         >
           <div class="overflow-hidden">
-            <img
-              src="/images/privathaushalte_hero.jpg"
+            <Image
+              src={privathaushalteHero}
               alt="Sauberes, aufgeräumtes Wohnzimmer eines Privathaushalts in Hamburg"
-              width="600"
-              height="340"
               loading="lazy"
               class="h-[220px] w-full object-cover transition-transform duration-500 hover:scale-105"
+              widths={[400, 600, 800]}
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
           <div class="flex flex-1 flex-col gap-4 p-7">
@@ -587,7 +599,7 @@ import Layout from '../layouts/Layout.astro';
             <div class="mt-auto pt-4">
               <a
                 href="/privathaushalte"
-                class="group inline-flex w-full items-center justify-center gap-2 rounded-[var(--radius)] border-2 border-(--color-primary-500) bg-(--color-primary-500) px-6 py-[0.875rem] font-[family-name:var(--font-heading)] text-[0.9375rem] font-bold text-(--color-dark) no-underline shadow-[0_4px_12px_rgb(255_183_48/0.25)] transition-all duration-[250ms] hover:bg-(--color-primary-400) hover:border-(--color-primary-400) focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-(--color-dark)"
+                class="group inline-flex w-full items-center justify-center gap-2 rounded-[var(--radius)] border-2 border-(--color-primary-500) bg-(--color-primary-500) px-6 py-[0.875rem] font-[family-name:var(--font-heading)] text-[0.9375rem] font-bold text-(--color-dark) no-underline shadow-[0_4px_12px_rgb(255_183_48/0.25)] transition-all duration-[250ms] hover:border-(--color-primary-400) hover:bg-(--color-primary-400) focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-(--color-dark)"
               >
                 Zu den Privathaushalten
                 <svg
@@ -614,14 +626,14 @@ import Layout from '../layouts/Layout.astro';
           class="flex flex-col overflow-hidden rounded-[var(--radius-xl)] border border-(--color-secondary) bg-(--color-base) shadow-[0_2px_16px_rgb(27_34_39/0.07)] transition-shadow duration-300 hover:shadow-[var(--shadow-warm-md)]"
         >
           <div class="overflow-hidden">
-            <img
-              src="/images/pflegebeduerfte_hero.jpg"
+            <Image
+              src={pflegebeduerfteBild}
               alt="Fürsorgliche Betreuerin hilft einer älteren Dame beim Aufstehen in einem hellen Wohnzimmer"
-              width="600"
-              height="340"
               loading="lazy"
               class="h-[220px] w-full object-cover transition-transform duration-500 hover:scale-105"
-              style="object-position: center 15%;"
+              style="object-position: center 45%;"
+              widths={[400, 600, 800]}
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
           <div class="flex flex-1 flex-col gap-4 p-7">
@@ -761,7 +773,9 @@ import Layout from '../layouts/Layout.astro';
           aria-label="Besuche die offizielle Webseite des BHDU"
         >
           <!-- Logo Container (40% Breite) -->
-          <div class="flex w-[40%] shrink-0 items-center justify-center p-1 sm:p-2">
+          <div
+            class="flex w-[40%] shrink-0 items-center justify-center p-1 sm:p-2"
+          >
             <img
               src="/images/bhdu_logo.svg"
               alt="BHDU Logo"
@@ -781,7 +795,8 @@ import Layout from '../layouts/Layout.astro';
             <p
               class="m-0 text-[0.875rem] leading-[1.5] text-(--color-dark) opacity-80 sm:text-[0.9375rem] sm:leading-[1.65]"
             >
-              Mitglied im Bundesverband haushaltsnaher Dienstleistungs-Unternehmen.
+              Mitglied im Bundesverband haushaltsnaher
+              Dienstleistungs-Unternehmen.
             </p>
           </div>
         </a>
@@ -795,7 +810,9 @@ import Layout from '../layouts/Layout.astro';
           aria-label="Besuche die offizielle Webseite von NOVA Raumpflege"
         >
           <!-- Logo Container (40% Breite) -->
-          <div class="flex w-[40%] shrink-0 items-center justify-center p-1 sm:p-2">
+          <div
+            class="flex w-[40%] shrink-0 items-center justify-center p-1 sm:p-2"
+          >
             <img
               src="/images/nova_logo.svg"
               alt="NOVA Raumpflege Logo"
