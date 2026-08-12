@@ -234,7 +234,7 @@
 
   @media (min-width: 1024px) {
     .hero-gradient::before {
-      height: 68px; /* Strictly matches header height on desktop */
+      display: none; /* Removed white top gradient on desktop */
     }
   }
 

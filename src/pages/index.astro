@@ -138,13 +138,17 @@ import pflegebeduerfteBild from '../assets/images/pflegebeduerfte_hero.jpg';
     </div>
 
     <!-- ── DESKTOP (ab lg) ────────────────────────── -->
-    <div class="hidden lg:block">
-      <div class="container-page">
+    <div class="hidden lg:block relative overflow-hidden">
+      <!-- Ambient Background Glows -->
+      <div class="pointer-events-none absolute -right-16 top-10 z-0 h-[480px] w-[480px] rounded-full bg-(--color-primary-300)/20 blur-3xl"></div>
+      <div class="pointer-events-none absolute left-1/4 top-1/3 z-0 h-[320px] w-[320px] rounded-full bg-amber-200/25 blur-3xl"></div>
+
+      <div class="container-page relative z-10">
         <div
-          class="grid grid-cols-[1fr_1.1fr] items-center gap-12 lg:gap-16 pt-36 pb-20 lg:pt-44 lg:pb-32"
+          class="grid grid-cols-[1fr_1.1fr] items-center gap-12 lg:gap-16 pt-36 pb-28 lg:pt-48 lg:pb-36"
         >
-          <!-- Text links (weiter nach unten versetzt) -->
-          <div class="flex flex-col gap-6 mt-6 lg:mt-10">
+          <!-- Text links -->
+          <div class="flex flex-col gap-6">
             <h1
               class="m-0 font-[family-name:var(--font-heading)] text-[3rem] leading-[1.15] font-bold tracking-[-0.02em] text-(--color-dark) xl:text-[3.5rem]"
             >
@@ -159,7 +163,7 @@ import pflegebeduerfteBild from '../assets/images/pflegebeduerfte_hero.jpg';
               und setzen uns mit Hingabe dafür ein, dass Sie sich in Ihren
               eigenen vier Wänden wohl fühlen.
             </p>
-            <div class="flex gap-3">
+            <div class="flex gap-3 pt-1">
               <a
                 href="/kontakt"
                 class="group text-dark inline-flex items-center gap-2 rounded-[var(--radius)] border-2 border-(--color-primary-500) bg-(--color-primary-500) px-7 py-[0.9375rem] font-[family-name:var(--font-heading)] text-[0.9375rem] font-bold text-[#1b2227] no-underline shadow-[0_4px_16px_rgb(255_183_48/0.35)] transition-all duration-[250ms] hover:bg-(--color-primary-400)"
@@ -190,7 +194,7 @@ import pflegebeduerfteBild from '../assets/images/pflegebeduerfte_hero.jpg';
             <!-- Anerkennung (desktop Badge) -->
             <div>
               <div
-                class="inline-flex items-center gap-2.5 rounded-full border border-(--color-primary-200) bg-(--color-primary-100)/70 px-3.5 py-1.5 shadow-xs"
+                class="inline-flex items-center gap-2.5 rounded-full border border-(--color-primary-200) bg-(--color-primary-100)/80 px-4 py-2 shadow-xs"
               >
                 <div
                   class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-(--color-primary-500) text-(--color-dark)"
@@ -216,14 +220,17 @@ import pflegebeduerfteBild from '../assets/images/pflegebeduerfte_hero.jpg';
             </div>
           </div>
 
-          <!-- Bild rechts (deutlich höhere Höhe & tieferer Beginn) -->
-          <div class="relative">
+          <!-- Bild rechts mit ansprechender Höhe & Hintergrund-Rahmen -->
+          <div class="relative pl-4">
+            <!-- Dekorativer Rahmen-Hintergrund -->
+            <div class="absolute -bottom-3 -right-3 top-3 left-7 rounded-[var(--radius-xl)] bg-(--color-primary-300)/30 border border-(--color-primary-400)/30 -z-10"></div>
+            
             <Image
               src={heroStartseite}
               alt="Ein aufgeräumtes und sauberes Wohnzimmer in Hamburg"
               loading="eager"
               fetchpriority="high"
-              class="h-[740px] xl:h-[800px] w-full rounded-[var(--radius-xl)] object-cover shadow-[0_16px_48px_rgb(27_34_39/0.12)]"
+              class="h-[480px] lg:h-[520px] xl:h-[550px] w-full rounded-[var(--radius-xl)] object-cover shadow-[0_16px_40px_rgb(27_34_39/0.12)]"
               style="object-position: center 30%;"
               widths={[700, 900, 1200]}
               sizes="(max-width: 1280px) 50vw, 700px"
@@ -238,7 +245,7 @@ import pflegebeduerfteBild from '../assets/images/pflegebeduerfte_hero.jpg';
        STATS SECTION (Saubere 3 Spalten ohne Überlappung)
        ============================================= -->
   <section
-    class="wh-section w-full overflow-hidden bg-(--color-base-alt)"
+    class="wh-section w-full overflow-hidden bg-(--color-base)"
     aria-label="Erfolge und Zahlen"
   >
     <div class="container-page">
@@ -248,7 +255,7 @@ import pflegebeduerfteBild from '../assets/images/pflegebeduerfte_hero.jpg';
       >
         <!-- Stat 1 -->
         <div
-          class="relative flex min-h-[130px] w-full items-center p-6 sm:p-8 md:min-h-[140px] md:px-6 md:py-8 lg:px-10 lg:py-10 overflow-hidden"
+          class="relative flex min-h-[140px] w-full items-center py-9 px-6 sm:py-10 sm:px-8 md:min-h-[140px] md:px-6 md:py-8 lg:px-10 lg:py-10 overflow-hidden"
         >
           <div class="stat-giant-bg" aria-hidden="true">100</div>
           <div
@@ -267,7 +274,7 @@ import pflegebeduerfteBild from '../assets/images/pflegebeduerfte_hero.jpg';
 
         <!-- Stat 2 -->
         <div
-          class="relative flex min-h-[130px] w-full items-center p-6 sm:p-8 md:min-h-[140px] md:px-6 md:py-8 lg:px-10 lg:py-10 overflow-hidden"
+          class="relative flex min-h-[140px] w-full items-center py-9 px-6 sm:py-10 sm:px-8 md:min-h-[140px] md:px-6 md:py-8 lg:px-10 lg:py-10 overflow-hidden"
         >
           <div class="stat-giant-bg" aria-hidden="true">700</div>
           <div
@@ -286,7 +293,7 @@ import pflegebeduerfteBild from '../assets/images/pflegebeduerfte_hero.jpg';
 
         <!-- Stat 3 -->
         <div
-          class="relative flex min-h-[130px] w-full items-center p-6 sm:p-8 md:min-h-[140px] md:px-6 md:py-8 lg:px-10 lg:py-10 overflow-hidden"
+          class="relative flex min-h-[140px] w-full items-center py-9 px-6 sm:py-10 sm:px-8 md:min-h-[140px] md:px-6 md:py-8 lg:px-10 lg:py-10 overflow-hidden"
         >
           <div class="stat-giant-bg" aria-hidden="true">20</div>
           <div
@@ -310,7 +317,7 @@ import pflegebeduerfteBild from '../assets/images/pflegebeduerfte_hero.jpg';
        WARUM WIR SECTION
        ============================================= -->
   <section
-    class="wh-section bg-(--color-base)"
+    class="wh-section bg-(--color-base-alt)"
     aria-labelledby="warum-wir-heading"
   >
     <div class="container-page">
@@ -319,7 +326,7 @@ import pflegebeduerfteBild from '../assets/images/pflegebeduerfte_hero.jpg';
         class="grid grid-cols-1 items-start gap-16 md:grid-cols-[1fr_1.2fr] md:gap-10 lg:grid-cols-[1fr_1.4fr] lg:gap-24"
       >
         <!-- LEFT: Intro -->
-        <div class="flex flex-col gap-6">
+        <div class="flex flex-col gap-6 lg:sticky lg:top-28">
           <div class="flex flex-col gap-3">
             <!-- Eyebrow -->
             <span
@@ -485,256 +492,280 @@ import pflegebeduerfteBild from '../assets/images/pflegebeduerfte_hero.jpg';
        Zwei Karten: Privatkunden & Pflegebedürftige
        ============================================= -->
   <section
-    class="wh-section bg-(--color-base-alt)"
+    class="wh-section bg-(--color-base)"
     aria-labelledby="angebote-heading"
   >
     <div class="container-page">
-      <!-- Section Header -->
-      <div class="mb-12 flex flex-col items-start gap-3 text-left lg:mb-16">
-        <span
-          class="font-[family-name:var(--font-body)] text-[0.8125rem] font-bold tracking-[0.08em] text-(--color-primary-700) uppercase"
-        >
-          Unsere Angebote
-        </span>
-        <h2
-          id="angebote-heading"
-          class="m-0 font-[family-name:var(--font-heading)] text-[2rem] leading-[1.2] font-bold text-(--color-dark) lg:text-[2.75rem]"
-        >
-          Wie können wir Ihnen helfen?
-        </h2>
-        <div class="h-1 w-12 rounded-full bg-(--color-primary-500)"></div>
-      </div>
-
-      <!-- Cards Grid -->
-      <div
-        class="mx-auto grid max-w-4xl grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8"
-      >
-        <!-- Karte 1: Privatkunden -->
-        <article
-          class="flex flex-col overflow-hidden rounded-[var(--radius-xl)] border border-(--color-secondary) bg-(--color-base) shadow-[0_2px_16px_rgb(27_34_39/0.07)] transition-shadow duration-300 hover:shadow-[var(--shadow-warm-md)]"
-        >
-          <div class="overflow-hidden">
-            <Image
-              src={privathaushalteHero}
-              alt="Sauberes, aufgeräumtes Wohnzimmer eines Privathaushalts in Hamburg"
-              loading="lazy"
-              class="h-[220px] w-full object-cover transition-transform duration-500 hover:scale-105"
-              widths={[400, 600, 800]}
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
-          </div>
-          <div class="flex flex-1 flex-col gap-4 p-7">
+      <!-- Split-Layout auf Desktop (lg: grid mit fester linker Intro-Spalte), sonst 1-Spalten Sequence -->
+      <div class="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_2fr] lg:gap-16 lg:items-start">
+        
+        <!-- Left: Header & Intro (auf Desktop sticky & mit Trust-Badges) -->
+        <div class="flex flex-col gap-6 lg:sticky lg:top-28">
+          <div class="flex flex-col items-start gap-3 text-left">
             <span
-              class="font-[family-name:var(--font-body)] text-[0.75rem] font-bold tracking-[0.1em] text-(--color-primary-700) uppercase"
+              class="font-[family-name:var(--font-body)] text-[0.8125rem] font-bold tracking-[0.08em] text-(--color-primary-700) uppercase"
             >
-              Für Privatkunden
+              Unsere Angebote
             </span>
-            <h3
-              class="m-0 font-[family-name:var(--font-heading)] text-[1.375rem] leading-[1.25] font-bold text-(--color-dark)"
+            <h2
+              id="angebote-heading"
+              class="m-0 font-[family-name:var(--font-heading)] text-[2rem] leading-[1.2] font-bold text-(--color-dark) lg:text-[2.75rem]"
             >
-              Haushaltshilfe für<br />Privathaushalte
-            </h3>
-            <p
-              class="m-0 text-[0.9375rem] leading-[1.75] text-(--color-dark) opacity-80"
-            >
-              Familien, Berufstätige und Senioren – wir entlasten Sie im Alltag
-              mit professioneller Reinigung, Wäschepflege und Ordnung. Damit Sie
-              mehr Zeit für das Wesentliche haben.
-            </p>
-            <ul class="m-0 mt-1 flex list-none flex-col gap-2.5 p-0">
-              <li
-                class="flex items-center gap-2.5 text-[0.9rem] text-(--color-dark)"
-              >
-                <svg
-                  width="15"
-                  height="15"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="shrink-0 text-(--color-primary-600)"
-                  aria-hidden="true"
-                  ><polyline points="20 6 9 17 4 12"></polyline></svg
-                >
-                Reinigung &amp; Aufräumen
-              </li>
-              <li
-                class="flex items-center gap-2.5 text-[0.9rem] text-(--color-dark)"
-              >
-                <svg
-                  width="15"
-                  height="15"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="shrink-0 text-(--color-primary-600)"
-                  aria-hidden="true"
-                  ><polyline points="20 6 9 17 4 12"></polyline></svg
-                >
-                Wäschepflege &amp; Bügeln
-              </li>
-              <li
-                class="flex items-center gap-2.5 text-[0.9rem] text-(--color-dark)"
-              >
-                <svg
-                  width="15"
-                  height="15"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="shrink-0 text-(--color-primary-600)"
-                  aria-hidden="true"
-                  ><polyline points="20 6 9 17 4 12"></polyline></svg
-                >
-                Maßgeschneiderte Zeitpakete
-              </li>
-            </ul>
-            <div class="mt-auto pt-4">
-              <a
-                href="/privathaushalte"
-                class="group inline-flex w-full items-center justify-center gap-2 rounded-[var(--radius)] border-2 border-(--color-primary-500) bg-(--color-primary-500) px-6 py-[0.875rem] font-[family-name:var(--font-heading)] text-[0.9375rem] font-bold text-(--color-dark) no-underline shadow-[0_4px_12px_rgb(255_183_48/0.25)] transition-all duration-[250ms] hover:border-(--color-primary-400) hover:bg-(--color-primary-400) focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-(--color-dark)"
-              >
-                Zu den Privathaushalten
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                  class="transition-transform duration-200 group-hover:translate-x-1"
-                  ><line x1="5" y1="12" x2="19" y2="12"></line><polyline
-                    points="12 5 19 12 12 19"></polyline></svg
-                >
-              </a>
+              Wie können wir Ihnen helfen?
+            </h2>
+            <div class="h-1 w-12 rounded-full bg-(--color-primary-500)"></div>
+          </div>
+
+          <p class="m-0 text-[1.0625rem] leading-[1.8] text-(--color-dark) opacity-85">
+            Ganz gleich, ob Sie im ausgefüllten Familien- und Berufsalltag Entlastung suchen oder als pflegebedürftige Person professionelle Alltagsunterstützung wünschen – wir bieten maßgeschneiderte Lösungen für Ihr Zuhause in Hamburg.
+          </p>
+
+          <!-- Desktop Trust Badges -->
+          <div class="hidden lg:flex flex-col gap-3 pt-2">
+            <div class="inline-flex items-center gap-3 rounded-[var(--radius-lg)] border border-(--color-secondary) bg-white p-3.5 shadow-xs">
+              <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-(--color-primary-100) text-(--color-primary-700)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+              <span class="text-[0.875rem] font-semibold text-(--color-dark)">Seit über 20 Jahren in Hamburg</span>
+            </div>
+            <div class="inline-flex items-center gap-3 rounded-[var(--radius-lg)] border border-(--color-secondary) bg-white p-3.5 shadow-xs">
+              <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-(--color-primary-100) text-(--color-primary-700)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+              <span class="text-[0.875rem] font-semibold text-(--color-dark)">Direkt abrechenbar § 45b SGB XI</span>
             </div>
           </div>
-        </article>
+        </div>
 
-        <!-- Karte 2: Pflegebedürftige -->
-        <article
-          class="flex flex-col overflow-hidden rounded-[var(--radius-xl)] border border-(--color-secondary) bg-(--color-base) shadow-[0_2px_16px_rgb(27_34_39/0.07)] transition-shadow duration-300 hover:shadow-[var(--shadow-warm-md)]"
-        >
-          <div class="overflow-hidden">
-            <Image
-              src={pflegebeduerfteBild}
-              alt="Fürsorgliche Betreuerin hilft einer älteren Dame beim Aufstehen in einem hellen Wohnzimmer"
-              loading="lazy"
-              class="h-[220px] w-full object-cover transition-transform duration-500 hover:scale-105"
-              style="object-position: center 45%;"
-              widths={[400, 600, 800]}
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
-          </div>
-          <div class="flex flex-1 flex-col gap-4 p-7">
-            <span
-              class="font-[family-name:var(--font-body)] text-[0.75rem] font-bold tracking-[0.1em] text-(--color-primary-700) uppercase"
-            >
-              Für Pflegebedürftige
-            </span>
-            <h3
-              class="m-0 font-[family-name:var(--font-heading)] text-[1.375rem] leading-[1.25] font-bold text-(--color-dark)"
-            >
-              Alltagsunterstützung –<br />über Pflegekasse abrechenbar
-            </h3>
-            <p
-              class="m-0 text-[0.9375rem] leading-[1.75] text-(--color-dark) opacity-80"
-            >
-              Als von der Stadt Hamburg anerkanntes Unternehmen rechnen wir
-              unsere Leistungen direkt mit der Pflegekasse ab. Für Pflegegrade
-              1–5 – ohne Aufwand für Sie.
-            </p>
-            <ul class="m-0 mt-1 flex list-none flex-col gap-2.5 p-0">
-              <li
-                class="flex items-center gap-2.5 text-[0.9rem] text-(--color-dark)"
-              >
-                <svg
-                  width="15"
-                  height="15"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="shrink-0 text-(--color-primary-600)"
-                  aria-hidden="true"
-                  ><polyline points="20 6 9 17 4 12"></polyline></svg
-                >
-                Pflegekasse übernimmt die Kosten
-              </li>
-              <li
-                class="flex items-center gap-2.5 text-[0.9rem] text-(--color-dark)"
-              >
-                <svg
-                  width="15"
-                  height="15"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="shrink-0 text-(--color-primary-600)"
-                  aria-hidden="true"
-                  ><polyline points="20 6 9 17 4 12"></polyline></svg
-                >
-                Keine Vorausleistung nötig
-              </li>
-              <li
-                class="flex items-center gap-2.5 text-[0.9rem] text-(--color-dark)"
-              >
-                <svg
-                  width="15"
-                  height="15"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="shrink-0 text-(--color-primary-600)"
-                  aria-hidden="true"
-                  ><polyline points="20 6 9 17 4 12"></polyline></svg
-                >
-                Geschulte &amp; zertifizierte Mitarbeiterinnen
-              </li>
-            </ul>
-            <div class="mt-auto pt-4">
-              <a
-                href="/pflegebeduerfte"
-                class="group inline-flex w-full items-center justify-center gap-2 rounded-[var(--radius)] border-2 border-(--color-dark) bg-(--color-dark) px-6 py-[0.875rem] font-[family-name:var(--font-heading)] text-[0.9375rem] font-bold text-(--color-base) no-underline shadow-[0_4px_12px_rgb(27_34_39/0.18)] transition-all duration-[250ms] hover:bg-transparent hover:text-(--color-dark) hover:shadow-none focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-(--color-dark)"
-              >
-                Zur Pflegekassen-Info
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                  class="transition-transform duration-200 group-hover:translate-x-1"
-                  ><line x1="5" y1="12" x2="19" y2="12"></line><polyline
-                    points="12 5 19 12 12 19"></polyline></svg
-                >
-              </a>
+        <!-- Right: 2 Offer Cards Grid -->
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8">
+          <!-- Karte 1: Privatkunden -->
+          <article
+            class="flex flex-col overflow-hidden rounded-[var(--radius-xl)] border border-(--color-secondary) bg-(--color-base) shadow-[0_2px_16px_rgb(27_34_39/0.07)] transition-shadow duration-300 hover:shadow-[var(--shadow-warm-md)]"
+          >
+            <div class="overflow-hidden">
+              <Image
+                src={privathaushalteHero}
+                alt="Sauberes, aufgeräumtes Wohnzimmer eines Privathaushalts in Hamburg"
+                loading="lazy"
+                class="h-[220px] w-full object-cover transition-transform duration-500 hover:scale-105"
+                widths={[400, 600, 800]}
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
             </div>
-          </div>
-        </article>
+            <div class="flex flex-1 flex-col gap-4 p-7">
+              <span
+                class="font-[family-name:var(--font-body)] text-[0.75rem] font-bold tracking-[0.1em] text-(--color-primary-700) uppercase"
+              >
+                Für Privatkunden
+              </span>
+              <h3
+                class="m-0 font-[family-name:var(--font-heading)] text-[1.375rem] leading-[1.25] font-bold text-(--color-dark)"
+              >
+                Haushaltshilfe für<br />Privathaushalte
+              </h3>
+              <p
+                class="m-0 text-[0.9375rem] leading-[1.75] text-(--color-dark) opacity-80"
+              >
+                Familien, Berufstätige und Senioren – wir entlasten Sie im Alltag
+                mit professioneller Reinigung, Wäschepflege und Ordnung. Damit Sie
+                mehr Zeit für das Wesentliche haben.
+              </p>
+              <ul class="m-0 mt-1 flex list-none flex-col gap-2.5 p-0">
+                <li
+                  class="flex items-center gap-2.5 text-[0.9rem] text-(--color-dark)"
+                >
+                  <svg
+                    width="15"
+                    height="15"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="shrink-0 text-(--color-primary-600)"
+                    aria-hidden="true"
+                    ><polyline points="20 6 9 17 4 12"></polyline></svg
+                  >
+                  Reinigung &amp; Aufräumen
+                </li>
+                <li
+                  class="flex items-center gap-2.5 text-[0.9rem] text-(--color-dark)"
+                >
+                  <svg
+                    width="15"
+                    height="15"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="shrink-0 text-(--color-primary-600)"
+                    aria-hidden="true"
+                    ><polyline points="20 6 9 17 4 12"></polyline></svg
+                  >
+                  Wäschepflege &amp; Bügeln
+                </li>
+                <li
+                  class="flex items-center gap-2.5 text-[0.9rem] text-(--color-dark)"
+                >
+                  <svg
+                    width="15"
+                    height="15"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="shrink-0 text-(--color-primary-600)"
+                    aria-hidden="true"
+                    ><polyline points="20 6 9 17 4 12"></polyline></svg
+                  >
+                  Maßgeschneiderte Zeitpakete
+                </li>
+              </ul>
+              <div class="mt-auto pt-4">
+                <a
+                  href="/privathaushalte"
+                  class="group inline-flex w-full items-center justify-center gap-2 rounded-[var(--radius)] border-2 border-(--color-primary-500) bg-(--color-primary-500) px-6 py-[0.875rem] font-[family-name:var(--font-heading)] text-[0.9375rem] font-bold text-(--color-dark) no-underline shadow-[0_4px_12px_rgb(255_183_48/0.25)] transition-all duration-[250ms] hover:border-(--color-primary-400) hover:bg-(--color-primary-400) focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-(--color-dark)"
+                >
+                  Zu den Privathaushalten
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                    class="transition-transform duration-200 group-hover:translate-x-1"
+                    ><line x1="5" y1="12" x2="19" y2="12"></line><polyline
+                      points="12 5 19 12 12 19"></polyline></svg
+                  >
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Karte 2: Pflegebedürftige -->
+          <article
+            class="flex flex-col overflow-hidden rounded-[var(--radius-xl)] border border-(--color-secondary) bg-(--color-base) shadow-[0_2px_16px_rgb(27_34_39/0.07)] transition-shadow duration-300 hover:shadow-[var(--shadow-warm-md)]"
+          >
+            <div class="overflow-hidden">
+              <Image
+                src={pflegebeduerfteBild}
+                alt="Fürsorgliche Betreuerin hilft einer älteren Dame beim Aufstehen in einem hellen Wohnzimmer"
+                loading="lazy"
+                class="h-[220px] w-full object-cover transition-transform duration-500 hover:scale-105"
+                style="object-position: center 45%;"
+                widths={[400, 600, 800]}
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+            <div class="flex flex-1 flex-col gap-4 p-7">
+              <span
+                class="font-[family-name:var(--font-body)] text-[0.75rem] font-bold tracking-[0.1em] text-(--color-primary-700) uppercase"
+              >
+                Für Pflegebedürftige
+              </span>
+              <h3
+                class="m-0 font-[family-name:var(--font-heading)] text-[1.375rem] leading-[1.25] font-bold text-(--color-dark)"
+              >
+                Alltagsunterstützung –<br />über Pflegekasse abrechenbar
+              </h3>
+              <p
+                class="m-0 text-[0.9375rem] leading-[1.75] text-(--color-dark) opacity-80"
+              >
+                Als von der Stadt Hamburg anerkanntes Unternehmen rechnen wir
+                unsere Leistungen direkt mit der Pflegekasse ab. Für Pflegegrade
+                1–5 – ohne Aufwand für Sie.
+              </p>
+              <ul class="m-0 mt-1 flex list-none flex-col gap-2.5 p-0">
+                <li
+                  class="flex items-center gap-2.5 text-[0.9rem] text-(--color-dark)"
+                >
+                  <svg
+                    width="15"
+                    height="15"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="shrink-0 text-(--color-primary-600)"
+                    aria-hidden="true"
+                    ><polyline points="20 6 9 17 4 12"></polyline></svg
+                  >
+                  Pflegekasse übernimmt die Kosten
+                </li>
+                <li
+                  class="flex items-center gap-2.5 text-[0.9rem] text-(--color-dark)"
+                >
+                  <svg
+                    width="15"
+                    height="15"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="shrink-0 text-(--color-primary-600)"
+                    aria-hidden="true"
+                    ><polyline points="20 6 9 17 4 12"></polyline></svg
+                  >
+                  Keine Vorausleistung nötig
+                </li>
+                <li
+                  class="flex items-center gap-2.5 text-[0.9rem] text-(--color-dark)"
+                >
+                  <svg
+                    width="15"
+                    height="15"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="shrink-0 text-(--color-primary-600)"
+                    aria-hidden="true"
+                    ><polyline points="20 6 9 17 4 12"></polyline></svg
+                  >
+                  Geschulte &amp; zertifizierte Mitarbeiterinnen
+                </li>
+              </ul>
+              <div class="mt-auto pt-4">
+                <a
+                  href="/pflegebeduerfte"
+                  class="group inline-flex w-full items-center justify-center gap-2 rounded-[var(--radius)] border-2 border-(--color-dark) bg-(--color-dark) px-6 py-[0.875rem] font-[family-name:var(--font-heading)] text-[0.9375rem] font-bold text-(--color-base) no-underline shadow-[0_4px_12px_rgb(27_34_39/0.18)] transition-all duration-[250ms] hover:bg-transparent hover:text-(--color-dark) hover:shadow-none focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-(--color-dark)"
+                >
+                  Zur Pflegekassen-Info
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                    class="transition-transform duration-200 group-hover:translate-x-1"
+                    ><line x1="5" y1="12" x2="19" y2="12"></line><polyline
+                      points="12 5 19 12 12 19"></polyline></svg
+                  >
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
       </div>
     </div>
   </section>
@@ -743,100 +774,103 @@ import pflegebeduerfteBild from '../assets/images/pflegebeduerfte_hero.jpg';
        MITGLIEDSCHAFTEN & PARTNER SECTION
        ============================================= -->
   <section
-    class="wh-section bg-(--color-base) pb-[11rem] md:pb-[15rem] lg:pb-[19rem]"
+    class="wh-section bg-(--color-base-alt) pb-[11rem] md:pb-[15rem] lg:pb-[19rem]"
     aria-labelledby="partner-heading"
   >
     <div class="container-page">
-      <!-- Section Header -->
-      <div class="mb-12 flex flex-col items-start gap-3 text-left lg:mb-16">
-        <span
-          class="font-[family-name:var(--font-body)] text-[0.8125rem] font-bold tracking-[0.08em] text-(--color-primary-700) uppercase"
-        >
-          Vertrauen &amp; Qualität
-        </span>
-        <h2
-          id="partner-heading"
-          class="m-0 font-[family-name:var(--font-heading)] text-[2rem] leading-[1.2] font-bold text-(--color-dark) lg:text-[2.75rem]"
-        >
-          Mitgliedschaften &amp; Partner
-        </h2>
-        <div class="h-1 w-12 rounded-full bg-(--color-primary-500)"></div>
-      </div>
-
-      <!-- Partner Cards Container -->
-      <div class="mx-auto flex max-w-3xl flex-col gap-4 sm:gap-6">
-        <!-- Partner 1: BHDU -->
-        <a
-          href="https://bhdu.de/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="group flex flex-row items-center gap-3 rounded-[var(--radius-xl)] border border-(--color-secondary) px-2 py-8 no-underline transition-all duration-300 hover:border-(--color-primary-300) hover:shadow-[var(--shadow-warm-md)] sm:gap-6 sm:px-4 sm:py-10"
-          aria-label="Besuche die offizielle Webseite des BHDU"
-        >
-          <!-- Logo Container (40% Breite) -->
-          <div
-            class="flex w-[40%] shrink-0 items-center justify-center p-1 sm:p-2"
+      <!-- Split-Layout auf Desktop (lg: grid mit linker Intro-Spalte), sonst 1-Spalten Sequence -->
+      <div class="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_1.8fr] lg:gap-16 lg:items-center">
+        
+        <!-- Left: Section Header & Subtext -->
+        <div class="flex flex-col items-start gap-3 text-left">
+          <span
+            class="font-[family-name:var(--font-body)] text-[0.8125rem] font-bold tracking-[0.08em] text-(--color-primary-700) uppercase"
           >
-            <img
-              src="/images/bhdu_logo.svg"
-              alt="BHDU Logo"
-              width="200"
-              height="65"
-              loading="lazy"
-              class="h-auto w-full max-w-[180px] object-contain transition-transform duration-300 group-hover:scale-105"
-            />
-          </div>
-          <!-- Text Details (60% Breite) -->
-          <div class="flex w-[60%] flex-col gap-1 pr-1 sm:pr-2">
-            <h3
-              class="m-0 font-[family-name:var(--font-heading)] text-[1.125rem] font-bold text-(--color-dark) transition-colors group-hover:text-(--color-primary-700) sm:text-[1.25rem]"
-            >
-              BHDU
-            </h3>
-            <p
-              class="m-0 text-[0.875rem] leading-[1.5] text-(--color-dark) opacity-80 sm:text-[0.9375rem] sm:leading-[1.65]"
-            >
-              Mitglied im Bundesverband haushaltsnaher
-              Dienstleistungs-Unternehmen.
-            </p>
-          </div>
-        </a>
-
-        <!-- Partner 2: NOVA Raumpflege -->
-        <a
-          href="https://nova-raumpflege.de/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="group flex flex-row items-center gap-3 rounded-[var(--radius-xl)] border border-(--color-secondary) px-2 py-8 no-underline transition-all duration-300 hover:border-(--color-primary-300) hover:shadow-[var(--shadow-warm-md)] sm:gap-6 sm:px-4 sm:py-10"
-          aria-label="Besuche die offizielle Webseite von NOVA Raumpflege"
-        >
-          <!-- Logo Container (40% Breite) -->
-          <div
-            class="flex w-[40%] shrink-0 items-center justify-center p-1 sm:p-2"
+            Vertrauen &amp; Qualität
+          </span>
+          <h2
+            id="partner-heading"
+            class="m-0 font-[family-name:var(--font-heading)] text-[2rem] leading-[1.2] font-bold text-(--color-dark) lg:text-[2.75rem]"
           >
-            <img
-              src="/images/nova_logo.svg"
-              alt="NOVA Raumpflege Logo"
-              width="200"
-              height="65"
-              loading="lazy"
-              class="h-auto w-full max-w-[180px] object-contain transition-transform duration-300 group-hover:scale-105"
-            />
-          </div>
-          <!-- Text Details (60% Breite) -->
-          <div class="flex w-[60%] flex-col gap-1 pr-1 sm:pr-2">
-            <h3
-              class="m-0 font-[family-name:var(--font-heading)] text-[1.125rem] font-bold text-(--color-dark) transition-colors group-hover:text-(--color-primary-700) sm:text-[1.25rem]"
-            >
-              NOVA Raumpflege
-            </h3>
-            <p
-              class="m-0 text-[0.875rem] leading-[1.5] text-(--color-dark) opacity-80 sm:text-[0.9375rem] sm:leading-[1.65]"
-            >
-              Unser Partnerunternehmen für Gebäude- und Glasreinigung.
-            </p>
-          </div>
-        </a>
+            Mitgliedschaften &amp; Partner
+          </h2>
+          <div class="h-1 w-12 rounded-full bg-(--color-primary-500)"></div>
+          <p class="m-0 mt-1 max-w-[45ch] text-[1.0625rem] leading-[1.75] text-(--color-dark) opacity-80">
+            Wir setzen auf geprüfte Qualitätsstandards, offizielle Verbandsmitgliedschaften und starke Partnernetzwerke in Hamburg.
+          </p>
+        </div>
+
+        <!-- Right: Partner Cards (Nebeneinander auf Desktop) -->
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6">
+          <!-- Partner 1: BHDU -->
+          <a
+            href="https://bhdu.de/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex flex-col items-center gap-4 rounded-[var(--radius-xl)] border border-(--color-secondary) bg-white p-6 sm:p-8 text-center no-underline shadow-[0_4px_20px_rgb(27_34_39/0.03)] transition-all duration-300 hover:-translate-y-1 hover:border-(--color-primary-300) hover:shadow-[var(--shadow-warm-md)]"
+            aria-label="Besuche die offizielle Webseite des BHDU"
+          >
+            <!-- Logo Container -->
+            <div class="flex h-20 w-full items-center justify-center p-2">
+              <img
+                src="/images/bhdu_logo.svg"
+                alt="BHDU Logo"
+                width="200"
+                height="65"
+                loading="lazy"
+                class="h-auto max-h-16 w-full max-w-[170px] object-contain transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
+            <!-- Text Details -->
+            <div class="flex flex-col gap-1.5 pt-3 border-t border-(--color-secondary)/60 w-full">
+              <h3
+                class="m-0 font-[family-name:var(--font-heading)] text-[1.125rem] font-bold text-(--color-dark) transition-colors group-hover:text-(--color-primary-700)"
+              >
+                BHDU
+              </h3>
+              <p
+                class="m-0 text-[0.875rem] leading-[1.6] text-(--color-dark) opacity-80"
+              >
+                Mitglied im Bundesverband haushaltsnaher Dienstleistungs-Unternehmen.
+              </p>
+            </div>
+          </a>
+
+          <!-- Partner 2: NOVA Raumpflege -->
+          <a
+            href="https://nova-raumpflege.de/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex flex-col items-center gap-4 rounded-[var(--radius-xl)] border border-(--color-secondary) bg-white p-6 sm:p-8 text-center no-underline shadow-[0_4px_20px_rgb(27_34_39/0.03)] transition-all duration-300 hover:-translate-y-1 hover:border-(--color-primary-300) hover:shadow-[var(--shadow-warm-md)]"
+            aria-label="Besuche die offizielle Webseite von NOVA Raumpflege"
+          >
+            <!-- Logo Container -->
+            <div class="flex h-20 w-full items-center justify-center p-2">
+              <img
+                src="/images/nova_logo.svg"
+                alt="NOVA Raumpflege Logo"
+                width="200"
+                height="65"
+                loading="lazy"
+                class="h-auto max-h-16 w-full max-w-[170px] object-contain transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
+            <!-- Text Details -->
+            <div class="flex flex-col gap-1.5 pt-3 border-t border-(--color-secondary)/60 w-full">
+              <h3
+                class="m-0 font-[family-name:var(--font-heading)] text-[1.125rem] font-bold text-(--color-dark) transition-colors group-hover:text-(--color-primary-700)"
+              >
+                NOVA Raumpflege
+              </h3>
+              <p
+                class="m-0 text-[0.875rem] leading-[1.6] text-(--color-dark) opacity-80"
+              >
+                Unser Partnerunternehmen für Gebäude- und Glasreinigung.
+              </p>
+            </div>
+          </a>
+        </div>
+
       </div>
     </div>
   </section>

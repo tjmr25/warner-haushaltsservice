@@ -32,6 +32,8 @@ interface Props {
   badgeText?: string;
   imageObjectPosition?: string;
   imageObjectPositionDesktop?: string;
+  imageScaleDesktop?: string;
+  imageScaleDesktopOrigin?: string;
 }
 
 const {
@@ -48,6 +50,8 @@ const {
   badgeText,
   imageObjectPosition = 'center 20%',
   imageObjectPositionDesktop,
+  imageScaleDesktop,
+  imageScaleDesktopOrigin = 'center 25%',
 } = Astro.props;
 
 const desktopObjPos = imageObjectPositionDesktop || imageObjectPosition;
@@ -73,7 +77,7 @@ const isImportedDesktop = typeof imageSrcDesktop === 'object';
     <div class="flex flex-col lg:grid lg:grid-cols-[1.15fr_1fr] lg:items-center lg:gap-16">
 
       <!-- Bild (oben Mobile, rechts Desktop) -->
-      <div class="order-first lg:order-last -mx-4 md:-mx-6 w-[calc(100%+2rem)] md:w-[calc(100%+3rem)] lg:mx-0 lg:w-full lg:col-start-2 relative">
+      <div class="order-first lg:order-last -mx-4 md:-mx-6 w-[calc(100%+2rem)] md:w-[calc(100%+3rem)] lg:mx-0 lg:w-full lg:col-start-2 relative lg:overflow-hidden lg:rounded-[var(--radius-xl)] lg:shadow-[0_12px_40px_rgb(27_34_39/0.08)]">
         {/* Mobile-Bild: immer sichtbar auf Mobile, auf Desktop ausgeblendet wenn Desktop-Bild vorhanden */}
         {isImportedImage ? (
           <Image
@@ -81,9 +85,9 @@ const isImportedDesktop = typeof imageSrcDesktop === 'object';
             alt={imageAlt}
             class:list={[
               "page-hero-image-el w-full h-[320px] sm:h-[400px] md:h-[480px] object-cover rounded-none shadow-none",
-              imageSrcDesktop ? "lg:hidden" : "lg:block lg:h-[550px] lg:rounded-[var(--radius-xl)] lg:shadow-[0_12px_40px_rgb(27_34_39/0.08)]",
+              imageSrcDesktop ? "lg:hidden" : "lg:block lg:h-[550px] lg:rounded-[var(--radius-xl)]",
             ]}
-            style={`--obj-pos-m: ${imageObjectPosition}; --obj-pos-d: ${desktopObjPos};`}
+            style={`--obj-pos-m: ${imageObjectPosition}; --obj-pos-d: ${desktopObjPos}; ${imageScaleDesktop ? `--image-scale-d: ${imageScaleDesktop}; --image-scale-origin-d: ${imageScaleDesktopOrigin};` : ''}`}
             loading="eager"
             decoding="async"
             widths={[400, 700, 900]}
@@ -95,9 +99,9 @@ const isImportedDesktop = typeof imageSrcDesktop === 'object';
             alt={imageAlt}
             class:list={[
               "page-hero-image-el w-full h-[320px] sm:h-[400px] md:h-[480px] object-cover rounded-none shadow-none",
-              imageSrcDesktop ? "lg:hidden" : "lg:block lg:h-[550px] lg:rounded-[var(--radius-xl)] lg:shadow-[0_12px_40px_rgb(27_34_39/0.08)]",
+              imageSrcDesktop ? "lg:hidden" : "lg:block lg:h-[550px] lg:rounded-[var(--radius-xl)]",
             ]}
-            style={`--obj-pos-m: ${imageObjectPosition}; --obj-pos-d: ${desktopObjPos};`}
+            style={`--obj-pos-m: ${imageObjectPosition}; --obj-pos-d: ${desktopObjPos}; ${imageScaleDesktop ? `--image-scale-d: ${imageScaleDesktop}; --image-scale-origin-d: ${imageScaleDesktopOrigin};` : ''}`}
             loading="eager"
             decoding="async"
           />
@@ -109,8 +113,8 @@ const isImportedDesktop = typeof imageSrcDesktop === 'object';
             <Image
               src={imageSrcDesktop as ImageMetadata}
               alt={imageAlt}
-              class="page-hero-image-el hidden lg:block w-full h-[550px] object-cover rounded-[var(--radius-xl)] shadow-[0_12px_40px_rgb(27_34_39/0.08)]"
-              style={`--obj-pos-m: ${imageObjectPosition}; --obj-pos-d: ${desktopObjPos};`}
+              class="page-hero-image-el hidden lg:block w-full h-[550px] object-cover lg:rounded-[var(--radius-xl)]"
+              style={`--obj-pos-m: ${imageObjectPosition}; --obj-pos-d: ${desktopObjPos}; ${imageScaleDesktop ? `--image-scale-d: ${imageScaleDesktop}; --image-scale-origin-d: ${imageScaleDesktopOrigin};` : ''}`}
               loading="eager"
               decoding="async"
               widths={[700, 900, 1200]}
@@ -120,8 +124,8 @@ const isImportedDesktop = typeof imageSrcDesktop === 'object';
             <img
               src={imageSrcDesktop as string}
               alt={imageAlt}
-              class="page-hero-image-el hidden lg:block w-full h-[550px] object-cover rounded-[var(--radius-xl)] shadow-[0_12px_40px_rgb(27_34_39/0.08)]"
-              style={`--obj-pos-m: ${imageObjectPosition}; --obj-pos-d: ${desktopObjPos};`}
+              class="page-hero-image-el hidden lg:block w-full h-[550px] object-cover lg:rounded-[var(--radius-xl)]"
+              style={`--obj-pos-m: ${imageObjectPosition}; --obj-pos-d: ${desktopObjPos}; ${imageScaleDesktop ? `--image-scale-d: ${imageScaleDesktop}; --image-scale-origin-d: ${imageScaleDesktopOrigin};` : ''}`}
               loading="eager"
               decoding="async"
             />
@@ -231,6 +235,12 @@ const isImportedDesktop = typeof imageSrcDesktop === 'object';
   @media (min-width: 768px) {
     .page-hero-image-el {
       object-position: var(--obj-pos-d);
+    }
+  }
+  @media (min-width: 1024px) {
+    .page-hero-image-el {
+      transform: scale(var(--image-scale-d, 1));
+      transform-origin: var(--image-scale-origin-d, center 25%);
     }
   }
 </style>
