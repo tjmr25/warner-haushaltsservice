@@ -143,6 +143,10 @@
   }
 
   /* ===== HEADER: Stateful Klassen (JS-getoggled) ===== */
+  #siteHeader {
+    transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+
   .wh-header-transparent {
     position: fixed !important;
     background-color: transparent !important;
@@ -151,8 +155,7 @@
     transition: background-color 0.25s ease, border-bottom-color 0.25s ease, box-shadow 0.25s ease;
   }
 
-  .wh-header-transparent.wh-header-scrolled,
-  .wh-header-transparent.wh-header-nav-open {
+  .wh-header-scrolled {
     background-color: var(--color-base) !important;
     border-bottom: 1px solid var(--color-secondary) !important;
     box-shadow: 0 2px 12px 0 rgb(27 34 39 / 0.06) !important;
