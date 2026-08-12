@@ -71,6 +71,7 @@ const detailedServices = [
     imageSrc={pflegebeduerfteBild}
     imageAlt="Freundliche Alltagsbegleiterin unterstützt eine ältere Dame liebevoll in ihrem Zuhause"
     headingTag="h1"
+    imageObjectPositionDesktop="center 35%"
   />
 
   <!-- =============================================
@@ -105,17 +106,13 @@ const detailedServices = [
           >
             Wir nehmen uns Zeit, hören zu und passen unsere Hilfe individuell an
             die Bedürfnisse jedes Einzelnen an.
+            Unser Ziel ist es, Entlastung zu schaffen, Sicherheit zu geben und
+          die Lebensqualität zu erhalten – zuverlässig, respektvoll und
+          menschlich.
           </p>
         </div>
 
-        <!-- Goal statement paragraph -->
-        <p
-          class="m-0 text-[1.0625rem] leading-[1.8] text-(--color-dark) opacity-85"
-        >
-          Unser Ziel ist es, Entlastung zu schaffen, Sicherheit zu geben und
-          die Lebensqualität zu erhalten – zuverlässig, respektvoll und
-          menschlich.
-        </p>
+
 
         <!-- Consultation paragraph below card -->
         <p
@@ -127,7 +124,7 @@ const detailedServices = [
 
         <!-- Qualifications card -->
         <div
-          class="rounded-[var(--radius-xl)] border border-(--color-secondary)/80 bg-white p-7 shadow-[0_4px_20px_rgb(27_34_39/0.03)]"
+          class="w-full rounded-[var(--radius-xl)] border border-(--color-secondary)/80 bg-white p-7 shadow-[0_4px_20px_rgb(27_34_39/0.03)] md:w-[60%]"
         >
           <h3
             class="m-0 mb-5 font-[family-name:var(--font-heading)] text-[1.25rem] font-bold text-(--color-dark)"
@@ -462,7 +459,7 @@ const detailedServices = [
       </div>
 
       <!-- Pflegegrad Cards -->
-      <div class="mb-10 flex flex-col gap-5">
+      <div class="mb-10 flex flex-col gap-5 md:grid md:grid-cols-2">
 
         <!-- Pflegegrad 1 -->
         <div class="rounded-[var(--radius-xl)] border border-(--color-secondary)/70 bg-white p-6 md:p-8">
@@ -507,14 +504,22 @@ const detailedServices = [
           <h3 class="m-0 mb-3 font-[family-name:var(--font-heading)] text-[1.25rem] font-bold text-(--color-primary-700)">
             Pflegegrad 2 bis 5
           </h3>
-          <p class="m-0 text-[0.9375rem] leading-[1.75] text-(--color-dark) opacity-85">
-            Auch mit Pflegegrad 2–5 steht der monatliche Entlastungsbetrag von <strong class="font-semibold text-(--color-dark) opacity-100">131 Euro</strong> zur Verfügung. Zusätzlich können – abhängig von der persönlichen Situation – weitere Leistungen wie z. B. die <strong class="font-semibold text-(--color-dark) opacity-100">Verhinderungspflege</strong> genutzt werden. Die Abrechnung erfolgt unkompliziert direkt mit der Pflegekasse.
-          </p>
+          <div class="flex flex-col gap-3">
+            <p class="m-0 text-[0.9375rem] leading-[1.75] text-(--color-dark) opacity-85">
+              Auch mit Pflegegrad 2–5 steht der monatliche Entlastungsbetrag von <strong class="font-semibold text-(--color-dark) opacity-100">131 Euro</strong> zur Verfügung.
+            </p>
+            <p class="m-0 text-[0.9375rem] leading-[1.75] text-(--color-dark) opacity-85">
+              Zusätzlich können – abhängig von der persönlichen Situation – weitere Leistungen wie z. B. die <strong class="font-semibold text-(--color-dark) opacity-100">Verhinderungspflege</strong> genutzt werden.
+            </p>
+            <p class="m-0 text-[0.9375rem] leading-[1.75] text-(--color-dark) opacity-85">
+              Die Abrechnung erfolgt unkompliziert direkt mit der Pflegekasse.
+            </p>
+          </div>
         </div>
       </div>
 
       <!-- Gut zu wissen – horizontal strip -->
-      <div class="rounded-[var(--radius-xl)] bg-(--color-base-alt) p-6 md:p-8">
+      <div class="w-full rounded-[var(--radius-xl)] bg-(--color-base-alt) p-6 md:p-8 md:w-[75%] mx-auto">
         <p class="mb-4 font-[family-name:var(--font-heading)] text-[1rem] font-bold text-(--color-dark)">
           Gut zu wissen
         </p>

@@ -31,6 +31,7 @@ interface Props {
   headingTag?: 'h1' | 'h2';
   badgeText?: string;
   imageObjectPosition?: string;
+  imageObjectPositionDesktop?: string;
 }
 
 const {
@@ -46,7 +47,10 @@ const {
   headingTag = 'h1',
   badgeText,
   imageObjectPosition = 'center 20%',
+  imageObjectPositionDesktop,
 } = Astro.props;
+
+const desktopObjPos = imageObjectPositionDesktop || imageObjectPosition;
 
 const HeadingTag = headingTag;
 
@@ -76,10 +80,10 @@ const isImportedDesktop = typeof imageSrcDesktop === 'object';
             src={imageSrc as ImageMetadata}
             alt={imageAlt}
             class:list={[
-              "w-full h-[320px] sm:h-[400px] md:h-[480px] object-cover rounded-none shadow-none",
+              "page-hero-image-el w-full h-[320px] sm:h-[400px] md:h-[480px] object-cover rounded-none shadow-none",
               imageSrcDesktop ? "lg:hidden" : "lg:block lg:h-[550px] lg:rounded-[var(--radius-xl)] lg:shadow-[0_12px_40px_rgb(27_34_39/0.08)]",
             ]}
-            style={`object-position: ${imageObjectPosition};`}
+            style={`--obj-pos-m: ${imageObjectPosition}; --obj-pos-d: ${desktopObjPos};`}
             loading="eager"
             decoding="async"
             widths={[400, 700, 900]}
@@ -90,10 +94,10 @@ const isImportedDesktop = typeof imageSrcDesktop === 'object';
             src={imageSrc as string}
             alt={imageAlt}
             class:list={[
-              "w-full h-[320px] sm:h-[400px] md:h-[480px] object-cover rounded-none shadow-none",
+              "page-hero-image-el w-full h-[320px] sm:h-[400px] md:h-[480px] object-cover rounded-none shadow-none",
               imageSrcDesktop ? "lg:hidden" : "lg:block lg:h-[550px] lg:rounded-[var(--radius-xl)] lg:shadow-[0_12px_40px_rgb(27_34_39/0.08)]",
             ]}
-            style={`object-position: ${imageObjectPosition};`}
+            style={`--obj-pos-m: ${imageObjectPosition}; --obj-pos-d: ${desktopObjPos};`}
             loading="eager"
             decoding="async"
           />
@@ -105,8 +109,8 @@ const isImportedDesktop = typeof imageSrcDesktop === 'object';
             <Image
               src={imageSrcDesktop as ImageMetadata}
               alt={imageAlt}
-              class="hidden lg:block w-full h-[550px] object-cover rounded-[var(--radius-xl)] shadow-[0_12px_40px_rgb(27_34_39/0.08)]"
-              style={`object-position: ${imageObjectPosition};`}
+              class="page-hero-image-el hidden lg:block w-full h-[550px] object-cover rounded-[var(--radius-xl)] shadow-[0_12px_40px_rgb(27_34_39/0.08)]"
+              style={`--obj-pos-m: ${imageObjectPosition}; --obj-pos-d: ${desktopObjPos};`}
               loading="eager"
               decoding="async"
               widths={[700, 900, 1200]}
@@ -116,8 +120,8 @@ const isImportedDesktop = typeof imageSrcDesktop === 'object';
             <img
               src={imageSrcDesktop as string}
               alt={imageAlt}
-              class="hidden lg:block w-full h-[550px] object-cover rounded-[var(--radius-xl)] shadow-[0_12px_40px_rgb(27_34_39/0.08)]"
-              style={`object-position: ${imageObjectPosition};`}
+              class="page-hero-image-el hidden lg:block w-full h-[550px] object-cover rounded-[var(--radius-xl)] shadow-[0_12px_40px_rgb(27_34_39/0.08)]"
+              style={`--obj-pos-m: ${imageObjectPosition}; --obj-pos-d: ${desktopObjPos};`}
               loading="eager"
               decoding="async"
             />
@@ -219,3 +223,14 @@ const isImportedDesktop = typeof imageSrcDesktop === 'object';
     </div>
   </div>
 </section>
+
+<style>
+  .page-hero-image-el {
+    object-position: var(--obj-pos-m);
+  }
+  @media (min-width: 768px) {
+    .page-hero-image-el {
+      object-position: var(--obj-pos-d);
+    }
+  }
+</style>

@@ -215,7 +215,7 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 150px;
+    height: 120px;
     background: linear-gradient(
       to bottom,
       rgba(255, 255, 255, 0.95) 0%,
@@ -226,33 +226,47 @@
     z-index: 5;
   }
 
+  @media (min-width: 768px) {
+    .hero-gradient::before {
+      height: 80px; /* Reduzierte Höhe für Tablet */
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .hero-gradient::before {
+      height: 68px; /* Strictly matches header height on desktop */
+    }
+  }
+
   /* ===== STATS: Riesige Hintergrund-Zahl (Outline) ===== */
   .stat-giant-bg {
     position: absolute;
-    left: 20%;
+    left: 10%;
     top: 50%;
     transform: translateY(-50%);
     font-family: var(--font-heading);
-    font-size: 8rem;
+    font-size: 6rem;
     font-weight: 900;
     line-height: 1;
     color: transparent;
-    -webkit-text-stroke: 1px rgba(27, 34, 39, 0.05); /* Subtle dark outline on light background */
+    -webkit-text-stroke: 1px rgba(27, 34, 39, 0.06);
     user-select: none;
     z-index: 1;
     letter-spacing: -0.04em;
+    pointer-events: none;
   }
 
   @media (min-width: 768px) {
     .stat-giant-bg {
-      left: 15%;
+      font-size: 5.5rem;
+      left: 1rem;
     }
   }
 
   @media (min-width: 1024px) {
     .stat-giant-bg {
-      font-size: 9.5rem;
-      left: 20%;
+      font-size: 6.5rem;
+      left: 1.5rem;
     }
   }
 }

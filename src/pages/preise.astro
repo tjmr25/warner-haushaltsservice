@@ -1,21 +1,311 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import PageHero from '../components/PageHero.astro';
-import heroStartseite from '../assets/images/hero_startseite.png';
+import preiseHero from '../assets/images/preise_hero.png';
 ---
 
 <Layout
   title="Preise – Warner Haushaltsservice"
-  description="Transparente Preise und Konditionen bei Warner Haushaltsservice Hamburg."
+  description="Faire und transparente Preise bei Warner Haushaltsservice Hamburg. Haushaltshilfe für Privatkunden ab 37 € / Stunde, Pflegekassen ab 41 € / Stunde."
 >
   <PageHero
-    eyebrow="Faire &amp; transparente Konditionen"
+    eyebrow="Faire & transparente Konditionen"
     headingHtml="Unsere <span>Preise</span>"
     text="Kein Kleingedrucktes, keine versteckten Kosten. Wir bieten Ihnen klare und faire Preise für erstklassige Dienstleistungen – zugeschnitten auf Ihre Bedürfnisse."
-    imageSrc={heroStartseite}
-    imageAlt="Freundliche Mitarbeiterin des Warner Haushaltsservice erklärt Preisübersicht"
+    imageSrc={preiseHero}
+    imageAlt="Persönliche Beratung in gemütlicher Atmosphäre bei Warner Haushaltsservice in Hamburg"
     headingTag="h1"
+    imageObjectPosition="center 30%"
   />
 
-  <!-- Seiteninhalt folgt hier -->
+  <!-- =============================================
+       PREISKARTEN
+       ============================================= -->
+  <section
+    class="wh-section bg-(--color-base-alt)"
+    aria-labelledby="preise-heading"
+  >
+    <div class="container-page">
+
+      <!-- Section Header -->
+      <div class="mb-12 flex flex-col gap-3 lg:mb-16">
+        <span class="font-[family-name:var(--font-body)] text-[0.8125rem] font-bold tracking-[0.08em] text-(--color-primary-700) uppercase">
+          Einfach & klar
+        </span>
+        <h2
+          id="preise-heading"
+          class="m-0 font-[family-name:var(--font-heading)] text-[2rem] leading-[1.2] font-bold text-(--color-dark) lg:text-[2.75rem]"
+        >
+          Unsere Stundensätze
+        </h2>
+        <div class="h-1 w-12 rounded-full bg-(--color-primary-500)"></div>
+      </div>
+
+      <!-- Hinweis Abrechnung -->
+      <div class="mb-10 flex items-start gap-3 rounded-[var(--radius-xl)] border border-(--color-secondary) bg-(--color-base) px-6 py-5 max-w-2xl">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="shrink-0 mt-0.5 text-(--color-primary-700)">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="8" x2="12" y2="12"></line>
+          <line x1="12" y1="16" x2="12.01" y2="16"></line>
+        </svg>
+        <p class="text-[0.9375rem] leading-[1.7] text-(--color-dark) opacity-80 m-0">
+          Die geleisteten Stunden werden jeweils am <strong class="font-semibold opacity-100">Monatsende in Rechnung gestellt</strong>. Absagen können bis spätestens <strong class="font-semibold opacity-100">48 Stunden</strong> vor dem Termin erfolgen.
+        </p>
+      </div>
+
+      <!-- Zwei Karten (Schlichter Kopf ohne Label-Hintergrund) -->
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2 max-w-3xl">
+
+        <!-- Karte 1: Privat -->
+        <article
+          aria-label="Preise für Privatkunden"
+          class="relative flex flex-col gap-0 rounded-[var(--radius-xl)] border border-(--color-secondary) bg-white shadow-[0_4px_20px_rgb(27_34_39/0.04)] overflow-hidden"
+        >
+          <!-- Kopf -->
+          <div class="bg-(--color-base-alt) border-b border-(--color-secondary) px-7 pt-7 pb-6">
+            <span class="font-[family-name:var(--font-body)] text-[0.75rem] font-bold tracking-[0.1em] uppercase text-(--color-primary-700)">
+              Für Privatkunden
+            </span>
+            <h3 class="mt-1 m-0 font-[family-name:var(--font-heading)] text-[1.25rem] font-bold text-(--color-dark)">
+              Privater Haushalt
+            </h3>
+          </div>
+
+          <!-- Body -->
+          <div class="flex flex-col gap-6 px-7 py-7 flex-1">
+            <!-- Preis -->
+            <div>
+              <div class="flex items-baseline gap-2">
+                <span class="font-[family-name:var(--font-heading)] text-[2.75rem] font-bold text-(--color-dark) leading-none tracking-tight">37,00&thinsp;€</span>
+                <span class="text-[0.9375rem] text-(--color-dark) opacity-55 font-medium">pro Stunde</span>
+              </div>
+              <p class="mt-1.5 text-[0.875rem] text-(--color-dark) opacity-55 m-0">+ 5,95&thinsp;€ Anfahrtspauschale</p>
+            </div>
+
+            <!-- Steuer-Info-Box -->
+            <div class="rounded-[var(--radius-lg)] bg-(--color-base) border border-(--color-secondary) px-5 py-4 flex flex-col gap-3">
+              <div class="flex items-center gap-2">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="shrink-0 text-(--color-primary-700)">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span class="font-[family-name:var(--font-body)] text-[0.75rem] font-bold tracking-[0.08em] uppercase text-(--color-primary-700)">
+                  Steuerlich absetzbar
+                </span>
+              </div>
+              <p class="text-[0.875rem] leading-[1.65] text-(--color-dark) opacity-75 m-0">
+                Nach § 35a EStG erstattet das Finanzamt <strong class="font-semibold text-(--color-dark) opacity-100">20&thinsp;% der Aufwendungen</strong>.
+              </p>
+              <!-- Mini-Rechnung -->
+              <div class="border-t border-(--color-secondary) pt-3 flex flex-col gap-1.5">
+                <div class="flex justify-between text-[0.875rem] text-(--color-dark) opacity-65">
+                  <span>Stundensatz</span>
+                  <span>37,00&thinsp;€</span>
+                </div>
+                <div class="flex justify-between text-[0.875rem] text-(--color-dark) opacity-65">
+                  <span>Steuererstattung (20&thinsp;%)</span>
+                  <span class="text-green-700 font-medium">− 7,40&thinsp;€</span>
+                </div>
+                <div class="flex justify-between text-[0.9375rem] font-bold text-(--color-dark) mt-1 pt-1.5 border-t border-(--color-secondary)">
+                  <span>Effektiver Stundensatz</span>
+                  <span>29,60&thinsp;€</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- CTA Button -->
+            <a
+              href="/kontakt"
+              class="group mt-auto inline-flex items-center justify-center gap-2 rounded-[var(--radius-lg)] bg-(--color-primary-500) px-6 py-3.5 font-[family-name:var(--font-heading)] text-[0.9375rem] font-bold text-(--color-dark) no-underline shadow-sm transition-all duration-200 hover:bg-(--color-primary-400) active:scale-[0.98]"
+            >
+              Jetzt anfragen
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="transition-transform duration-200 group-hover:translate-x-1">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Karte 2: Pflegekasse -->
+        <article
+          aria-label="Preise über Pflegekasse"
+          class="relative flex flex-col gap-0 rounded-[var(--radius-xl)] border border-(--color-secondary) bg-white shadow-[0_4px_20px_rgb(27_34_39/0.04)] overflow-hidden"
+        >
+          <!-- Kopf -->
+          <div class="bg-(--color-base-alt) border-b border-(--color-secondary) px-7 pt-7 pb-6">
+            <span class="font-[family-name:var(--font-body)] text-[0.75rem] font-bold tracking-[0.1em] uppercase text-(--color-primary-700)">
+              Über Pflegekasse
+            </span>
+            <h3 class="mt-1 m-0 font-[family-name:var(--font-heading)] text-[1.25rem] font-bold text-(--color-dark)">
+              Pflegebedürftige
+            </h3>
+          </div>
+
+          <!-- Body -->
+          <div class="flex flex-col gap-6 px-7 py-7 flex-1">
+            <!-- Preis -->
+            <div>
+              <div class="flex items-baseline gap-2">
+                <span class="font-[family-name:var(--font-heading)] text-[2.75rem] font-bold text-(--color-dark) leading-none tracking-tight">41,00&thinsp;€</span>
+                <span class="text-[0.9375rem] text-(--color-dark) opacity-55 font-medium">pro Stunde</span>
+              </div>
+              <p class="mt-1.5 text-[0.875rem] text-(--color-dark) opacity-55 m-0">+ 5,95&thinsp;€ Anfahrtspauschale</p>
+            </div>
+
+            <!-- Pflegekasse-Info-Box -->
+            <div class="rounded-[var(--radius-lg)] bg-(--color-base) border border-(--color-secondary) px-5 py-4 flex flex-col gap-3">
+              <div class="flex items-center gap-2">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="shrink-0 text-(--color-primary-700)">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+                <span class="font-[family-name:var(--font-body)] text-[0.75rem] font-bold tracking-[0.08em] uppercase text-(--color-primary-700)">
+                  Direkte Abrechnung
+                </span>
+              </div>
+              <p class="text-[0.875rem] leading-[1.65] text-(--color-dark) opacity-75 m-0">
+                Wir übernehmen die <strong class="font-semibold text-(--color-dark) opacity-100">komplette Abwicklung</strong> mit Ihrer Pflegekasse – kein Aufwand für Sie.
+              </p>
+              <!-- Voraussetzungen -->
+              <ul class="border-t border-(--color-secondary) pt-3 flex flex-col gap-2 list-none m-0 p-0">
+                {[
+                  "Pflegegrad 1–5",
+                  "Entlastungsbetrag: 131 € / Monat",
+                  "Abtretungserklärung genügt",
+                ].map((item) => (
+                  <li class="flex items-center gap-2.5 text-[0.875rem] text-(--color-dark) opacity-75">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="shrink-0 text-(--color-primary-600)">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <!-- CTA Button -->
+            <a
+              href="/pflegebeduerfte"
+              class="group mt-auto inline-flex items-center justify-center gap-2 rounded-[var(--radius-lg)] bg-(--color-dark) px-6 py-3.5 font-[family-name:var(--font-heading)] text-[0.9375rem] font-bold text-white no-underline shadow-sm transition-all duration-200 hover:bg-[#253038] active:scale-[0.98]"
+            >
+              Mehr erfahren
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="transition-transform duration-200 group-hover:translate-x-1">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       STEUERLICHE ABSETZBARKEIT
+       ============================================= -->
+  <section
+    class="wh-section bg-(--color-base)"
+    aria-labelledby="steuer-heading"
+  >
+    <div class="container-page">
+      <div class="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16 lg:items-center">
+
+        <!-- Text-Spalte -->
+        <div class="flex flex-col gap-5">
+          <div class="flex flex-col gap-3">
+            <span class="font-[family-name:var(--font-body)] text-[0.8125rem] font-bold tracking-[0.08em] text-(--color-primary-700) uppercase">
+              § 35a EStG
+            </span>
+            <h2
+              id="steuer-heading"
+              class="m-0 font-[family-name:var(--font-heading)] text-[2rem] leading-[1.2] font-bold text-(--color-dark) lg:text-[2.5rem]"
+            >
+              Steuerlich absetzbar –<br />sparen Sie 20&thinsp;%
+            </h2>
+            <div class="h-1 w-12 rounded-full bg-(--color-primary-500)"></div>
+          </div>
+
+          <p class="text-[1.0625rem] leading-[1.8] text-(--color-dark) opacity-85 m-0">
+            Haushaltsnahe Dienstleistungen sind für Privathaushalte steuerlich begünstigt. Wenn Sie Einkommensteuer zahlen, erstattet Ihnen das Finanzamt <strong class="font-semibold opacity-100">20&thinsp;% der Aufwendungen</strong> direkt im Rahmen Ihrer Steuererklärung.
+          </p>
+
+          <!-- 3 Voraussetzungen -->
+          <div class="flex flex-col gap-3 mt-1">
+            <p class="text-[0.8125rem] font-bold uppercase tracking-[0.06em] text-(--color-dark) opacity-50 m-0">Einfache Voraussetzungen</p>
+            <ul class="flex flex-col gap-2.5 list-none m-0 p-0">
+              {[
+                "Sie erhalten von uns eine ordnungsgemäße Rechnung",
+                "Die Bezahlung erfolgt bargeldlos per Banküberweisung",
+                "Maximal 4.000 € Erstattung pro Jahr (20 % von 20.000 € Aufwand)",
+              ].map((item) => (
+                <li class="flex items-start gap-3 text-[0.9375rem] leading-[1.65] text-(--color-dark) opacity-85">
+                  <span class="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-(--color-primary-100) border border-(--color-primary-200)">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="text-(--color-primary-700)">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <!-- Rechenbeispiel-Karte -->
+        <div class="rounded-[var(--radius-xl)] border border-(--color-secondary) bg-white shadow-[0_4px_20px_rgb(27_34_39/0.04)] overflow-hidden">
+          <div class="px-7 py-5 bg-(--color-base-alt) border-b border-(--color-secondary)">
+            <p class="m-0 font-[family-name:var(--font-heading)] text-[0.9375rem] font-bold text-(--color-dark)">Rechenbeispiel pro Stunde</p>
+          </div>
+          <div class="px-7 py-6 flex flex-col divide-y divide-(--color-secondary)/60">
+            <div class="flex justify-between py-3.5 text-[0.9375rem] text-(--color-dark) opacity-75">
+              <span>Stundensatz (Privathaushalt)</span>
+              <span class="font-medium tabular-nums">37,00&thinsp;€</span>
+            </div>
+            <div class="flex justify-between py-3.5 text-[0.9375rem] text-(--color-dark) opacity-75">
+              <span>Steuererstattung (20&thinsp;% vom Finanzamt)</span>
+              <span class="font-semibold tabular-nums text-green-700">− 7,40&thinsp;€</span>
+            </div>
+            <div class="flex justify-between py-4 text-[1rem] font-bold text-(--color-dark) pt-4">
+              <span>Effektiver Stundensatz</span>
+              <span class="tabular-nums text-(--color-primary-700)">29,60&thinsp;€</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       CALL TO ACTION ABSCHLUSS
+       ============================================= -->
+  <section
+    class="wh-section bg-(--color-base-alt) border-t border-(--color-secondary)"
+    aria-label="Anfrage stellen"
+  >
+    <div class="container-page text-center flex flex-col items-center gap-6">
+      <div class="flex flex-col gap-3 items-center max-w-xl">
+        <span class="font-[family-name:var(--font-body)] text-[0.8125rem] font-bold tracking-[0.08em] text-(--color-primary-700) uppercase">
+          Unverbindlich anfragen
+        </span>
+        <h2 class="m-0 font-[family-name:var(--font-heading)] text-[1.875rem] lg:text-[2.25rem] leading-[1.25] font-bold text-(--color-dark)">
+          Noch Fragen zu unseren Preisen?
+        </h2>
+        <p class="text-[1.0625rem] leading-[1.75] text-(--color-dark) opacity-75 m-0">
+          Wir beraten Sie gerne persönlich und finden die passende Unterstützung für Ihren Haushalt.
+        </p>
+      </div>
+      <a
+        href="/kontakt"
+        class="group inline-flex items-center gap-2 rounded-[var(--radius-lg)] bg-(--color-primary-500) px-8 py-4 font-[family-name:var(--font-heading)] text-[1rem] font-bold text-(--color-dark) no-underline shadow-sm transition-all duration-200 hover:bg-(--color-primary-400) active:scale-[0.98]"
+      >
+        Jetzt Kontakt aufnehmen
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="transition-transform duration-200 group-hover:translate-x-1">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </a>
+    </div>
+  </section>
+
 </Layout>
