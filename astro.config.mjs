@@ -8,8 +8,7 @@ import icon from 'astro-icon';
 
 // https://astro.build/config
 export default defineConfig({
-  // TODO: Replace with the customer's production domain before deployment.
-  site: 'https://example.com',
+  site: 'https://warner-hamburg.de',
 
   vite: {
     plugins: [tailwindcss()],

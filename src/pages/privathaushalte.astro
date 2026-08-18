@@ -2,11 +2,26 @@
 import Layout from '../layouts/Layout.astro';
 import PageHero from '../components/PageHero.astro';
 import privathaushalteHero from '../assets/images/privathaushalte_hero.jpg';
+const serviceSchema = {
+  '@type': 'Service',
+  name: 'Haushaltshilfe und Reinigung für Privathaushalte in Hamburg',
+  serviceType: 'Haushaltsnahe Dienstleistungen für Privatkunden nach § 35a EStG',
+  provider: {
+    '@id': 'https://warner-hamburg.de/#organization',
+  },
+  areaServed: {
+    '@type': 'City',
+    name: 'Hamburg',
+  },
+  description:
+    'Professionelle Haushaltsreinigung, Wäscheservice und Ordnung für Familien, Berufstätige und Senioren in Hamburg. Steuerlich absetzbar (20 % Erstattung nach § 35a EStG).',
+};
 ---
 
 <Layout
-  title="Haushaltshilfe für Privathaushalte – Warner Haushaltsservice"
-  description="Professionelle Haushaltshilfe für Privathaushalte in Hamburg – für Familien, Berufstätige und Senioren. Entlasten Sie sich im Alltag mit Warner Haushaltsservice."
+  title="Haushaltshilfe für Privathaushalte Hamburg | Warner Haushaltsservice"
+  description="Zuverlässige Haushaltshilfe & Reinigung für Privathaushalte in Hamburg. Für Familien, Berufstätige & Senioren – 20 % steuerlich absetzbar (§ 35a EStG). Jetzt anfragen!"
+  extraSchema={serviceSchema}
 >
   <PageHero
     eyebrow="Seit über 25 Jahren in Hamburg"

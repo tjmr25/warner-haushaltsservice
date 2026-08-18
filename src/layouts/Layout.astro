@@ -20,23 +20,118 @@ import { ClientRouter } from 'astro:transitions';
 interface Props {
   title: string;
   description?: string;
+  ogImage?: string;
+  ogType?: 'website' | 'article';
+  noindex?: boolean;
+  extraSchema?: Record<string, any>;
 }
 
-const { title, description = 'Default customer description' } = Astro.props;
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || Astro.url);
+const {
+  title,
+  description = 'Warner Haushaltsservice Hamburg: Ihr zuverlässiger Partner für Haushaltshilfe, Alltagsbegleitung und Unterstützung für Pflegebedürftige. Seit über 25 Jahren.',
+  ogImage = '/images/og-image.jpg',
+  ogType = 'website',
+  noindex = false,
+  extraSchema,
+} = Astro.props;
+
+const siteUrl = Astro.site ? Astro.site.toString().replace(/\/$/, '') : 'https://warner-hamburg.de';
+const canonicalURL = new URL(Astro.url.pathname, siteUrl);
+const fullOgImageUrl = new URL(ogImage, siteUrl).toString();
+
+// Schema.org Structured Data
+const baseSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'LocalBusiness',
+      '@id': `${siteUrl}/#organization`,
+      name: 'Warner Haushaltsservice GmbH',
+      legalName: 'Warner Haushaltsservice GmbH',
+      url: siteUrl,
+      logo: `${siteUrl}/images/logo_warner.svg`,
+      image: fullOgImageUrl,
+      description:
+        'Professionelle Haushaltshilfe, Alltagsbegleitung und Entlastungsleistungen für Pflegebedürftige und Privathaushalte in Hamburg. Anerkannt nach HmbPfIEV, Vertrag mit vdek.',
+      telephone: '+49-40-29812540',
+      email: 'info@warner-hamburg.de',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: 'Haubachstraße 80',
+        addressLocality: 'Hamburg',
+        postalCode: '22765',
+        addressCountry: 'DE',
+      },
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: '53.5592',
+        longitude: '9.9416',
+      },
+      openingHoursSpecification: [
+        {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+          opens: '08:00',
+          closes: '14:00',
+        },
+      ],
+      areaServed: {
+        '@type': 'City',
+        name: 'Hamburg',
+      },
+      priceRange: '€€',
+      sameAs: ['https://bhdu.de/'],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${siteUrl}/#website`,
+      url: siteUrl,
+      name: 'Warner Haushaltsservice',
+      description: 'Haushaltshilfe und Alltagsunterstützung in Hamburg',
+      publisher: {
+        '@id': `${siteUrl}/#organization`,
+      },
+      inLanguage: 'de-DE',
+    },
+    ...(extraSchema ? [extraSchema] : []),
+  ],
+};
 ---
 
 <!doctype html>
 <html lang="de">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#ffb730" />
 
+    <!-- SEO Meta Tags -->
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
+    <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content="Warner Haushaltsservice" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={fullOgImageUrl} />
+    <meta property="og:image:alt" content="Warner Haushaltsservice Hamburg" />
+    <meta property="og:locale" content="de_DE" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={fullOgImageUrl} />
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify(baseSchema)} />
+
     <ClientRouter />
   </head>
 

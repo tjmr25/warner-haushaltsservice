@@ -57,11 +57,26 @@ const detailedServices = [
     note: "Diese Form der Alltagsbegleitung stärkt das Wohlbefinden, beugt Einsamkeit vor und gibt Sicherheit.",
   },
 ];
+const serviceSchema = {
+  '@type': 'Service',
+  name: 'Haushaltshilfe und Alltagsbegleitung für Pflegebedürftige in Hamburg',
+  serviceType: 'Haushaltsnahe Dienstleistungen nach § 45b SGB XI',
+  provider: {
+    '@id': 'https://warner-hamburg.de/#organization',
+  },
+  areaServed: {
+    '@type': 'City',
+    name: 'Hamburg',
+  },
+  description:
+    'Unterstützung im Haushalt, Reinigung, Wäschepflege und Alltagsbegleitung für Pflegebedürftige (Pflegegrad 1–5). Direkte Abrechnung mit der Pflegekasse.',
+};
 ---
 
 <Layout
-  title="Pflegebedürftige – Warner Haushaltsservice"
-  description="Unterstützung und Entlastung für Pflegebedürftige und ihre Angehörigen in Hamburg."
+  title="Haushaltshilfe für Pflegebedürftige Hamburg | Warner Haushaltsservice"
+  description="Anerkannte Haushaltshilfe & Alltagsbegleitung für Pflegebedürftige in Hamburg (Pflegegrad 1–5). Direkt über die Pflegekasse abrechenbar (§ 45b SGB XI). Jetzt informieren!"
+  extraSchema={serviceSchema}
 >
   <PageHero
     eyebrow="Selbstbestimmt zu Hause leben"
