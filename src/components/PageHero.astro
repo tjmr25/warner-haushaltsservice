@@ -37,7 +37,7 @@ interface Props {
 }
 
 const {
-  eyebrow = 'Seit über 20 Jahren in Hamburg',
+  eyebrow = 'Seit über 25 Jahren in Hamburg',
   heading,
   headingHtml,
   text,
@@ -69,7 +69,7 @@ const isImportedDesktop = typeof imageSrcDesktop === 'object';
      ============================================= -->
 <section
   class="relative bg-(--color-base) overflow-x-hidden pt-0 pb-12 lg:pt-10 lg:pb-16"
-  aria-label="Einführung"
+  aria-labelledby="page-hero-heading"
   data-page-hero
 >
   <div class="container-page">
@@ -136,7 +136,7 @@ const isImportedDesktop = typeof imageSrcDesktop === 'object';
       <!-- Text-Karte (unten Mobile überlappend, links Desktop) -->
       <div class="
         relative z-[2]
-        bg-(--color-base) rounded-[var(--radius-lg)] p-8 md:p-10 -mt-20
+        bg-(--color-base) rounded-[var(--radius-lg)] p-5 sm:p-7 md:p-10 -mt-20
         flex flex-col gap-4
         lg:bg-transparent lg:rounded-none lg:p-0 lg:mt-0 lg:shadow-none lg:col-start-1 lg:gap-5
       ">
@@ -147,9 +147,9 @@ const isImportedDesktop = typeof imageSrcDesktop === 'object';
 
         <!-- Headline -->
         {headingHtml ? (
-          <HeadingTag class="text-[2.25rem] md:text-[2.75rem] leading-[1.2] text-(--color-dark) font-bold m-0" set:html={headingHtml} />
+          <HeadingTag id="page-hero-heading" class="text-[2rem] sm:text-[2.375rem] md:text-[2.75rem] lg:text-[3rem] leading-[1.15] tracking-[-0.02em] text-(--color-dark) font-bold m-0 font-[family-name:var(--font-heading)]" set:html={headingHtml} />
         ) : (
-          <HeadingTag class="text-[2.25rem] md:text-[2.75rem] leading-[1.2] text-(--color-dark) font-bold m-0">
+          <HeadingTag id="page-hero-heading" class="text-[2rem] sm:text-[2.375rem] md:text-[2.75rem] lg:text-[3rem] leading-[1.15] tracking-[-0.02em] text-(--color-dark) font-bold m-0 font-[family-name:var(--font-heading)]">
             {heading}
           </HeadingTag>
         )}

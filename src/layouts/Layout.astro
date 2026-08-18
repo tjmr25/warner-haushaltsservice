@@ -41,12 +41,29 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || Astro.url);
   </head>
 
   <body>
+    <!-- Skip-to-Content (WCAG 2.4.1 Level A) -->
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-5 focus:py-2.5 focus:bg-(--color-primary-500) focus:text-(--color-dark) focus:font-bold focus:rounded-[var(--radius-lg)] focus:shadow-[0_4px_16px_rgb(255_183_48/0.4)] focus:outline-2 focus:outline-offset-2"
+    >
+      Zum Hauptinhalt springen
+    </a>
+
     <div class="flex min-h-screen flex-col">
       <Header />
-      <main class="grow">
+      <main id="main-content" class="grow" tabindex="-1">
         <slot />
       </main>
       <Footer />
     </div>
+
+    <!-- Vercel Web Analytics & Speed Insights -->
+    <script>
+      import { inject } from '@vercel/analytics';
+      import { injectSpeedInsights } from '@vercel/speed-insights';
+
+      inject();
+      injectSpeedInsights();
+    </script>
   </body>
 </html>

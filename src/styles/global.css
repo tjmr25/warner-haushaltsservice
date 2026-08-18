@@ -61,6 +61,21 @@
     font-size: 16px;
   }
 
+  /* Kein Scroll-Animation + keine Übergänge für Motion-sensitive Nutzer (WCAG 2.3.3) */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
   body {
     margin: 0;
     padding: 0;
@@ -162,8 +177,9 @@
   }
 
   .wh-header-nav-open {
+    background-color: var(--color-base) !important;
     box-shadow: none !important;
-    border-bottom-color: transparent !important;
+    border-bottom: 1px solid var(--color-secondary) !important;
   }
 
   /* ===== HAMBURGER: Burger → X Animation ===== */

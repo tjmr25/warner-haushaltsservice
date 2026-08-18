@@ -9,8 +9,8 @@ const currentPath = Astro.url.pathname;
 
 const navLinks = [
   { href: '/', label: 'Startseite' },
-  { href: '/privathaushalte', label: 'Privathaushalte' },
   { href: '/pflegebeduerfte', label: 'Pflegebedürftige' },
+  { href: '/privathaushalte', label: 'Privathaushalte' },
   { href: '/ueber-uns', label: 'Über uns' },
   { href: '/preise', label: 'Preise' },
 ];
@@ -33,7 +33,6 @@ const hasTransparentHeader = currentPath === '/';
 <header
   id="siteHeader"
   class={`sticky top-0 z-[100] w-full bg-(--color-base) border-b border-(--color-secondary) shadow-[0_2px_12px_0_rgb(27_34_39/0.06)] lg:bg-transparent lg:border-b-0 lg:shadow-none ${hasTransparentHeader ? 'wh-header-transparent' : ''}`}
-  role="banner"
 >
   <!-- Inner: Logo + Nav + Burger -->
   <div class="container-page flex items-center justify-between py-[0.875rem] w-full lg:min-h-[68px] lg:py-0">
@@ -59,7 +58,7 @@ const hasTransparentHeader = currentPath === '/';
          DESKTOP NAVIGATION (≥1024px)
          ============================================= -->
     <nav class="hidden lg:flex items-center gap-2" aria-label="Hauptnavigation">
-      <ul class="flex items-center gap-1 list-none m-0 p-0" role="list">
+      <ul class="flex items-center gap-1 list-none m-0 p-0">
         {
           navLinks.map((link) => (
             <li>
@@ -115,7 +114,7 @@ const hasTransparentHeader = currentPath === '/';
     aria-label="Hauptnavigation"
     aria-hidden="true"
   >
-    <ul class="list-none m-0 py-2 px-0" role="list">
+    <ul class="list-none m-0 py-2 px-0">
       {
         [...navLinks, { href: '/kontakt', label: 'Kontakt' }].map((link) => {
           const active = isActive(link.href) || (link.href === '/kontakt' && isKontaktActive);

@@ -49,7 +49,7 @@ import Layout from '../layouts/Layout.astro';
           <form
             id="kontaktForm"
             class="flex flex-col gap-5"
-            action="https://formspree.io/f/xrbzqbkn"
+            action="https://formsubmit.co/ajax/info@warner-hamburg.de"
             method="POST"
             novalidate
             aria-label="Kontaktformular"
@@ -61,6 +61,8 @@ import Layout from '../layouts/Layout.astro';
             </div>
 
             <input type="hidden" name="_subject" value="Neue Kontaktanfrage – Warner Haushaltsservice" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="false" />
 
             <!-- Vorname + Nachname -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -109,7 +111,7 @@ import Layout from '../layouts/Layout.astro';
             <!-- Telefon (optional) -->
             <div class="flex flex-col gap-1.5">
               <label for="telefon" class="font-[family-name:var(--font-body)] text-[0.875rem] font-semibold text-(--color-dark)">
-                Telefonnummer <span class="text-[0.8125rem] font-normal opacity-50 ml-1">(optional)</span>
+                Telefonnummer <span class="text-[0.8125rem] font-normal opacity-70 ml-1">(optional)</span>
               </label>
               <input
                 type="tel" id="telefon" name="telefon"
@@ -132,8 +134,8 @@ import Layout from '../layouts/Layout.astro';
                 required aria-required="true" aria-errormessage="betreff-error"
               >
                 <option value="" disabled selected>Bitte wählen …</option>
-                <option value="Privathaushalte">Privathaushalte</option>
                 <option value="Pflegebedürftige">Pflegebedürftige</option>
+                <option value="Privathaushalte">Privathaushalte</option>
                 <option value="Sonstiges">Sonstiges</option>
               </select>
               <span id="betreff-error" class="hidden text-[0.8125rem] text-red-600 font-medium">Bitte wählen Sie ein Anliegen aus.</span>
@@ -166,7 +168,10 @@ import Layout from '../layouts/Layout.astro';
                   required aria-required="true" aria-errormessage="datenschutz-error"
                 />
                 <label for="datenschutz" class="text-[0.875rem] text-(--color-dark) leading-relaxed cursor-pointer">
-                  Ich habe die <a href="/datenschutz" class="text-(--color-primary-700) font-semibold underline hover:text-(--color-primary-600)" target="_blank" rel="noopener">Datenschutzerklärung</a>
+                  Ich habe die <a href="/datenschutz" class="text-(--color-primary-700) font-semibold underline hover:text-(--color-primary-600)" target="_blank" rel="noopener" aria-label="Datenschutzerklärung lesen (öffnet in neuem Tab)">
+                    Datenschutzerklärung
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="inline-block align-baseline ml-0.5 translate-y-[-1px]"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  </a>
                   gelesen und stimme der Verarbeitung meiner Daten zur Bearbeitung meiner Anfrage zu.
                   <span class="text-[#c0392b]" aria-label="Pflichtfeld">*</span>
                 </label>
@@ -186,7 +191,7 @@ import Layout from '../layouts/Layout.astro';
                   <polygon points="22 2 15 22 11 13 2 9 22 2"/>
                 </svg>
               </button>
-              <span class="text-[0.8125rem] text-(--color-dark) opacity-50">* Pflichtfelder</span>
+              <span class="text-[0.8125rem] text-(--color-dark) opacity-70">* Pflichtfelder</span>
             </div>
 
           </form>
@@ -204,7 +209,7 @@ import Layout from '../layouts/Layout.astro';
               </svg>
             </div>
             <div>
-              <p class="font-[family-name:var(--font-heading)] text-[0.8125rem] font-bold uppercase tracking-wider text-(--color-dark) opacity-50 m-0 mb-1">Adresse</p>
+              <p class="font-[family-name:var(--font-heading)] text-[0.8125rem] font-bold uppercase tracking-wider text-(--color-dark) opacity-70 m-0 mb-1">Adresse</p>
               <address class="not-italic text-[0.9375rem] leading-relaxed text-(--color-dark)">
                 Warner Haushaltsservice GmbH<br />
                 Haubachstraße 80<br />
@@ -221,7 +226,7 @@ import Layout from '../layouts/Layout.astro';
               </svg>
             </div>
             <div>
-              <p class="font-[family-name:var(--font-heading)] text-[0.8125rem] font-bold uppercase tracking-wider text-(--color-dark) opacity-50 m-0 mb-1">Telefon</p>
+              <p class="font-[family-name:var(--font-heading)] text-[0.8125rem] font-bold uppercase tracking-wider text-(--color-dark) opacity-70 m-0 mb-1">Telefon</p>
               <a href="tel:+494029812540" class="text-[0.9375rem] font-semibold text-(--color-primary-700) hover:underline">040 / 29 81 25 40</a>
             </div>
           </div>
@@ -235,7 +240,7 @@ import Layout from '../layouts/Layout.astro';
               </svg>
             </div>
             <div>
-              <p class="font-[family-name:var(--font-heading)] text-[0.8125rem] font-bold uppercase tracking-wider text-(--color-dark) opacity-50 m-0 mb-1">E-Mail</p>
+              <p class="font-[family-name:var(--font-heading)] text-[0.8125rem] font-bold uppercase tracking-wider text-(--color-dark) opacity-70 m-0 mb-1">E-Mail</p>
               <a href="mailto:info@warner-hamburg.de" class="text-[0.9375rem] font-semibold text-(--color-primary-700) hover:underline break-all">info@warner-hamburg.de</a>
             </div>
           </div>
@@ -249,10 +254,9 @@ import Layout from '../layouts/Layout.astro';
               </svg>
             </div>
             <div>
-              <p class="font-[family-name:var(--font-heading)] text-[0.8125rem] font-bold uppercase tracking-wider text-(--color-dark) opacity-50 m-0 mb-1">Bürozeiten</p>
+              <p class="font-[family-name:var(--font-heading)] text-[0.8125rem] font-bold uppercase tracking-wider text-(--color-dark) opacity-70 m-0 mb-1">Bürozeiten</p>
               <dl class="m-0 text-[0.9375rem] leading-relaxed text-(--color-dark)">
-                <div class="flex gap-2"><dt class="font-semibold w-16 opacity-70">Mo – Do</dt><dd class="m-0 opacity-90">07:30 – 16:00 Uhr</dd></div>
-                <div class="flex gap-2"><dt class="font-semibold w-16 opacity-70">Fr</dt><dd class="m-0 opacity-90">07:30 – 14:00 Uhr</dd></div>
+                <div class="flex gap-2"><dt class="font-semibold w-16 opacity-70">Mo – Fr</dt><dd class="m-0 opacity-90">08:00 – 14:00 Uhr</dd></div>
               </dl>
             </div>
           </div>
@@ -260,7 +264,65 @@ import Layout from '../layouts/Layout.astro';
         </aside>
 
       </div>
-    </section>
+    </div>
+  </section>
+
+  <!-- TOAST NOTIFICATION (Barrierefrei / Accessible Feedback Toast) -->
+  <div
+    id="toast-notification"
+    class="fixed bottom-6 right-4 sm:right-8 z-[999] max-w-[460px] w-[calc(100%-2rem)] sm:w-full opacity-0 pointer-events-none translate-y-6 transition-all duration-300 ease-out"
+    aria-live="polite"
+    aria-atomic="true"
+  >
+    <div
+      id="toast-card"
+      class="flex items-start gap-4 rounded-[var(--radius-xl)] bg-white p-5 border-2 shadow-[0_16px_40px_rgb(27_34_39/0.14)]"
+    >
+      <!-- Icon Container (dynamisch befüllt) -->
+      <div
+        id="toast-icon-container"
+        class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full"
+        aria-hidden="true"
+      >
+      </div>
+
+      <!-- Text Details -->
+      <div class="flex flex-1 flex-col gap-1 pr-1">
+        <p
+          id="toast-title"
+          class="m-0 font-[family-name:var(--font-heading)] text-[1.0625rem] font-bold text-(--color-dark) leading-snug"
+        >
+        </p>
+        <p
+          id="toast-desc"
+          class="m-0 text-[0.875rem] leading-[1.6] text-(--color-dark) opacity-85"
+        >
+        </p>
+        <!-- Bestätigen / Schließen Button -->
+        <div class="pt-2">
+          <button
+            type="button"
+            id="toast-action-btn"
+            class="inline-flex items-center gap-1.5 rounded-[var(--radius)] px-3.5 py-1.5 font-[family-name:var(--font-heading)] text-[0.8125rem] font-bold text-(--color-dark) cursor-pointer transition-colors focus-visible:outline-2 focus-visible:outline-offset-2"
+          >
+            Verstanden
+          </button>
+        </div>
+      </div>
+
+      <!-- Close "X" Button -->
+      <button
+        type="button"
+        id="toast-close-btn"
+        class="shrink-0 p-1.5 -mr-1 -mt-1 rounded-full text-(--color-dark) opacity-50 hover:opacity-100 hover:bg-black/5 cursor-pointer transition-all focus-visible:outline-2 focus-visible:outline-(--color-primary-500) focus-visible:outline-offset-1"
+        aria-label="Benachrichtigung schließen"
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
   </div>
 </Layout>
 
@@ -274,6 +336,77 @@ import Layout from '../layouts/Layout.astro';
     const nachrEl   = document.getElementById('nachricht') as HTMLTextAreaElement | null;
     const counterEl = document.getElementById('nachricht-counter') as HTMLElement | null;
 
+    // Toast elements
+    const toastEl        = document.getElementById('toast-notification') as HTMLElement | null;
+    const toastCard      = document.getElementById('toast-card') as HTMLElement | null;
+    const toastIconCont  = document.getElementById('toast-icon-container') as HTMLElement | null;
+    const toastTitle     = document.getElementById('toast-title') as HTMLElement | null;
+    const toastDesc      = document.getElementById('toast-desc') as HTMLElement | null;
+    const toastCloseBtn  = document.getElementById('toast-close-btn') as HTMLButtonElement | null;
+    const toastActionBtn = document.getElementById('toast-action-btn') as HTMLButtonElement | null;
+
+    let toastTimer: number | null = null;
+
+    function hideToast() {
+      if (!toastEl) return;
+      toastEl.classList.add('opacity-0', 'pointer-events-none', 'translate-y-6');
+      toastEl.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+      if (toastTimer) {
+        clearTimeout(toastTimer);
+        toastTimer = null;
+      }
+    }
+
+    function showToast(type: 'success' | 'error', title: string, desc: string) {
+      if (!toastEl || !toastCard || !toastIconCont || !toastTitle || !toastDesc || !toastActionBtn) return;
+
+      if (toastTimer) clearTimeout(toastTimer);
+
+      toastTitle.textContent = title;
+      toastDesc.textContent = desc;
+
+      if (type === 'success') {
+        toastEl.setAttribute('aria-live', 'polite');
+        toastCard.className = 'flex items-start gap-4 rounded-[var(--radius-xl)] bg-gradient-to-br from-emerald-50/90 to-white p-5 border-2 border-emerald-500 shadow-[0_16px_40px_rgb(27_34_39/0.14)]';
+        toastIconCont.className = 'flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-700';
+        toastIconCont.innerHTML = `
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        `;
+        toastActionBtn.className = 'inline-flex items-center gap-1.5 rounded-[var(--radius)] px-3.5 py-1.5 font-[family-name:var(--font-heading)] text-[0.8125rem] font-bold bg-emerald-100 hover:bg-emerald-200 text-emerald-900 border border-emerald-300 cursor-pointer transition-colors focus-visible:outline-2 focus-visible:outline-emerald-600 focus-visible:outline-offset-2';
+      } else {
+        toastEl.setAttribute('aria-live', 'assertive');
+        toastCard.className = 'flex items-start gap-4 rounded-[var(--radius-xl)] bg-gradient-to-br from-rose-50/90 to-white p-5 border-2 border-rose-500 shadow-[0_16px_40px_rgb(27_34_39/0.14)]';
+        toastIconCont.className = 'flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-rose-100 text-rose-700';
+        toastIconCont.innerHTML = `
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        `;
+        toastActionBtn.className = 'inline-flex items-center gap-1.5 rounded-[var(--radius)] px-3.5 py-1.5 font-[family-name:var(--font-heading)] text-[0.8125rem] font-bold bg-rose-100 hover:bg-rose-200 text-rose-900 border border-rose-300 cursor-pointer transition-colors focus-visible:outline-2 focus-visible:outline-rose-600 focus-visible:outline-offset-2';
+      }
+
+      toastEl.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-6');
+      toastEl.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+
+      // Auto dismiss nach 8 Sekunden
+      toastTimer = window.setTimeout(() => {
+        hideToast();
+      }, 8000);
+    }
+
+    if (toastCloseBtn) toastCloseBtn.addEventListener('click', hideToast);
+    if (toastActionBtn) toastActionBtn.addEventListener('click', hideToast);
+
+    // Escape-Taste schließt Toast
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && toastEl && !toastEl.classList.contains('opacity-0')) {
+        hideToast();
+      }
+    });
+
     if (nachrEl && counterEl) {
       nachrEl.addEventListener('input', () => {
         const len = nachrEl.value.length;
@@ -282,8 +415,10 @@ import Layout from '../layouts/Layout.astro';
       });
     }
 
-    const RATE_LIMIT_MS = 30_000;
+    const RATE_LIMIT_MS = 15_000;
     let lastSubmit = 0;
+
+    const originalBtnContent = submitBtn ? submitBtn.innerHTML : '';
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -291,13 +426,16 @@ import Layout from '../layouts/Layout.astro';
       const now = Date.now();
       if (now - lastSubmit < RATE_LIMIT_MS) {
         const rem = Math.ceil((RATE_LIMIT_MS - (now - lastSubmit)) / 1000);
-        showMsg('error', `Bitte warten Sie noch ${rem} Sekunden, bevor Sie erneut senden.`);
+        const msg = `Bitte warten Sie noch ${rem} Sekunden, bevor Sie erneut senden.`;
+        showMsg('error', msg);
+        showToast('error', 'Bitte kurz warten', msg);
         return;
       }
 
       const honey = form.querySelector('input[name="_honey"]') as HTMLInputElement | null;
       if (honey && honey.value.trim() !== '') {
         showMsg('success', '✓ Ihre Nachricht wurde erfolgreich gesendet!');
+        showToast('success', 'Nachricht erfolgreich gesendet', 'Vielen Dank für Ihre Anfrage! Wir haben Ihre Nachricht erhalten.');
         form.reset();
         return;
       }
@@ -326,12 +464,22 @@ import Layout from '../layouts/Layout.astro';
       });
 
       if (!valid) {
-        showMsg('error', 'Bitte füllen Sie alle erforderlichen Pflichtfelder korrekt aus.');
+        const msg = 'Bitte füllen Sie alle erforderlichen Pflichtfelder korrekt aus.';
+        showMsg('error', msg);
+        showToast('error', 'Eingabe unvollständig', msg);
         return;
       }
 
       if (!submitBtn) return;
       submitBtn.disabled = true;
+      submitBtn.setAttribute('aria-busy', 'true');
+      submitBtn.innerHTML = `
+        <svg class="animate-spin h-5 w-5 text-(--color-dark)" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+        <span>Wird gesendet …</span>
+      `;
       showMsg('info', 'Wird gesendet …');
 
       try {
@@ -343,29 +491,37 @@ import Layout from '../layouts/Layout.astro';
 
         if (resp.ok) {
           lastSubmit = Date.now();
-          showMsg('success', '✓ Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet. Wir antworten innerhalb von 1–2 Werktagen.');
+          const successMsg = 'Vielen Dank! Ihre Nachricht wurde erfolgreich übermittelt. Wir antworten Ihnen in der Regel innerhalb von 1–2 Werktagen.';
+          showMsg('success', `✓ ${successMsg}`);
+          showToast('success', 'Nachricht erfolgreich gesendet', successMsg);
           form.reset();
           if (counterEl) counterEl.textContent = '0 / 2000';
         } else {
-          showMsg('error', 'Fehler beim Senden. Bitte versuchen Sie es später erneut oder rufen Sie uns an.');
+          const errMsg = 'Ihre Nachricht konnte leider nicht gesendet werden. Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt telefonisch.';
+          showMsg('error', errMsg);
+          showToast('error', 'Fehler beim Senden', errMsg);
         }
       } catch {
-        showMsg('error', 'Verbindungsfehler. Bitte prüfen Sie Ihre Verbindung.');
+        const errMsg = 'Verbindungsfehler beim Absenden. Bitte überprüfen Sie Ihre Internetverbindung oder rufen Sie uns direkt an.';
+        showMsg('error', errMsg);
+        showToast('error', 'Verbindungsfehler', errMsg);
       } finally {
         submitBtn.disabled = false;
+        submitBtn.removeAttribute('aria-busy');
+        submitBtn.innerHTML = originalBtnContent;
       }
     });
 
     function showMsg(type: 'success' | 'error' | 'info', msg: string) {
       if (!statusEl) return;
-      statusEl.classList.remove('hidden', 'bg-green-50', 'text-green-800', 'border-green-300', 'bg-red-50', 'text-red-800', 'border-red-300', 'bg-blue-50', 'text-blue-800', 'border-blue-300', 'border');
+      statusEl.classList.remove('hidden', 'bg-emerald-50', 'text-emerald-900', 'border-emerald-300', 'bg-rose-50', 'text-rose-900', 'border-rose-300', 'bg-blue-50', 'text-blue-900', 'border-blue-300', 'border');
 
       if (type === 'success') {
-        statusEl.classList.add('bg-green-50', 'text-green-800', 'border-green-300', 'border');
+        statusEl.classList.add('bg-emerald-50', 'text-emerald-900', 'border-emerald-300', 'border');
       } else if (type === 'error') {
-        statusEl.classList.add('bg-red-50', 'text-red-800', 'border-red-300', 'border');
+        statusEl.classList.add('bg-rose-50', 'text-rose-900', 'border-rose-300', 'border');
       } else {
-        statusEl.classList.add('bg-blue-50', 'text-blue-800', 'border-blue-300', 'border');
+        statusEl.classList.add('bg-blue-50', 'text-blue-900', 'border-blue-300', 'border');
       }
 
       statusEl.textContent = msg;
