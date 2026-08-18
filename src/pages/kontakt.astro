@@ -489,7 +489,10 @@ import Layout from '../layouts/Layout.astro';
           headers: { 'Accept': 'application/json' },
         });
 
-        if (resp.ok) {
+        const data = await resp.json().catch(() => null);
+        const isSuccess = resp.ok && data && (data.success === 'true' || data.success === true);
+
+        if (isSuccess) {
           lastSubmit = Date.now();
           const successMsg = 'Vielen Dank! Ihre Nachricht wurde erfolgreich übermittelt. Wir antworten Ihnen in der Regel innerhalb von 1–2 Werktagen.';
           showMsg('success', `✓ ${successMsg}`);
@@ -497,7 +500,9 @@ import Layout from '../layouts/Layout.astro';
           form.reset();
           if (counterEl) counterEl.textContent = '0 / 2000';
         } else {
-          const errMsg = 'Ihre Nachricht konnte leider nicht gesendet werden. Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt telefonisch.';
+          const errMsg = data?.message && typeof data.message === 'string'
+            ? data.message
+            : 'Ihre Nachricht konnte leider nicht gesendet werden. Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt telefonisch.';
           showMsg('error', errMsg);
           showToast('error', 'Fehler beim Senden', errMsg);
         }
