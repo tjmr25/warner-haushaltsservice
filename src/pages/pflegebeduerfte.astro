@@ -6,11 +6,11 @@ import pflegebeduerfteBild from '../assets/images/pflegebeduerfte_hero.jpg';
 const detailedServices = [
   {
     num: "01",
-    title: "Reinigung und Haushaltshilfe",
-    desc: "Eine saubere und ordentliche Wohnumgebung trägt wesentlich zum Wohlbefinden bei. Wir unterstützen Sie zuverlässig bei der regelmäßigen Reinigung Ihres Zuhauses, einschließlich:",
+    title: "Hilfe bei der Haushaltsführung",
+    desc: "Eine saubere und ordentliche Wohnumgebung trägt wesentlich zum Wohlbefinden bei. Wir unterstützen Sie zuverlässig bei der regelmäßigen Haushaltsführung, einschließlich:",
     items: [
-      "Reinigung von Wohn-, Schlaf-, Küchen- und Sanitärräumen",
-      "Staubsaugen, Wischen und Oberflächenreinigung",
+      "Hilfe in Wohn-, Schlaf-, Küchen- und Sanitärräumen",
+      "Staubsaugen, Wischen und Oberflächenpflege",
       "Unterstützung beim Aufräumen und Ordnung halten",
     ],
   },
@@ -69,20 +69,20 @@ const serviceSchema = {
     name: 'Hamburg',
   },
   description:
-    'Unterstützung im Haushalt, Reinigung, Wäschepflege und Alltagsbegleitung für Pflegebedürftige (Pflegegrad 1–5). Direkte Abrechnung mit der Pflegekasse.',
+    'Unterstützung im Haushalt, Hilfe bei der Haushaltsführung, Wäschepflege und Alltagsbegleitung für Pflegebedürftige (Pflegegrad 1–5). Direkte Abrechnung mit der gesetzlichen Pflegekasse.',
 };
 ---
 
 <Layout
   title="Haushaltshilfe für Pflegebedürftige Hamburg | Warner Haushaltsservice"
-  description="Anerkannte Haushaltshilfe & Alltagsbegleitung für Pflegebedürftige in Hamburg (Pflegegrad 1–5). Direkt über die Pflegekasse abrechenbar (§ 45b SGB XI). Jetzt informieren!"
+  description="Anerkannte Haushaltshilfe & Alltagsbegleitung für Pflegebedürftige in Hamburg (Pflegegrad 1–5). Direkt über die gesetzliche Pflegekasse abrechenbar (§ 45b SGB XI). Jetzt informieren!"
   extraSchema={serviceSchema}
 >
   <PageHero
     eyebrow="Selbstbestimmt zu Hause leben"
     headingHtml="Haushaltshilfe für<br /><span>Pflegebedürftige</span>"
     text="Wenn alltägliche Dinge zur Herausforderung werden, sind wir für Sie da. Wir unterstützen pflegebedürftige Menschen dabei, ihren Alltag so selbstbestimmt und angenehm wie möglich zu gestalten."
-    badgeText="Abrechenbar über die Pflegekasse"
+    badgeText="Abrechenbar über die gesetzliche Pflegekasse"
     imageSrc={pflegebeduerfteBild}
     imageAlt="Freundliche Alltagsbegleiterin unterstützt eine ältere Dame liebevoll in ihrem Zuhause"
     headingTag="h1"
@@ -122,7 +122,7 @@ const serviceSchema = {
         </div>
 
         <p class="m-0 text-[1.0625rem] leading-[1.8] text-(--color-dark) opacity-85">
-          Gerne beraten wir Sie persönlich zu den Möglichkeiten der Kostenübernahme durch die Pflegekasse und zu unseren Leistungen.
+          Gerne beraten wir Sie persönlich zu den Möglichkeiten der Kostenübernahme durch die gesetzliche Pflegekasse und zu unseren Leistungen.
         </p>
 
         <!-- Qualifications card -->
@@ -200,7 +200,7 @@ const serviceSchema = {
           </p>
 
           <p class="m-0 text-[1.0625rem] leading-[1.8] text-(--color-dark) opacity-85 max-w-[48ch]">
-            Gerne beraten wir Sie persönlich zu den Möglichkeiten der Kostenübernahme durch die Pflegekasse und zu unseren Leistungen.
+            Gerne beraten wir Sie persönlich zu den Möglichkeiten der Kostenübernahme durch die gesetzliche Pflegekasse und zu unseren Leistungen.
           </p>
 
           <div class="pt-2">
@@ -282,7 +282,7 @@ const serviceSchema = {
         </h2>
         <div class="h-1 w-12 rounded-full bg-(--color-primary-500)"></div>
         <p class="mt-2 m-0 max-w-[65ch] text-[0.9375rem] leading-[1.75] text-(--color-dark) opacity-80">
-          Diese Leistungen können unkompliziert im Rahmen der Entlastungsleistungen (§ 45b SGB XI) bzw. der Verhinderungspflege genutzt und direkt mit den Pflegekassen abgerechnet werden.
+          Diese Leistungen können unkompliziert im Rahmen der Entlastungsleistungen (§ 45b SGB XI) bzw. der Verhinderungspflege genutzt und direkt mit den gesetzlichen Pflegekassen abgerechnet werden.
         </p>
       </div>
 
@@ -356,7 +356,7 @@ const serviceSchema = {
           
           <div class="mt-3 rounded-[var(--radius-lg)] border border-(--color-primary-200) bg-(--color-primary-50)/80 p-5">
             <p class="m-0 text-[0.9375rem] leading-[1.7] text-(--color-dark) opacity-90">
-              Diese Leistungen können unkompliziert im Rahmen der Entlastungsleistungen (<strong class="font-semibold text-(--color-dark)">§ 45b SGB XI</strong>) bzw. der Verhinderungspflege genutzt und direkt mit den Pflegekassen abgerechnet werden.
+              Diese Leistungen können unkompliziert im Rahmen der Entlastungsleistungen (<strong class="font-semibold text-(--color-dark)">§ 45b SGB XI</strong>) bzw. der Verhinderungspflege genutzt und direkt mit den gesetzlichen Pflegekassen abgerechnet werden.
             </p>
           </div>
         </div>
@@ -452,10 +452,10 @@ const serviceSchema = {
               id="abrechnung-heading-mobile"
               class="m-0 font-[family-name:var(--font-heading)] text-[1.625rem] font-bold leading-[1.2] text-(--color-dark)"
             >
-              Abrechnung über die Pflegekasse – einfach und direkt
+              Abrechnung über die gesetzliche Pflegekasse – einfach und direkt
             </h2>
             <p class="m-0 text-[1rem] leading-[1.7] text-(--color-dark)/85">
-              Wir sind von der Stadt Hamburg anerkannt und berechtigt, unsere Leistungen direkt mit den Pflegekassen abzurechnen. Für Pflegebedürftige mit Pflegegrad bedeutet das: unkomplizierter Zugang zu professioneller Unterstützung, finanziert durch die Pflegekasse.
+              Wir sind von der Stadt Hamburg anerkannt und berechtigt, unsere Leistungen direkt mit den gesetzlichen Pflegekassen abzurechnen. Für Pflegebedürftige mit Pflegegrad bedeutet das: unkomplizierter Zugang zu professioneller Unterstützung, finanziert durch die gesetzliche Pflegekasse.
             </p>
           </div>
         </div>
@@ -470,7 +470,7 @@ const serviceSchema = {
             Das Anerkennungsverfahren der Stadt Hamburg ist umfassend und anspruchsvoll – es stellt sicher, dass nur Anbieter zugelassen werden, die die gesetzlichen Anforderungen dauerhaft erfüllen. Für Pflegebedürftige und ihre Familien bedeutet das: Transparenz, geprüfte Qualität und Vertrauen.
           </p>
           <p class="m-0 text-[1rem] leading-[1.8] text-(--color-dark) opacity-85">
-            Unsere Leistungen können unkompliziert im Rahmen der Entlastungsleistungen nach <strong class="font-semibold opacity-100">§ 45b SGB XI</strong> über die Pflegekasse abgerechnet werden. Wir unterstützen Pflegebedürftige im Alltag und entlasten gleichzeitig Angehörige spürbar.
+            Unsere Leistungen können unkompliziert im Rahmen der Entlastungsleistungen nach <strong class="font-semibold opacity-100">§ 45b SGB XI</strong> über die gesetzliche Pflegekasse abgerechnet werden. Wir unterstützen Pflegebedürftige im Alltag und entlasten gleichzeitig Angehörige spürbar.
           </p>
         </div>
 
@@ -495,7 +495,7 @@ const serviceSchema = {
             </svg>
           </a>
           <span class="text-[0.875rem] text-(--color-dark) opacity-65">
-            Kostenlose Erstberatung zur Pflegekassenabrechnung
+            Kostenlose Erstberatung zur Abrechnung mit der gesetzlichen Pflegekasse
           </span>
         </div>
       </div>
@@ -542,10 +542,10 @@ const serviceSchema = {
               id="abrechnung-heading-desktop"
               class="m-0 font-[family-name:var(--font-heading)] text-[2.25rem] font-bold leading-[1.2] text-(--color-dark)"
             >
-              Abrechnung über die Pflegekasse – einfach und direkt
+              Abrechnung über die gesetzliche Pflegekasse – einfach und direkt
             </h2>
             <p class="m-0 max-w-[65ch] text-[1.0625rem] leading-[1.75] text-(--color-dark)/90">
-              Wir sind von der Stadt Hamburg anerkannt und berechtigt, unsere Leistungen direkt mit den Pflegekassen abzurechnen. Für Pflegebedürftige mit Pflegegrad bedeutet das: unkomplizierter Zugang zu professioneller Unterstützung, finanziert durch die Pflegekasse.
+              Wir sind von der Stadt Hamburg anerkannt und berechtigt, unsere Leistungen direkt mit den gesetzlichen Pflegekassen abzurechnen. Für Pflegebedürftige mit Pflegegrad bedeutet das: unkomplizierter Zugang zu professioneller Unterstützung, finanziert durch die gesetzliche Pflegekasse.
             </p>
           </div>
         </div>
@@ -563,7 +563,7 @@ const serviceSchema = {
               Das Anerkennungsverfahren der Stadt Hamburg ist umfassend und anspruchsvoll – es stellt sicher, dass nur Anbieter zugelassen werden, die die gesetzlichen Anforderungen dauerhaft erfüllen. Für Pflegebedürftige und ihre Familien bedeutet das: Transparenz, geprüfte Qualität und Vertrauen.
             </p>
             <p class="m-0 text-[1.0625rem] leading-[1.8] text-(--color-dark) opacity-85">
-              Unsere Leistungen können unkompliziert im Rahmen der Entlastungsleistungen nach <strong class="font-semibold opacity-100">§ 45b SGB XI</strong> über die Pflegekasse abgerechnet werden. Wir unterstützen Pflegebedürftige im Alltag und entlasten gleichzeitig Angehörige spürbar.
+              Unsere Leistungen können unkompliziert im Rahmen der Entlastungsleistungen nach <strong class="font-semibold opacity-100">§ 45b SGB XI</strong> über die gesetzliche Pflegekasse abgerechnet werden. Wir unterstützen Pflegebedürftige im Alltag und entlasten gleichzeitig Angehörige spürbar.
             </p>
           </div>
 
@@ -590,7 +590,7 @@ const serviceSchema = {
                 Haben Sie Fragen zur Abrechnung?
               </h4>
               <p class="m-0 text-[0.9375rem] leading-[1.7] text-(--color-dark) opacity-80">
-                Wir erklären Ihnen transparent, wie der Entlastungsbetrag genutzt wird und übernehmen gerne die Klärung mit Ihrer Pflegekasse.
+                Wir erklären Ihnen transparent, wie der Entlastungsbetrag genutzt wird und übernehmen gerne die Klärung mit Ihrer gesetzlichen Pflegekasse.
               </p>
             </div>
             <div class="pt-2">
@@ -606,7 +606,7 @@ const serviceSchema = {
               </a>
             </div>
             <span class="text-center text-[0.8125rem] text-(--color-dark) opacity-65">
-              Kostenlose Erstberatung zur Pflegekassenabrechnung
+              Kostenlose Erstberatung zur Abrechnung mit der gesetzlichen Pflegekasse
             </span>
           </div>
         </div>
@@ -637,7 +637,7 @@ const serviceSchema = {
           Welche Leistungen können mit welchem Pflegegrad genutzt werden?
         </h2>
         <p class="m-0 mt-2 text-[1rem] leading-[1.8] text-(--color-dark) opacity-80">
-          Pflegebedürftige Menschen mit einem anerkannten Pflegegrad haben Anspruch auf Leistungen der Pflegekasse. Wir sind von der Stadt Hamburg anerkannt und erfüllen alle Voraussetzungen für die direkte Abrechnung.
+          Pflegebedürftige Menschen mit einem anerkannten Pflegegrad haben Anspruch auf Leistungen der gesetzlichen Pflegekasse. Wir sind von der Stadt Hamburg anerkannt und erfüllen alle Voraussetzungen für die direkte Abrechnung.
         </p>
       </div>
 
@@ -652,7 +652,7 @@ const serviceSchema = {
           </p>
           <ul class="m-0 flex flex-col gap-2.5 pl-0 list-none">
             {[
-              "Reinigung der Wohnung",
+              "Hilfe bei der Haushaltsführung",
               "Unterstützung beim Aufräumen",
               "Wäschepflege",
               "Fensterputzen",
@@ -693,7 +693,7 @@ const serviceSchema = {
               Zusätzlich können – abhängig von der persönlichen Situation – weitere Leistungen wie z. B. die <strong class="font-semibold text-(--color-dark) opacity-100">Verhinderungspflege</strong> genutzt werden.
             </p>
             <p class="m-0 text-[0.9375rem] leading-[1.75] text-(--color-dark) opacity-85">
-              Die Abrechnung erfolgt unkompliziert direkt mit der Pflegekasse.
+              Die Abrechnung erfolgt unkompliziert direkt mit der gesetzlichen Pflegekasse.
             </p>
           </div>
         </div>
@@ -708,7 +708,7 @@ const serviceSchema = {
           {[
             "Nicht genutzte Entlastungsbeträge können in der Regel angespart und zu einem späteren Zeitpunkt verwendet werden.",
             "Der Entlastungsbetrag ist für alle Pflegegrade gleich hoch – der individuelle Unterstützungsbedarf kann jedoch variieren.",
-            "Als anerkannter Anbieter in Hamburg erfüllen wir alle Voraussetzungen für die Abrechnung mit der Pflegekasse.",
+            "Als anerkannter Anbieter in Hamburg erfüllen wir alle Voraussetzungen für die Abrechnung mit der gesetzlichen Pflegekasse.",
           ].map((tip) => (
             <li class="flex items-start gap-3 text-[0.9375rem] leading-[1.7] text-(--color-dark) opacity-85">
               <svg
@@ -756,7 +756,7 @@ const serviceSchema = {
         </h2>
         <div class="h-1 w-12 rounded-full bg-(--color-primary-500)"></div>
         <p class="m-0 mt-1 text-[1.0625rem] leading-[1.8] text-(--color-dark) opacity-80">
-          Pflegebedürftige Menschen mit einem anerkannten Pflegegrad haben Anspruch auf Leistungen der Pflegekasse. Wir sind von der Stadt Hamburg anerkannt und erfüllen alle Voraussetzungen für die direkte Abrechnung.
+          Pflegebedürftige Menschen mit einem anerkannten Pflegegrad haben Anspruch auf Leistungen der gesetzlichen Pflegekasse. Wir sind von der Stadt Hamburg anerkannt und erfüllen alle Voraussetzungen für die direkte Abrechnung.
         </p>
       </div>
 
@@ -774,7 +774,7 @@ const serviceSchema = {
             </p>
             <ul class="m-0 flex flex-col gap-2.5 pl-0 list-none">
               {[
-                "Reinigung der Wohnung",
+                "Hilfe bei der Haushaltsführung",
                 "Unterstützung beim Aufräumen",
                 "Wäschepflege",
                 "Fensterputzen",
@@ -815,7 +815,7 @@ const serviceSchema = {
                 Zusätzlich können – abhängig von der persönlichen Situation – weitere Leistungen wie z. B. die <strong class="font-semibold text-(--color-dark) opacity-100">Verhinderungspflege</strong> genutzt werden.
               </p>
               <p class="m-0 text-[0.9375rem] leading-[1.75] text-(--color-dark) opacity-85">
-                Die Abrechnung erfolgt unkompliziert direkt mit der Pflegekasse.
+                Die Abrechnung erfolgt unkompliziert direkt mit der gesetzlichen Pflegekasse.
               </p>
             </div>
           </div>
@@ -840,7 +840,7 @@ const serviceSchema = {
             {[
               "Nicht genutzte Entlastungsbeträge können in der Regel angespart und zu einem späteren Zeitpunkt verwendet werden.",
               "Der Entlastungsbetrag ist für alle Pflegegrade gleich hoch – der individuelle Unterstützungsbedarf kann jedoch variieren.",
-              "Als anerkannter Anbieter in Hamburg erfüllen wir alle Voraussetzungen für die Abrechnung mit der Pflegekasse.",
+              "Als anerkannter Anbieter in Hamburg erfüllen wir alle Voraussetzungen für die Abrechnung mit der gesetzlichen Pflegekasse.",
             ].map((tip) => (
               <li class="flex items-start gap-3 text-[0.9375rem] leading-[1.7] text-(--color-dark) opacity-85 pb-3 border-b border-(--color-secondary)/60 last:border-b-0 last:pb-0">
                 <svg
@@ -886,7 +886,7 @@ const serviceSchema = {
             Unkomplizierte Abrechnung – kein Aufwand für Sie
           </h2>
           <p class="m-0 text-[1rem] leading-[1.8] text-white/70">
-            Durch eine Abtretungserklärung rechnen wir die erbrachten Leistungen direkt mit der Pflegekasse ab – Sie müssen sich um nichts kümmern.
+            Durch eine Abtretungserklärung rechnen wir die erbrachten Leistungen direkt mit der gesetzlichen Pflegekasse ab – Sie müssen sich um nichts kümmern.
           </p>
         </div>
 
@@ -921,7 +921,7 @@ const serviceSchema = {
             ))}
           </ul>
           <p class="m-0 text-[1rem] leading-[1.8] text-white/75">
-            Wir übernehmen die komplette Abwicklung mit der Pflegekasse und informieren Sie transparent über die genutzten Leistungen. Bei Fragen stehen wir jederzeit zur Verfügung.
+            Wir übernehmen die komplette Abwicklung mit der gesetzlichen Pflegekasse und informieren Sie transparent über die genutzten Leistungen. Bei Fragen stehen wir jederzeit zur Verfügung.
           </p>
         </div>
       </div>
@@ -942,7 +942,7 @@ const serviceSchema = {
             Persönliche Beratung in Hamburg
           </h2>
           <p class="m-0 mx-auto max-w-[56ch] text-[1.0625rem] leading-[1.8] text-(--color-dark) opacity-80">
-            Welche Leistungen im Einzelfall sinnvoll sind, hängt von den individuellen Bedürfnissen ab. Wir beraten Sie gerne persönlich zu Pflegegrad, Entlastungsbetrag und den Möglichkeiten der Kostenübernahme durch die Pflegekasse.
+            Welche Leistungen im Einzelfall sinnvoll sind, hängt von den individuellen Bedürfnissen ab. Wir beraten Sie gerne persönlich zu Pflegegrad, Entlastungsbetrag und den Möglichkeiten der Kostenübernahme durch die gesetzliche Pflegekasse.
           </p>
         </div>
         <a

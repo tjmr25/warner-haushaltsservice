@@ -4,7 +4,7 @@ import PageHero from '../components/PageHero.astro';
 import privathaushalteHero from '../assets/images/privathaushalte_hero.jpg';
 const serviceSchema = {
   '@type': 'Service',
-  name: 'Haushaltshilfe und Reinigung für Privathaushalte in Hamburg',
+  name: 'Haushaltshilfe und Unterstützung bei der Haushaltsführung für Privathaushalte in Hamburg',
   serviceType: 'Haushaltsnahe Dienstleistungen für Privatkunden nach § 35a EStG',
   provider: {
     '@id': 'https://warner-hamburg.de/#organization',
@@ -14,13 +14,13 @@ const serviceSchema = {
     name: 'Hamburg',
   },
   description:
-    'Professionelle Haushaltsreinigung, Wäscheservice und Ordnung für Familien, Berufstätige und Senioren in Hamburg. Steuerlich absetzbar (20 % Erstattung nach § 35a EStG).',
+    'Professionelle Unterstützung bei der Haushaltsführung, Wäscheservice und Ordnung für Familien, Berufstätige und Senioren in Hamburg. Steuerlich absetzbar (20 % Erstattung nach § 35a EStG).',
 };
 ---
 
 <Layout
   title="Haushaltshilfe für Privathaushalte Hamburg | Warner Haushaltsservice"
-  description="Zuverlässige Haushaltshilfe & Reinigung für Privathaushalte in Hamburg. Für Familien, Berufstätige & Senioren – 20 % steuerlich absetzbar (§ 35a EStG). Jetzt anfragen!"
+  description="Zuverlässige Haushaltshilfe & Unterstützung bei der Haushaltsführung für Privathaushalte in Hamburg. Für Familien, Berufstätige & Senioren – 20 % steuerlich absetzbar (§ 35a EStG). Jetzt anfragen!"
   extraSchema={serviceSchema}
 >
   <PageHero
@@ -28,7 +28,7 @@ const serviceSchema = {
     headingHtml="Haushaltshilfe für<br /><span>Privathaushalte</span>"
     text="Entlasten Sie sich im Alltag mit unserer professionellen Haushaltshilfe – ganz gleich, in welcher Lebensphase Sie sich befinden."
     imageSrc={privathaushalteHero}
-    imageAlt="Professionelle Haushaltshilfe reinigt ein helles, gemütliches Wohnzimmer in Hamburg"
+    imageAlt="Professionelle Haushaltshilfe in einem hellen, gemütlichen Wohnzimmer in Hamburg"
     headingTag="h1"
     imageObjectPosition="bottom"
     imageObjectPositionDesktop="center 60%"
@@ -122,10 +122,10 @@ const serviceSchema = {
         </h2>
         <div class="mt-4 h-1 w-12 rounded-full bg-(--color-primary-500)"></div>
         <p class="mt-6 text-[1.0625rem] leading-[1.8] text-(--color-dark) opacity-85">
-          Unser erfahrenes Team kümmert sich um Ordnung und die gründliche Reinigung Ihres Zuhauses, unterstützt Sie bei der Wäschepflege und übernimmt das Bügeln.
+          Unser erfahrenes Team kümmert sich um Ordnung und die zuverlässige Unterstützung bei der Haushaltsführung, unterstützt Sie bei der Wäschepflege und übernimmt das Bügeln.
         </p>
         <ul class="mt-8 flex flex-col divide-y divide-(--color-secondary)/60 border-t border-(--color-secondary)/60 list-none m-0 p-0">
-          {["Aufräumen", "Blumen gießen", "Reinigung", "Wäschepflege", "Bügeln"].map((item) => (
+          {["Aufräumen", "Blumen gießen", "Unterstützung bei der Haushaltsführung", "Wäschepflege", "Bügeln"].map((item) => (
             <li class="flex items-center gap-4 py-4 text-[1rem] font-semibold text-(--color-dark) font-[family-name:var(--font-heading)]">
               <span class="flex h-2.5 w-2.5 shrink-0 rounded-full bg-(--color-primary-500)" aria-hidden="true"></span>
               {item}
@@ -232,13 +232,13 @@ const serviceSchema = {
             </h2>
             <div class="h-1 w-10 rounded-full bg-(--color-primary-500)"></div>
             <p class="mt-1 text-[1.0625rem] leading-[1.8] text-(--color-dark) opacity-85">
-              Unser erfahrenes Team kümmert sich um Ordnung und die gründliche Reinigung Ihres Zuhauses, unterstützt Sie bei der Wäschepflege und übernimmt das Bügeln.
+              Unser erfahrenes Team kümmert sich um Ordnung und die zuverlässige Unterstützung bei der Haushaltsführung, unterstützt Sie bei der Wäschepflege und übernimmt das Bügeln.
             </p>
           </div>
 
           <!-- Leistungen als schöne Liste in einer Karte -->
           <div class="rounded-[var(--radius-xl)] border border-(--color-secondary)/80 bg-white shadow-[0_4px_24px_rgb(27_34_39/0.04)] overflow-hidden">
-            {["Aufräumen", "Blumen gießen", "Reinigung", "Wäschepflege", "Bügeln"].map((item, i) => (
+            {["Aufräumen", "Blumen gießen", "Unterstützung bei der Haushaltsführung", "Wäschepflege", "Bügeln"].map((item, i) => (
               <div class={`flex items-center gap-5 px-8 py-5 ${i > 0 ? "border-t border-(--color-secondary)/60" : ""}`}>
                 <span class="flex h-3 w-3 shrink-0 rounded-full bg-(--color-primary-500)" aria-hidden="true"></span>
                 <span class="font-[family-name:var(--font-heading)] text-[1.0625rem] font-semibold text-(--color-dark)">{item}</span>
