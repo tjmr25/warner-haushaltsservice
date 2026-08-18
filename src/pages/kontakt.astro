@@ -55,9 +55,8 @@ import Layout from '../layouts/Layout.astro';
             aria-label="Kontaktformular"
           >
             <!-- Honeypot (Spam-Schutz für Bots) -->
-            <div class="sr-only" aria-hidden="true">
-              <label for="website">Website (bitte leer lassen)</label>
-              <input type="text" id="website" name="_honey" tabindex="-1" autocomplete="off" />
+            <div style="display: none !important;" aria-hidden="true">
+              <input type="text" name="_honey" tabindex="-1" autocomplete="off" value="" />
             </div>
 
             <input type="hidden" name="_subject" value="Neue Kontaktanfrage – Warner Haushaltsservice" />
@@ -432,13 +431,6 @@ import Layout from '../layouts/Layout.astro';
         return;
       }
 
-      const honey = form.querySelector('input[name="_honey"]') as HTMLInputElement | null;
-      if (honey && honey.value.trim() !== '') {
-        showMsg('success', '✓ Ihre Nachricht wurde erfolgreich gesendet!');
-        showToast('success', 'Nachricht erfolgreich gesendet', 'Vielen Dank für Ihre Anfrage! Wir haben Ihre Nachricht erhalten.');
-        form.reset();
-        return;
-      }
 
       // Validierung
       let valid = true;
