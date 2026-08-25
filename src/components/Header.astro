@@ -149,6 +149,8 @@ const hasTransparentHeader = currentPath === '/';
     const header = document.getElementById('siteHeader') as HTMLElement | null;
 
     if (!burger || !nav || !header) return;
+    if (burger.dataset.initialized === 'true') return;
+    burger.dataset.initialized = 'true';
 
     function toggleMenu(forceClose = false) {
       const isOpen = nav!.classList.contains('mobile-nav-open');
@@ -178,6 +180,8 @@ const hasTransparentHeader = currentPath === '/';
   function initScroll() {
     const header = document.getElementById('siteHeader') as HTMLElement | null;
     if (!header) return;
+    if (header.dataset.scrollInitialized === 'true') return;
+    header.dataset.scrollInitialized = 'true';
 
     function handleScroll() {
       if (window.scrollY > 10) {
@@ -191,10 +195,18 @@ const hasTransparentHeader = currentPath === '/';
     handleScroll();
   }
 
-  document.addEventListener('astro:page-load', () => {
+  function initHeader() {
     initBurger();
     initScroll();
-  });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHeader);
+  } else {
+    initHeader();
+  }
+
+  document.addEventListener('astro:page-load', initHeader);
 
   document.addEventListener('astro:before-preparation', () => {
     document.body.style.overflow = '';

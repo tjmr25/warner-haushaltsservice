@@ -70,7 +70,7 @@ import Layout from '../layouts/Layout.astro';
                   Vorname <span class="text-[#c0392b]" aria-label="Pflichtfeld">*</span>
                 </label>
                 <input
-                  type="text" id="vorname" name="vorname"
+                  type="text" id="vorname" name="Vorname"
                   class="w-full px-4 py-3 font-[family-name:var(--font-body)] text-[1rem] text-(--color-dark) bg-(--color-base) border border-(--color-secondary) rounded-[var(--radius-lg)] outline-none transition-all duration-200 focus:border-(--color-primary-500) focus:bg-white focus:ring-2 focus:ring-(--color-primary-500)/25"
                   autocomplete="given-name" required minlength="2" maxlength="80"
                   aria-required="true" aria-errormessage="vorname-error"
@@ -83,12 +83,42 @@ import Layout from '../layouts/Layout.astro';
                   Nachname <span class="text-[#c0392b]" aria-label="Pflichtfeld">*</span>
                 </label>
                 <input
-                  type="text" id="nachname" name="nachname"
+                  type="text" id="nachname" name="Nachname"
                   class="w-full px-4 py-3 font-[family-name:var(--font-body)] text-[1rem] text-(--color-dark) bg-(--color-base) border border-(--color-secondary) rounded-[var(--radius-lg)] outline-none transition-all duration-200 focus:border-(--color-primary-500) focus:bg-white focus:ring-2 focus:ring-(--color-primary-500)/25"
                   autocomplete="family-name" required minlength="2" maxlength="80"
                   aria-required="true" aria-errormessage="nachname-error"
                 />
                 <span id="nachname-error" class="hidden text-[0.8125rem] text-red-600 font-medium">Bitte geben Sie Ihren Nachnamen ein (mind. 2 Zeichen).</span>
+              </div>
+            </div>
+
+            <!-- PLZ + Ort -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+              <div class="flex flex-col gap-1.5 sm:col-span-1">
+                <label for="plz" class="font-[family-name:var(--font-body)] text-[0.875rem] font-semibold text-(--color-dark)">
+                  PLZ <span class="text-[#c0392b]" aria-label="Pflichtfeld">*</span>
+                </label>
+                <input
+                  type="text" id="plz" name="PLZ"
+                  class="w-full px-4 py-3 font-[family-name:var(--font-body)] text-[1rem] text-(--color-dark) bg-(--color-base) border border-(--color-secondary) rounded-[var(--radius-lg)] outline-none transition-all duration-200 focus:border-(--color-primary-500) focus:bg-white focus:ring-2 focus:ring-(--color-primary-500)/25"
+                  autocomplete="postal-code" required pattern="[0-9]{5}" maxlength="5" minlength="5"
+                  inputmode="numeric"
+                  aria-required="true" aria-errormessage="plz-error"
+                />
+                <span id="plz-error" class="hidden text-[0.8125rem] text-red-600 font-medium">Bitte geben Sie eine gültige 5-stellige PLZ ein.</span>
+              </div>
+
+              <div class="flex flex-col gap-1.5 sm:col-span-2">
+                <label for="ort" class="font-[family-name:var(--font-body)] text-[0.875rem] font-semibold text-(--color-dark)">
+                  Ort <span class="text-[#c0392b]" aria-label="Pflichtfeld">*</span>
+                </label>
+                <input
+                  type="text" id="ort" name="Ort"
+                  class="w-full px-4 py-3 font-[family-name:var(--font-body)] text-[1rem] text-(--color-dark) bg-(--color-base) border border-(--color-secondary) rounded-[var(--radius-lg)] outline-none transition-all duration-200 focus:border-(--color-primary-500) focus:bg-white focus:ring-2 focus:ring-(--color-primary-500)/25"
+                  autocomplete="address-level2" required minlength="2" maxlength="80"
+                  aria-required="true" aria-errormessage="ort-error"
+                />
+                <span id="ort-error" class="hidden text-[0.8125rem] text-red-600 font-medium">Bitte geben Sie Ihren Wohnort ein (mind. 2 Zeichen).</span>
               </div>
             </div>
 
@@ -98,7 +128,7 @@ import Layout from '../layouts/Layout.astro';
                 E-Mail-Adresse <span class="text-[#c0392b]" aria-label="Pflichtfeld">*</span>
               </label>
               <input
-                type="email" id="email" name="email"
+                type="email" id="email" name="E-Mail"
                 class="w-full px-4 py-3 font-[family-name:var(--font-body)] text-[1rem] text-(--color-dark) bg-(--color-base) border border-(--color-secondary) rounded-[var(--radius-lg)] outline-none transition-all duration-200 focus:border-(--color-primary-500) focus:bg-white focus:ring-2 focus:ring-(--color-primary-500)/25"
                 autocomplete="email" required maxlength="254"
                 aria-required="true" aria-errormessage="email-error"
@@ -113,7 +143,7 @@ import Layout from '../layouts/Layout.astro';
                 Telefonnummer <span class="text-[0.8125rem] font-normal opacity-70 ml-1">(optional)</span>
               </label>
               <input
-                type="tel" id="telefon" name="telefon"
+                type="tel" id="telefon" name="Telefon"
                 class="w-full px-4 py-3 font-[family-name:var(--font-body)] text-[1rem] text-(--color-dark) bg-(--color-base) border border-(--color-secondary) rounded-[var(--radius-lg)] outline-none transition-all duration-200 focus:border-(--color-primary-500) focus:bg-white focus:ring-2 focus:ring-(--color-primary-500)/25"
                 autocomplete="tel" maxlength="25" pattern="[\d\s\+\-\(\)]{6,25}"
                 aria-errormessage="telefon-error"
@@ -128,7 +158,7 @@ import Layout from '../layouts/Layout.astro';
                 Ihr Anliegen <span class="text-[#c0392b]" aria-label="Pflichtfeld">*</span>
               </label>
               <select
-                id="betreff" name="betreff"
+                id="betreff" name="Anliegen"
                 class="w-full px-4 py-3 font-[family-name:var(--font-body)] text-[1rem] text-(--color-dark) bg-(--color-base) border border-(--color-secondary) rounded-[var(--radius-lg)] outline-none transition-all duration-200 focus:border-(--color-primary-500) focus:bg-white focus:ring-2 focus:ring-(--color-primary-500)/25 cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%231b2227%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%2F%3E%3C%2Fsvg%3E')] bg-[length:16px_16px] bg-[position:right_1rem_center] bg-no-repeat pr-10"
                 required aria-required="true" aria-errormessage="betreff-error"
               >
@@ -146,7 +176,7 @@ import Layout from '../layouts/Layout.astro';
                 Ihre Nachricht <span class="text-[#c0392b]" aria-label="Pflichtfeld">*</span>
               </label>
               <textarea
-                id="nachricht" name="nachricht"
+                id="nachricht" name="Nachricht"
                 class="w-full px-4 py-3 font-[family-name:var(--font-body)] text-[1rem] text-(--color-dark) bg-(--color-base) border border-(--color-secondary) rounded-[var(--radius-lg)] outline-none transition-all duration-200 focus:border-(--color-primary-500) focus:bg-white focus:ring-2 focus:ring-(--color-primary-500)/25 min-h-[120px] max-h-[300px] resize-y"
                 required minlength="10" maxlength="2000" rows="5"
                 aria-required="true" aria-errormessage="nachricht-error"
@@ -162,7 +192,7 @@ import Layout from '../layouts/Layout.astro';
             <div class="flex flex-col gap-1.5 pt-1">
               <div class="flex items-start gap-3">
                 <input
-                  type="checkbox" id="datenschutz" name="datenschutz"
+                  type="checkbox" id="datenschutz"
                   class="mt-1 w-4 h-4 rounded accent-(--color-primary-500) cursor-pointer"
                   required aria-required="true" aria-errormessage="datenschutz-error"
                 />
@@ -329,6 +359,8 @@ import Layout from '../layouts/Layout.astro';
   function initFormLogic() {
     const form = document.getElementById('kontaktForm') as HTMLFormElement | null;
     if (!form) return;
+    if (form.dataset.initialized === 'true') return;
+    form.dataset.initialized = 'true';
 
     const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement | null;
     const statusEl  = document.getElementById('form-status') as HTMLElement | null;
@@ -406,6 +438,21 @@ import Layout from '../layouts/Layout.astro';
       }
     });
 
+    const formFields = ['vorname', 'nachname', 'plz', 'ort', 'email', 'telefon', 'betreff', 'nachricht', 'datenschutz'];
+    formFields.forEach((id) => {
+      const el = document.getElementById(id) as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement | null;
+      const err = document.getElementById(`${id}-error`);
+      if (!el || !err) return;
+      el.addEventListener('input', () => {
+        err.classList.add('hidden');
+        el.classList.remove('border-red-500', 'bg-red-50');
+      });
+      el.addEventListener('change', () => {
+        err.classList.add('hidden');
+        el.classList.remove('border-red-500', 'bg-red-50');
+      });
+    });
+
     if (nachrEl && counterEl) {
       nachrEl.addEventListener('input', () => {
         const len = nachrEl.value.length;
@@ -434,7 +481,7 @@ import Layout from '../layouts/Layout.astro';
 
       // Validierung
       let valid = true;
-      const fields = ['vorname', 'nachname', 'email', 'betreff', 'nachricht', 'datenschutz'];
+      const fields = ['vorname', 'nachname', 'plz', 'ort', 'email', 'betreff', 'nachricht', 'datenschutz'];
       fields.forEach((id) => {
         const el = document.getElementById(id) as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement | null;
         const err = document.getElementById(`${id}-error`);
@@ -523,6 +570,12 @@ import Layout from '../layouts/Layout.astro';
 
       statusEl.textContent = msg;
     }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFormLogic);
+  } else {
+    initFormLogic();
   }
 
   document.addEventListener('astro:page-load', initFormLogic);

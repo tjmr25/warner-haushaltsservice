@@ -164,6 +164,9 @@
 
   .wh-header-transparent {
     position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
     background-color: transparent !important;
     border-bottom-color: transparent !important;
     box-shadow: none !important;
@@ -173,6 +176,7 @@
   .wh-header-scrolled {
     background-color: var(--color-base) !important;
     border-bottom: 1px solid var(--color-secondary) !important;
+    border-bottom-color: var(--color-secondary) !important;
     box-shadow: 0 2px 12px 0 rgb(27 34 39 / 0.06) !important;
   }
 
@@ -180,6 +184,7 @@
     background-color: var(--color-base) !important;
     box-shadow: none !important;
     border-bottom: 1px solid var(--color-secondary) !important;
+    border-bottom-color: var(--color-secondary) !important;
   }
 
   /* ===== HAMBURGER: Burger → X Animation ===== */
@@ -196,9 +201,10 @@
 
   /* ===== MOBILE NAV: Slide-down Animation ===== */
   .mobile-nav-open {
-    max-height: 100dvh !important;
+    max-height: calc(100dvh - 68px) !important;
     opacity: 1 !important;
     visibility: visible !important;
+    overflow-y: auto !important;
     box-shadow: 0 8px 24px 0 rgb(27 34 39 / 0.08) !important;
   }
 
