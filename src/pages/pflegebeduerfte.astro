@@ -47,19 +47,21 @@ const detailedServices = [
   },
   {
     num: "05",
-    title: "Gesellschaft und Alltagsbegleitung",
-    desc: "Neben praktischer Hilfe ist soziale Unterstützung besonders wichtig. Wir nehmen uns Zeit für:",
+    title: "Gesellschaft und soziale Unterstützung",
+    desc: "Neben der praktischen Hilfe im Haushalt ist auch Zeit für persönliche Begegnung wichtig. Unsere Mitarbeiterinnen sind für Sie da, hören zu und nehmen sich Zeit für ein Gespräch. Dazu gehören:",
     items: [
-      "Gesellschaft und Gespräche",
-      "Gemeinsame Aktivitäten im Alltag",
-      "Persönliche Zuwendung und Begleitung",
+      "Zeit für Gespräche und persönliche Begegnung",
+      "Gemeinsam Zeit verbringen, zum Beispiel bei einer Tasse Kaffee, beim Lesen oder bei kleinen Beschäftigungen",
+      "Zuhören, erzählen und sich austauschen",
+      "Persönliche Zuwendung und menschliche Nähe",
+      "Gemeinsame kleine Aktivitäten im häuslichen Umfeld",
     ],
-    note: "Diese Form der Alltagsbegleitung stärkt das Wohlbefinden, beugt Einsamkeit vor und gibt Sicherheit.",
+    note: "Diese persönliche Unterstützung kann Einsamkeit entgegenwirken, das Wohlbefinden stärken und den Alltag angenehmer machen.",
   },
 ];
 const serviceSchema = {
   '@type': 'Service',
-  name: 'Haushaltshilfe und Alltagsbegleitung für Pflegebedürftige in Hamburg',
+  name: 'Haushaltshilfe und Alltagsunterstützung für Pflegebedürftige in Hamburg',
   serviceType: 'Haushaltsnahe Dienstleistungen nach § 45b SGB XI',
   provider: {
     '@id': 'https://warner-hamburg.de/#organization',
@@ -69,13 +71,13 @@ const serviceSchema = {
     name: 'Hamburg',
   },
   description:
-    'Unterstützung im Haushalt, Hilfe bei der Haushaltsführung, Wäschepflege und Alltagsbegleitung für Pflegebedürftige (Pflegegrad 1–5). Direkte Abrechnung mit der gesetzlichen Pflegekasse.',
+    'Unterstützung im Haushalt, Hilfe bei der Haushaltsführung, Wäschepflege und soziale Unterstützung für Pflegebedürftige (Pflegegrad 1–5). Direkte Abrechnung mit der gesetzlichen Pflegekasse.',
 };
 ---
 
 <Layout
   title="Haushaltshilfe für Pflegebedürftige Hamburg | Warner Haushaltsservice"
-  description="Anerkannte Haushaltshilfe & Alltagsbegleitung für Pflegebedürftige in Hamburg (Pflegegrad 1–5). Direkt über die gesetzliche Pflegekasse abrechenbar (§ 45b SGB XI). Jetzt informieren!"
+  description="Anerkannte Haushaltshilfe & Alltagsunterstützung für Pflegebedürftige in Hamburg (Pflegegrad 1–5). Direkt über die gesetzliche Pflegekasse abrechenbar (§ 45b SGB XI). Jetzt informieren!"
   extraSchema={serviceSchema}
 >
   <PageHero
@@ -84,7 +86,7 @@ const serviceSchema = {
     text="Wenn alltägliche Dinge zur Herausforderung werden, sind wir für Sie da. Wir unterstützen pflegebedürftige Menschen dabei, ihren Alltag so selbstbestimmt und angenehm wie möglich zu gestalten."
     badgeText="Abrechenbar über die gesetzliche Pflegekasse"
     imageSrc={pflegebeduerfteBild}
-    imageAlt="Freundliche Alltagsbegleiterin unterstützt eine ältere Dame liebevoll in ihrem Zuhause"
+    imageAlt="Fürsorgliche Mitarbeiterin von Warner Haushaltsservice unterstützt eine ältere Dame liebevoll in ihrem Zuhause"
     headingTag="h1"
     imageObjectPositionDesktop="center 35%"
   />
@@ -289,7 +291,12 @@ const serviceSchema = {
       <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
         {
           detailedServices.map((service) => (
-            <div class="group relative flex flex-col justify-between rounded-[var(--radius-xl)] border border-(--color-secondary)/80 bg-white p-7 shadow-[0_4px_20px_rgb(27_34_39/0.03)] transition-all duration-300 hover:-translate-y-1 hover:border-(--color-primary-300) hover:shadow-[0_12px_32px_rgb(255_183_48/0.18)]">
+            <div
+              class:list={[
+                "group relative flex flex-col justify-between rounded-[var(--radius-xl)] border border-(--color-secondary)/80 bg-white p-7 shadow-[0_4px_20px_rgb(27_34_39/0.03)] transition-all duration-300 hover:-translate-y-1 hover:border-(--color-primary-300) hover:shadow-[0_12px_32px_rgb(255_183_48/0.18)]",
+                service.num === "05" ? "md:col-span-2" : "",
+              ]}
+            >
               <div>
                 <div class="mb-3 font-[family-name:var(--font-heading)] text-[2rem] font-extrabold leading-none text-(--color-primary-500)/40">
                   {service.num}
@@ -300,7 +307,12 @@ const serviceSchema = {
                 <p class="mb-5 m-0 text-[0.9375rem] leading-[1.7] text-(--color-dark) opacity-80">
                   {service.desc}
                 </p>
-                <ul class="mb-4 flex flex-col gap-3 list-none m-0 p-0">
+                <ul
+                  class:list={[
+                    service.num === "05" ? "grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3" : "flex flex-col gap-3",
+                    "mb-4 list-none m-0 p-0"
+                  ]}
+                >
                   {service.items.map((item) => (
                     <li class="flex items-start gap-3 text-[0.9375rem] font-medium leading-[1.6] text-(--color-dark)">
                       <svg
@@ -365,7 +377,12 @@ const serviceSchema = {
         <div class="grid grid-cols-2 gap-6">
           {
             detailedServices.map((service) => (
-              <div class="group relative flex flex-col justify-between rounded-[var(--radius-xl)] border border-(--color-secondary)/80 bg-white p-7 shadow-[0_4px_20px_rgb(27_34_39/0.03)] transition-all duration-300 hover:-translate-y-1 hover:border-(--color-primary-300) hover:shadow-[0_12px_32px_rgb(255_183_48/0.18)]">
+              <div
+                class:list={[
+                  "group relative flex flex-col justify-between rounded-[var(--radius-xl)] border border-(--color-secondary)/80 bg-white p-7 shadow-[0_4px_20px_rgb(27_34_39/0.03)] transition-all duration-300 hover:-translate-y-1 hover:border-(--color-primary-300) hover:shadow-[0_12px_32px_rgb(255_183_48/0.18)]",
+                  service.num === "05" ? "col-span-2" : "",
+                ]}
+              >
                 <div>
                   <div class="mb-3 font-[family-name:var(--font-heading)] text-[2.25rem] font-extrabold leading-none text-(--color-primary-500)/45">
                     {service.num}
@@ -376,7 +393,12 @@ const serviceSchema = {
                   <p class="mb-5 m-0 text-[0.9375rem] leading-[1.7] text-(--color-dark) opacity-80">
                     {service.desc}
                   </p>
-                  <ul class="mb-4 flex flex-col gap-3 list-none m-0 p-0">
+                  <ul
+                    class:list={[
+                      service.num === "05" ? "grid grid-cols-2 gap-x-6 gap-y-3" : "flex flex-col gap-3",
+                      "mb-4 list-none m-0 p-0"
+                    ]}
+                  >
                     {service.items.map((item) => (
                       <li class="flex items-start gap-3 text-[0.9375rem] font-medium leading-[1.6] text-(--color-dark)">
                         <svg
@@ -657,7 +679,7 @@ const serviceSchema = {
               "Wäschepflege",
               "Fensterputzen",
               "Waschen und Abnehmen von Gardinen",
-              "Gesellschaft und Alltagsbegleitung",
+              "Gesellschaft und soziale Unterstützung",
             ].map((item) => (
               <li class="flex items-start gap-3 text-[0.9375rem] leading-[1.6] text-(--color-dark) opacity-85">
                 <svg
@@ -779,7 +801,7 @@ const serviceSchema = {
                 "Wäschepflege",
                 "Fensterputzen",
                 "Waschen und Abnehmen von Gardinen",
-                "Gesellschaft und Alltagsbegleitung",
+                "Gesellschaft und soziale Unterstützung",
               ].map((item) => (
                 <li class="flex items-start gap-3 text-[0.9375rem] leading-[1.6] text-(--color-dark) opacity-85">
                   <svg

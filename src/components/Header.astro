@@ -32,7 +32,7 @@ const hasTransparentHeader = currentPath === '/';
      ============================================= -->
 <header
   id="siteHeader"
-  class={`sticky top-0 z-[100] w-full bg-(--color-base) border-b border-(--color-secondary) shadow-[0_2px_12px_0_rgb(27_34_39/0.06)] lg:bg-transparent lg:border-b-0 lg:shadow-none ${hasTransparentHeader ? 'wh-header-transparent' : ''}`}
+  class={`sticky top-0 z-[100] w-full bg-(--color-base) border-b border-(--color-secondary) shadow-[0_2px_12px_0_rgb(27_34_39/0.06)] ${hasTransparentHeader ? 'wh-header-transparent' : ''}`}
 >
   <!-- Inner: Logo + Nav + Burger -->
   <div class="container-page flex items-center justify-between py-[0.875rem] w-full lg:min-h-[68px] lg:py-0">

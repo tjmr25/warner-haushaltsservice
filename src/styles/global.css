@@ -162,15 +162,17 @@
     transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
   }
 
-  .wh-header-transparent {
-    position: fixed !important;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: transparent !important;
-    border-bottom-color: transparent !important;
-    box-shadow: none !important;
-    transition: background-color 0.25s ease, border-bottom-color 0.25s ease, box-shadow 0.25s ease;
+  @media (min-width: 1024px) {
+    .wh-header-transparent {
+      position: fixed !important;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: transparent !important;
+      border-bottom-color: transparent !important;
+      box-shadow: none !important;
+      transition: background-color 0.25s ease, border-bottom-color 0.25s ease, box-shadow 0.25s ease;
+    }
   }
 
   .wh-header-scrolled {
@@ -233,35 +235,7 @@
     transform: translateY(0);
   }
 
-  /* ===== HERO: Weißer Farbverlauf oben (nur Startseite, 95% Deckkraft) ===== */
-  .hero-gradient::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 120px;
-    background: linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 0.95) 0%,
-      rgba(255, 255, 255, 0.5) 50%,
-      rgba(255, 255, 255, 0) 100%
-    );
-    pointer-events: none;
-    z-index: 5;
-  }
 
-  @media (min-width: 768px) {
-    .hero-gradient::before {
-      height: 80px; /* Reduzierte Höhe für Tablet */
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .hero-gradient::before {
-      display: none; /* Removed white top gradient on desktop */
-    }
-  }
 
   /* ===== STATS: Riesige Hintergrund-Zahl (Outline) ===== */
   .stat-giant-bg {
