@@ -168,22 +168,20 @@ const isImportedDesktop = typeof imageSrcDesktop === 'object';
           <a
             href={ctaHref}
             class="
-              inline-flex items-center justify-center gap-2
-              px-7 py-[0.875rem]
-              bg-(--color-primary-500) border-2 border-(--color-primary-500)
-              text-dark text-[#1b2227] font-[family-name:var(--font-heading)] text-base font-bold
-              rounded-[var(--radius-lg)] no-underline
-              shadow-[0_4px_16px_rgb(255_183_48/0.3)]
-              transition-all duration-200
-              hover:bg-(--color-primary-400) hover:border-(--color-primary-400) hover:shadow-[0_6px_22px_rgb(255_183_48/0.45)] active:scale-[0.98]
+              group text-dark inline-flex items-center justify-center gap-2
+              rounded-[var(--radius)] border-2 border-(--color-primary-500) bg-(--color-primary-500)
+              px-6 py-[0.875rem] sm:px-7 sm:py-[0.9375rem]
+              font-[family-name:var(--font-heading)] text-[0.9375rem] font-bold text-[#1b2227]
+              no-underline shadow-[0_4px_16px_rgb(255_183_48/0.35)]
+              transition-all duration-[250ms]
+              hover:bg-(--color-primary-400) hover:border-(--color-primary-400) active:scale-[0.98]
               focus-visible:outline-2 focus-visible:outline-(--color-dark) focus-visible:outline-offset-3
-              group
             "
           >
             {ctaLabel}
             <svg
-              width="18"
-              height="18"
+              width="17"
+              height="17"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
