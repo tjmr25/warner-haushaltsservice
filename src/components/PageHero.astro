@@ -68,115 +68,130 @@ const isImportedDesktop = typeof imageSrcDesktop === 'object';
      Desktop: Zweispaltig, Text links, Bild rechts
      ============================================= -->
 <section
-  class="relative bg-(--color-base) overflow-x-hidden pt-0 pb-12 lg:pt-10 lg:pb-16"
+  class="relative overflow-x-hidden bg-(--color-base) pt-0 pb-12 lg:pt-10 lg:pb-16"
   aria-labelledby="page-hero-heading"
   data-page-hero
 >
   <div class="container-page">
     <!-- Grid: Mobile = column-stack, Desktop = 2-column -->
-    <div class="flex flex-col lg:grid lg:grid-cols-[1.15fr_1fr] lg:items-center lg:gap-16">
-
+    <div
+      class="flex flex-col lg:grid lg:grid-cols-[1.15fr_1fr] lg:items-center lg:gap-16"
+    >
       <!-- Bild (oben Mobile, rechts Desktop) -->
-      <div class="order-first lg:order-last -mx-4 md:-mx-6 w-[calc(100%+2rem)] md:w-[calc(100%+3rem)] lg:mx-0 lg:w-full lg:col-start-2 relative lg:overflow-hidden lg:rounded-[var(--radius-xl)] lg:shadow-[0_12px_40px_rgb(27_34_39/0.08)]">
-        {/* Mobile-Bild: immer sichtbar auf Mobile, auf Desktop ausgeblendet wenn Desktop-Bild vorhanden */}
-        {isImportedImage ? (
-          <Image
-            src={imageSrc as ImageMetadata}
-            alt={imageAlt}
-            class:list={[
-              "page-hero-image-el w-full h-[320px] sm:h-[400px] md:h-[480px] object-cover rounded-none shadow-none",
-              imageSrcDesktop ? "lg:hidden" : "lg:block lg:h-[550px] lg:rounded-[var(--radius-xl)]",
-            ]}
-            style={`--obj-pos-m: ${imageObjectPosition}; --obj-pos-d: ${desktopObjPos}; ${imageScaleDesktop ? `--image-scale-d: ${imageScaleDesktop}; --image-scale-origin-d: ${imageScaleDesktopOrigin};` : ''}`}
-            loading="eager"
-            decoding="async"
-            widths={[400, 700, 900]}
-            sizes="(max-width: 1024px) 100vw, 50vw"
-          />
-        ) : (
-          <img
-            src={imageSrc as string}
-            alt={imageAlt}
-            class:list={[
-              "page-hero-image-el w-full h-[320px] sm:h-[400px] md:h-[480px] object-cover rounded-none shadow-none",
-              imageSrcDesktop ? "lg:hidden" : "lg:block lg:h-[550px] lg:rounded-[var(--radius-xl)]",
-            ]}
-            style={`--obj-pos-m: ${imageObjectPosition}; --obj-pos-d: ${desktopObjPos}; ${imageScaleDesktop ? `--image-scale-d: ${imageScaleDesktop}; --image-scale-origin-d: ${imageScaleDesktopOrigin};` : ''}`}
-            loading="eager"
-            decoding="async"
-          />
-        )}
-
-        {/* Desktop-Bild: nur sichtbar auf lg+ */}
-        {imageSrcDesktop && (
-          isImportedDesktop ? (
+      <div
+        class="relative order-first -mx-4 w-[calc(100%+2rem)] md:-mx-6 md:w-[calc(100%+3rem)] lg:order-last lg:col-start-2 lg:mx-0 lg:w-full lg:overflow-hidden lg:rounded-[var(--radius-xl)] lg:shadow-[0_12px_40px_rgb(27_34_39/0.08)]"
+      >
+        {
+          /* Mobile-Bild: immer sichtbar auf Mobile, auf Desktop ausgeblendet wenn Desktop-Bild vorhanden */
+        }
+        {
+          isImportedImage ? (
             <Image
-              src={imageSrcDesktop as ImageMetadata}
+              src={imageSrc as ImageMetadata}
               alt={imageAlt}
-              class="page-hero-image-el hidden lg:block w-full h-[550px] object-cover lg:rounded-[var(--radius-xl)]"
+              class:list={[
+                'page-hero-image-el h-[320px] w-full rounded-none object-cover shadow-none sm:h-[400px] md:h-[480px]',
+                imageSrcDesktop
+                  ? 'lg:hidden'
+                  : 'lg:block lg:h-[550px] lg:rounded-[var(--radius-xl)]',
+              ]}
               style={`--obj-pos-m: ${imageObjectPosition}; --obj-pos-d: ${desktopObjPos}; ${imageScaleDesktop ? `--image-scale-d: ${imageScaleDesktop}; --image-scale-origin-d: ${imageScaleDesktopOrigin};` : ''}`}
               loading="eager"
               decoding="async"
-              widths={[700, 900, 1200]}
-              sizes="50vw"
+              widths={[400, 700, 900]}
+              sizes="(max-width: 1024px) 100vw, 50vw"
             />
           ) : (
             <img
-              src={imageSrcDesktop as string}
+              src={imageSrc as string}
               alt={imageAlt}
-              class="page-hero-image-el hidden lg:block w-full h-[550px] object-cover lg:rounded-[var(--radius-xl)]"
+              class:list={[
+                'page-hero-image-el h-[320px] w-full rounded-none object-cover shadow-none sm:h-[400px] md:h-[480px]',
+                imageSrcDesktop
+                  ? 'lg:hidden'
+                  : 'lg:block lg:h-[550px] lg:rounded-[var(--radius-xl)]',
+              ]}
               style={`--obj-pos-m: ${imageObjectPosition}; --obj-pos-d: ${desktopObjPos}; ${imageScaleDesktop ? `--image-scale-d: ${imageScaleDesktop}; --image-scale-origin-d: ${imageScaleDesktopOrigin};` : ''}`}
               loading="eager"
               decoding="async"
             />
           )
-        )}
+        }
+
+        {/* Desktop-Bild: nur sichtbar auf lg+ */}
+        {
+          imageSrcDesktop &&
+            (isImportedDesktop ? (
+              <Image
+                src={imageSrcDesktop as ImageMetadata}
+                alt={imageAlt}
+                class="page-hero-image-el hidden h-[550px] w-full object-cover lg:block lg:rounded-[var(--radius-xl)]"
+                style={`--obj-pos-m: ${imageObjectPosition}; --obj-pos-d: ${desktopObjPos}; ${imageScaleDesktop ? `--image-scale-d: ${imageScaleDesktop}; --image-scale-origin-d: ${imageScaleDesktopOrigin};` : ''}`}
+                loading="eager"
+                decoding="async"
+                widths={[700, 900, 1200]}
+                sizes="50vw"
+              />
+            ) : (
+              <img
+                src={imageSrcDesktop as string}
+                alt={imageAlt}
+                class="page-hero-image-el hidden h-[550px] w-full object-cover lg:block lg:rounded-[var(--radius-xl)]"
+                style={`--obj-pos-m: ${imageObjectPosition}; --obj-pos-d: ${desktopObjPos}; ${imageScaleDesktop ? `--image-scale-d: ${imageScaleDesktop}; --image-scale-origin-d: ${imageScaleDesktopOrigin};` : ''}`}
+                loading="eager"
+                decoding="async"
+              />
+            ))
+        }
       </div>
 
       <!-- Text-Karte (unten Mobile überlappend, links Desktop) -->
-      <div class="
-        relative z-[2]
-        bg-(--color-base) rounded-[var(--radius-lg)] p-5 sm:p-7 md:p-10 -mt-20
-        flex flex-col gap-4
-        lg:bg-transparent lg:rounded-none lg:p-0 lg:mt-0 lg:shadow-none lg:col-start-1 lg:gap-5
-      ">
+      <div
+        class="relative z-[2] -mt-20 flex flex-col gap-4 rounded-[var(--radius-lg)] bg-(--color-base) p-5 sm:p-7 md:p-10 lg:col-start-1 lg:mt-0 lg:gap-5 lg:rounded-none lg:bg-transparent lg:p-0 lg:shadow-none"
+      >
         <!-- Eyebrow -->
-        <span class="font-[family-name:var(--font-body)] text-[0.8125rem] font-bold uppercase tracking-[0.08em] text-(--color-primary-700)">
+        <span
+          class="font-[family-name:var(--font-body)] text-[0.8125rem] font-bold tracking-[0.08em] text-(--color-primary-700) uppercase"
+        >
           {eyebrow}
         </span>
 
         <!-- Headline -->
-        {headingHtml ? (
-          <HeadingTag id="page-hero-heading" class="text-[2rem] sm:text-[2.375rem] md:text-[2.75rem] lg:text-[3rem] leading-[1.15] tracking-[-0.02em] text-(--color-dark) font-bold m-0 font-[family-name:var(--font-heading)]" set:html={headingHtml} />
-        ) : (
-          <HeadingTag id="page-hero-heading" class="text-[2rem] sm:text-[2.375rem] md:text-[2.75rem] lg:text-[3rem] leading-[1.15] tracking-[-0.02em] text-(--color-dark) font-bold m-0 font-[family-name:var(--font-heading)]">
-            {heading}
-          </HeadingTag>
-        )}
+        {
+          headingHtml ? (
+            <HeadingTag
+              id="page-hero-heading"
+              class="m-0 font-[family-name:var(--font-heading)] text-[2rem] leading-[1.15] font-bold tracking-[-0.02em] text-(--color-dark) sm:text-[2.375rem] md:text-[2.75rem] lg:text-[3rem]"
+              set:html={headingHtml}
+            />
+          ) : (
+            <HeadingTag
+              id="page-hero-heading"
+              class="m-0 font-[family-name:var(--font-heading)] text-[2rem] leading-[1.15] font-bold tracking-[-0.02em] text-(--color-dark) sm:text-[2.375rem] md:text-[2.75rem] lg:text-[3rem]"
+            >
+              {heading}
+            </HeadingTag>
+          )
+        }
 
         <!-- Fließtext -->
-        <div class="flex flex-col gap-3 max-w-[55ch]">
-          {text.split('\n\n').map((paragraph) => (
-            <p class="text-[1.0625rem] leading-[1.75] text-(--color-dark) opacity-90 m-0">
-              {paragraph}
-            </p>
-          ))}
+        <div class="flex max-w-[55ch] flex-col gap-3">
+          {
+            text
+              .split('\n\n')
+              .map((paragraph) => (
+                <p class="m-0 text-[1.0625rem] leading-[1.75] text-(--color-dark) opacity-90">
+                  {paragraph}
+                </p>
+              ))
+          }
         </div>
 
         <!-- CTA -->
         <div>
           <a
             href={ctaHref}
-            class="
-              group text-dark inline-flex items-center justify-center gap-2
-              rounded-[var(--radius)] border-2 border-(--color-primary-500) bg-(--color-primary-500)
-              px-6 py-[0.875rem] sm:px-7 sm:py-[0.9375rem]
-              font-[family-name:var(--font-heading)] text-[0.9375rem] font-bold text-[#1b2227]
-              no-underline shadow-[0_4px_16px_rgb(255_183_48/0.35)]
-              transition-all duration-[250ms]
-              hover:bg-(--color-primary-400) hover:border-(--color-primary-400) active:scale-[0.98]
-              focus-visible:outline-2 focus-visible:outline-(--color-dark) focus-visible:outline-offset-3
-            "
+            class="group text-dark inline-flex items-center justify-center gap-2 rounded-[var(--radius)] border-2 border-(--color-primary-500) bg-(--color-primary-500) px-6 py-[0.875rem] font-[family-name:var(--font-heading)] text-[0.9375rem] font-bold text-[#1b2227] no-underline shadow-[0_4px_16px_rgb(255_183_48/0.35)] transition-all duration-[250ms] hover:border-(--color-primary-400) hover:bg-(--color-primary-400) focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-(--color-dark) active:scale-[0.98] sm:px-7 sm:py-[0.9375rem]"
           >
             {ctaLabel}
             <svg
@@ -198,30 +213,31 @@ const isImportedDesktop = typeof imageSrcDesktop === 'object';
         </div>
 
         <!-- Optional Badge (unterhalb des Buttons) -->
-        {badgeText && (
-          <div class="flex items-center pt-1">
-            <div class="inline-flex items-center gap-2 rounded-full border border-(--color-primary-200) bg-(--color-primary-100) px-4 py-1.5 text-[0.875rem] font-semibold text-(--color-primary-800)">
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-                class="text-(--color-primary-700)"
-              >
-                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                <polyline points="22 4 12 14.01 9 11.01"></polyline>
-              </svg>
-              <span>{badgeText}</span>
+        {
+          badgeText && (
+            <div class="flex items-center pt-1">
+              <div class="inline-flex items-center gap-2 rounded-full border border-(--color-primary-200) bg-(--color-primary-100) px-4 py-1.5 text-[0.875rem] font-semibold text-(--color-primary-800)">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                  class="text-(--color-primary-700)"
+                >
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                  <polyline points="22 4 12 14.01 9 11.01" />
+                </svg>
+                <span>{badgeText}</span>
+              </div>
             </div>
-          </div>
-        )}
+          )
+        }
       </div>
-
     </div>
   </div>
 </section>
