@@ -889,25 +889,26 @@ const serviceSchema = {
   </section>
 
   <!-- =============================================
-       UNKOMPLIZIERTE ABRECHNUNG – dark high-contrast section
+       UNKOMPLIZIERTE ABRECHNUNG – Direkte Abwicklung section
        ============================================= -->
-  <section class="wh-section bg-(--color-dark)" aria-labelledby="abwicklung-heading">
+  <section class="wh-section bg-(--color-base-alt)" aria-labelledby="abwicklung-heading">
     <div class="container-page">
       <div class="flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-20">
         <!-- Left: Heading + intro -->
         <div class="flex flex-col gap-4 lg:max-w-[42ch] lg:shrink-0 lg:sticky lg:top-28">
           <span
-            class="font-[family-name:var(--font-body)] text-[0.75rem] font-bold uppercase tracking-[0.1em] text-(--color-primary-400)"
+            class="font-[family-name:var(--font-body)] text-[0.8125rem] font-bold uppercase tracking-[0.08em] text-(--color-primary-700)"
           >
             Direkte Abwicklung
           </span>
           <h2
             id="abwicklung-heading"
-            class="m-0 font-[family-name:var(--font-heading)] text-[1.75rem] font-bold leading-[1.2] text-white lg:text-[2.25rem]"
+            class="m-0 font-[family-name:var(--font-heading)] text-[1.75rem] font-bold leading-[1.2] text-(--color-dark) lg:text-[2.25rem]"
           >
             Unkomplizierte Abrechnung – kein Aufwand für Sie
           </h2>
-          <p class="m-0 text-[1rem] leading-[1.8] text-white/70">
+          <div class="h-1 w-12 rounded-full bg-(--color-primary-500)"></div>
+          <p class="m-0 text-[1.0625rem] leading-[1.8] text-(--color-dark) opacity-85">
             Durch eine Abtretungserklärung rechnen wir die erbrachten Leistungen direkt mit der gesetzlichen Pflegekasse ab – Sie müssen sich um nichts kümmern.
           </p>
         </div>
@@ -922,7 +923,7 @@ const serviceSchema = {
             ].map((point) => (
               <li class="flex items-center gap-4">
                 <span
-                  class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-(--color-primary-500)/20 text-(--color-primary-400)"
+                  class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-(--color-primary-200) bg-(--color-primary-100) text-(--color-primary-700)"
                 >
                   <svg
                     width="15"
@@ -938,11 +939,11 @@ const serviceSchema = {
                     <polyline points="20 6 9 17 4 12"></polyline>
                   </svg>
                 </span>
-                <span class="text-[1rem] font-semibold text-white">{point}</span>
+                <span class="text-[1rem] font-semibold text-(--color-dark)">{point}</span>
               </li>
             ))}
           </ul>
-          <p class="m-0 text-[1rem] leading-[1.8] text-white/75">
+          <p class="m-0 text-[1rem] leading-[1.8] text-(--color-dark) opacity-80">
             Wir übernehmen die komplette Abwicklung mit der gesetzlichen Pflegekasse und informieren Sie transparent über die genutzten Leistungen. Bei Fragen stehen wir jederzeit zur Verfügung.
           </p>
         </div>
@@ -953,7 +954,7 @@ const serviceSchema = {
   <!-- =============================================
        PERSÖNLICHE BERATUNG – closing CTA section
        ============================================= -->
-  <section class="wh-section bg-(--color-base-alt)" aria-labelledby="beratung-cta-heading">
+  <section class="wh-section bg-(--color-base)" aria-labelledby="beratung-cta-heading">
     <div class="container-page">
       <div class="flex flex-col items-center gap-6 text-center">
         <div class="flex flex-col gap-3">
